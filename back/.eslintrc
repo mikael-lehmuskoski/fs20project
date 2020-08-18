@@ -1,0 +1,9 @@
+{
+    "extends": ["airbnb","prettier","eslint:recommended","node:recommended"],
+    "plugins": ["prettier","node"],
+    "rules": {
+        "prettier/prettier": "error",
+        "no-unused-vars": "warn",
+        "no-console": "warn"
+    }
+}
