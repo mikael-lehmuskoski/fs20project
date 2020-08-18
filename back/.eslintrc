@@ -1,9 +1,17 @@
 {
-    "extends": ["airbnb","prettier","eslint:recommended","node:recommended"],
-    "plugins": ["prettier","node"],
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "extends": ["airbnb","prettier","eslint:recommended","plugin:node/recommended"],
+    "plugins": ["prettier"],
+    "parserOptions": { 
+        "ecmaVersion": 2020, 
+        "sourceType": "module"
+        },
     "rules": {
         "prettier/prettier": "error",
         "no-unused-vars": "warn",
-        "no-console": "warn"
+        "no-console": "off"
     }
 }
