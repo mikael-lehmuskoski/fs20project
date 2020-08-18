@@ -1,12 +1,11 @@
 {
-  "name": "fs20project",
+  "name": "back",
   "version": "1.0.0",
-  "description": "",
+  "description": "backend for a Full Stack Open 2020 project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --open --mode development --liveReload"
+    "eslint": "eslint --fix ."
   },
   "repository": {
     "type": "git",
@@ -20,9 +19,11 @@
   },
   "homepage": "https://github.com/mikael-lehmuskoski/fs20project#readme",
   "devDependencies": {
-    "babel-loader": "^8.1.0",
+    "airbnb": "0.0.2",
     "eslint": "^7.2.0",
     "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-esnext": "^4.1.0",
     "eslint-config-node": "^4.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.21.2",
@@ -31,14 +32,12 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.0",
-    "prettier": "^2.0.5",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "prettier": "^2.0.5"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.10.0"
   }
 }
