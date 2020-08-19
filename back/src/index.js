@@ -1,57 +1,66 @@
-// const { ApolloServer, UserInputError, gql } = require("apollo-server");
+const { ApolloServer, UserInputError, gql } = require("apollo-server-express");
 // const { v1: uuid } = require("uuid");
 const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
+const jwt = require("jsonwebtoken");
+
+const typeDefs = require("./models/typeDefs");
+const resolvers = require("./models/resolvers");
+
 const config = require("./config");
+const pingRouter = require("./routers/pingRouter");
+const loginRouter = require("./routers/loginRouter");
+const userRouter = require("./routers/userRouter");
+
+// const JWT_SICRIT = "sicrid_key";
+const { MONGODB_URI, PORT, NODE_ENV } = config;
 
 const app = express();
 app.use(express.json());
 app.use(cors());
-// app.use(loginRouter);
-// app.use(userRouter);
+app.disable("x-powered-by");
 
-const URL = config.MONGODB_URI;
+mongoose.set("useFindAndModify", false);
 
-if (URL || typeof URL === "string") {
+if (MONGODB_URI && typeof MONGODB_URI === "string") {
   mongoose
-    .connect(URL, {
+    .connect(MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
     })
+    .then(console.log(`connected to: ${MONGODB_URI}`))
     .catch((err) => {
-      console.error("connection error: ", err.message);
+      throw new Error(`error: ${err.message}`);
     });
 } else {
-  throw new Error("invalid MongoDB URL");
+  throw new Error(`invalid URL: ${MONGODB_URI}`);
 }
-
-app.get("/api/ping", (_req, res) => {
-  res.status(200).end();
+/*
+app.use("/api/ping", pingRouter);
+app.use("/api/login", loginRouter);
+app.use("/api/users", userRouter);
+*/
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  playground: NODE_ENV !== "production",
+  /* context: async ({ req }) => {
+    const auth = req ? req.headers.authorization : null;
+    if (auth.substring(7) === "null") return null;
+    if (auth && auth.toLowerCase().startsWith("bearer ")) {
+      const decodedToken = jwt.verify(auth.substring(7), JWT_SICRIT);
+      const currentUser = await User.findById(decodedToken.id);
+      return { currentUser };
+    }
+    return null;
+  }, */
 });
 
-// todo: config nodemon
-// todo: refactor these into routers
-app.post("/api/login", (req, res) => {
-  try {
-    if (!req.body || !req.body.user || !req.body.pw)
-      throw new Error(`invalid username or password`);
-    // todo: check DB if user and pw match
-    res.status(200).end("logged in!");
-  } catch (err) {
-    res.status(401).json({ error: err.message }).end();
-  }
-});
+server.applyMiddleware({ app });
 
-app.post("/api/users", (req, res) => {
-  // todo: create new user
-  res.end();
-});
-
-const PORT = Number(config.PORT);
 if (!PORT || isNaN(PORT)) throw new Error("invalid PORT"); // eslint-disable-line
-
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
