@@ -1,11 +1,13 @@
 const { gql } = require("apollo-server-express");
 
+// TODO: Union (token, user) for mutation login
 const typeDefs = gql`
   type User {
     id: ID!
     username: String!
-    password: String!
+    passwordHash: String!
     notes: [Note]
+    settings: [Settings]
   }
 
   type Token {
@@ -20,13 +22,22 @@ const typeDefs = gql`
     user: User
   }
 
+  type Settings {
+    value: String
+  }
+
+  type Login {
+    token: Token
+    user: User
+  }
+
   type Query {
     user: User
   }
 
   type Mutation {
     signup(username: String!, password: String!): User
-    login(username: String!, password: String!): Token
+    login(username: String!, password: String!): Login
   }
 `;
 

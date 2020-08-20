@@ -1,5 +1,4 @@
-const { ApolloServer, UserInputError, gql } = require("apollo-server-express");
-// const { v1: uuid } = require("uuid");
+const { ApolloServer } = require("apollo-server-express");
 const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
@@ -7,14 +6,11 @@ const jwt = require("jsonwebtoken");
 
 const typeDefs = require("./models/typeDefs");
 const resolvers = require("./models/resolvers");
+const User = require("./models/user");
 
 const config = require("./config");
-const pingRouter = require("./routers/pingRouter");
-const loginRouter = require("./routers/loginRouter");
-const userRouter = require("./routers/userRouter");
 
-// const JWT_SICRIT = "sicrid_key";
-const { MONGODB_URI, PORT, NODE_ENV } = config;
+const { MONGODB_URI, PORT, JWT_SECRET } = config;
 
 const app = express();
 app.use(express.json());
@@ -37,25 +33,19 @@ if (MONGODB_URI && typeof MONGODB_URI === "string") {
 } else {
   throw new Error(`invalid URL: ${MONGODB_URI}`);
 }
-/*
-app.use("/api/ping", pingRouter);
-app.use("/api/login", loginRouter);
-app.use("/api/users", userRouter);
-*/
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  playground: NODE_ENV !== "production",
-  /* context: async ({ req }) => {
+  context: async ({ req }) => {
     const auth = req ? req.headers.authorization : null;
-    if (auth.substring(7) === "null") return null;
-    if (auth && auth.toLowerCase().startsWith("bearer ")) {
-      const decodedToken = jwt.verify(auth.substring(7), JWT_SICRIT);
-      const currentUser = await User.findById(decodedToken.id);
-      return { currentUser };
+    if (auth && auth.toLowerCase().startsWith("bearer: ")) {
+      const decodedToken = jwt.verify(auth.substring(7).trim(), JWT_SECRET);
+      const currentUser = await User.findById({ _id: decodedToken.id });
+      return { currentUser: currentUser.toJSON() };
     }
     return null;
-  }, */
+  },
 });
 
 server.applyMiddleware({ app });

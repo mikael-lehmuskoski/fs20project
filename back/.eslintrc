@@ -19,6 +19,7 @@
   "rules": {
       "prettier/prettier": "warn",
       "no-unused-vars": "warn",
+      "react/destructuring-assignment": "off",
       "no-console": "off"
   }
 }
