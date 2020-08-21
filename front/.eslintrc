@@ -4,11 +4,7 @@
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 2020,
-    "sourceType": "module",
-    "ecmaFeatures": {
-        "jsx": true,
-        "modules": true
-    }
+    "sourceType": "module"
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]

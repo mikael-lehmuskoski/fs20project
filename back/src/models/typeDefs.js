@@ -1,6 +1,5 @@
 const { gql } = require("apollo-server-express");
 
-// TODO: Union (token, user) for mutation login
 const typeDefs = gql`
   type User {
     id: ID!

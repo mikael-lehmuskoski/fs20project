@@ -1,6 +1,6 @@
 import React from "react";
 
-// TODO: write a footer
+// TODO: footer
 const Footer = () => {
   return <div id="footer">this app is Bulletin and its made by me</div>;
 };
