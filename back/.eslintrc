@@ -1,7 +1,6 @@
 {
   "env": {
       "browser": true,
-      "es6": true,
       "node": true
     },
   "extends": [
@@ -13,8 +12,12 @@
   "plugins": ["prettier"],
   "parser": "babel-eslint",
   "parserOptions": {
-      "ecmaVersion": 2020, 
-      "sourceType": "module"
+    "ecmaVersion": 2020, 
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
   },
   "rules": {
       "prettier/prettier": "warn",

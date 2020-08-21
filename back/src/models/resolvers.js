@@ -2,8 +2,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const User = require("./user");
-const { signUpSchema, loginSchema } = require("../validation");
 const config = require("../config");
+const { signUpSchema, loginSchema } = require("../validation");
 
 const { JWT_SECRET } = config;
 
@@ -26,7 +26,7 @@ const resolvers = {
         });
 
         const result = await user.save();
-        return result;
+        return result.toJSON();
       }
       throw new Error("invalid user details");
     },
