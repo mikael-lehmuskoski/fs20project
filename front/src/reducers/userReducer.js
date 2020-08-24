@@ -1,26 +1,34 @@
 // TODO: services -> userservice
 const userService = null;
 
-// might only need one reducer if user details are sent with token anyway
+// might only need one reducer if user details are sent with token on login anyway
 
 const userReducer = (state = [], action) => {
   switch (action.type) {
     case "LOGIN":
+      // TODO: save to local storage
       return action.data;
     case "LOGOUT":
       // TODO: empty local storage/cache etc.
       return null;
     case "SAVE_NOTE":
-      // TODO: send note to backend and concat to state.notes
+      // TODO: send note to backend and add to state.user.notes
       return null;
     case "MODIFY_NOTE":
-      // TODO: send modified note to back and change state.note
+      // TODO: send modified note to back and change state.user.notes.NOTEID
       return null;
     case "DELETE_NOTE":
       // TODO: remove note from backend and state
       return null;
     case "SAVE_SETTINGS":
-      return { ...state, settings: { value: null } };
+      // TODO: save settings to user details
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          settings: { ...state.user.settings, value: null },
+        },
+      };
     case "USER_STATE":
       return state;
     default:

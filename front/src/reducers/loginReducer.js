@@ -1,5 +1,7 @@
 import loginService from "../services/loginService";
 
+// might only need one reducer if user details are sent with token anyway
+
 const loginReducer = (state = [], action) => {
   switch (action.type) {
     case "LOGIN":
