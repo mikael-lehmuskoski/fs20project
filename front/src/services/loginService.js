@@ -2,6 +2,8 @@ import { request, gql } from "graphql-request";
 
 import BACK_URI from "../config";
 
+// TODO: put the query somewhere else maybe
+
 // eslint-disable-next-line import/prefer-default-export
 export const login = async (username, password) => {
   const query = gql`
