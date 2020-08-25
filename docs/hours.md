@@ -1,4 +1,4 @@
-# hours used on project
+# hours used on this project
 
 | date          | hours   | worked on |
 | :----:        | :-----  | :-----    |
@@ -7,7 +7,7 @@
 | 19.8.         | 7       | backend: nodemon, models, apollo server (typedefs, resolvers), refactored routers etc. |
 | 20.8.         | 6       | backend: validation, resolvers, authentication; user creation, login and fetching user details works |
 | 21.8.         | 8       | front: create-react-app'd, added basic routing and structure, research/testing graphql-request |
-| 23.-24.8.     | 2       | front: redux |
+| 23.-24.8.     | 3       | front: redux, planning, todos |
 |               |         |           |
 |               |         |           |
 |               |         |           |
@@ -24,4 +24,4 @@
 |               |         |           |
 |               |         |           |
 |               |         |           |
-| total hours   | 32 
+| total hours   | 35 
