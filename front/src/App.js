@@ -6,6 +6,8 @@ import Footer from "./components/footer";
 import Menu from "./components/menu";
 import About from "./components/about";
 
+import { login } from "./services/loginService";
+
 // TODO: add services/apollo client and redux
 function App() {
   return (
@@ -17,7 +19,12 @@ function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/">main</Route>
+          <Route path="/">
+            main
+            <button type="button" onClick={() => login("asdd", "asddd")}>
+              asd
+            </button>
+          </Route>
         </Switch>
         <Footer />
       </Router>

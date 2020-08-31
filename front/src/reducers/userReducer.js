@@ -1,7 +1,8 @@
 // TODO: services -> userservice
 const userService = null;
 
-// might only need one reducer if user details are sent with token on login anyway
+// does reducer call services (backend) or do components call both services AND actioncreators?
+// also might only need one reducer if user details are sent with token on login anyway
 
 const userReducer = (state = [], action) => {
   switch (action.type) {
@@ -13,10 +14,16 @@ const userReducer = (state = [], action) => {
       return null;
     case "SAVE_NOTE":
       // TODO: send note to backend and add to state.user.notes
-      return null;
+      return {
+        ...state,
+        notes: { ...state.notes, action.data.id: { ...action.data } },
+      };
     case "MODIFY_NOTE":
       // TODO: send modified note to back and change state.user.notes.NOTEID
-      return null;
+      return {
+        ...state,
+        notes: { ...state.notes, action.data.id: action.data }
+      };
     case "DELETE_NOTE":
       // TODO: remove note from backend and state
       return null;
