@@ -8,7 +8,7 @@
 | 20.8.         | 6       | backend: validation, resolvers, authentication; user creation, login and fetching user details works |
 | 21.8.         | 8       | front: create-react-app'd, added basic routing and structure, research/testing graphql-request |
 | 23.-24.8.     | 3       | front: redux, planning, todos |
-|               |         |           |
+| 31.8          | 1       | front: switch to apollo-client |
 |               |         |           |
 |               |         |           |
 |               |         |           |

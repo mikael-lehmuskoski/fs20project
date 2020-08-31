@@ -6,6 +6,8 @@ import Footer from "./components/footer";
 import Menu from "./components/menu";
 import About from "./components/about";
 
+import { login } from "./reducers/loginReducer";
+
 // TODO: add services/apollo client and redux
 function App() {
   return (
@@ -13,7 +15,13 @@ function App() {
       <Router>
         <Menu />
         <Switch>
-          <Route path="/ebin">ebin:D</Route>
+          <Route path="/ebin">
+            ebin:D
+            <br />
+            <button type="button" value="asd" onClick={() => login()}>
+              asd
+            </button>
+          </Route>
           <Route path="/about">
             <About />
           </Route>

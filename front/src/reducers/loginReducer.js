@@ -16,12 +16,12 @@ const loginReducer = (state = [], action) => {
   }
 };
 
-export const createNote = (content) => {
+export const login = (details) => {
   return async (dispatch) => {
-    const newNote = await loginService.createNew(content);
+    const newLogin = await loginService(details);
     dispatch({
-      type: "NEW_NOTE",
-      data: newNote,
+      type: "LOGIN",
+      data: newLogin,
     });
   };
 };
