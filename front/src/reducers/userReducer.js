@@ -4,7 +4,7 @@ const userService = null;
 // does reducer call services (backend) or do components call both services AND actioncreators?
 // also might only need one reducer if user details are sent with token on login anyway
 
-const userReducer = (state = [], action) => {
+const userReducer = (state = null, action) => {
   switch (action.type) {
     case "LOGIN":
       // TODO: save to local storage
@@ -16,27 +16,39 @@ const userReducer = (state = [], action) => {
       // TODO: send note to backend and add to state.user.notes
       return {
         ...state,
-        notes: { ...state.notes, action.data.id: { ...action.data } },
+        user: {
+          ...state.user,
+          notes: { ...state.user.notes, [action.data.id]: { ...action.data } },
+        },
       };
     case "MODIFY_NOTE":
       // TODO: send modified note to back and change state.user.notes.NOTEID
       return {
         ...state,
-        notes: { ...state.notes, action.data.id: action.data }
+        user: {
+          ...state.user,
+          notes: { ...state.user.notes, [action.data.id]: { ...action.data } },
+        },
       };
     case "DELETE_NOTE":
-      // TODO: remove note from backend and state
-      return null;
-    case "SAVE_SETTINGS":
-      // TODO: save settings to user details
+      // TODO: remove note from backend AND STATE (id too)
       return {
         ...state,
         user: {
           ...state.user,
-          settings: { ...state.user.settings, value: null },
+          notes: { ...state.user.notes, [action.data.id]: null },
         },
       };
-    case "USER_STATE":
+    case "SAVE_SETTINGS":
+      // TODO: send settings to back and save to state
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          settings: { ...action.data },
+        },
+      };
+    case "USER":
       return state;
     default:
       return null;
