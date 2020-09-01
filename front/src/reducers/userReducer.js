@@ -1,9 +1,10 @@
 // TODO: services -> userservice
 const userService = null;
 
-// might only need one reducer if user details are sent with token on login anyway
+// does reducer call services (backend) or do components call both services AND actioncreators?
+// also might only need one reducer if user details are sent with token on login anyway
 
-const userReducer = (state = [], action) => {
+const userReducer = (state = null, action) => {
   switch (action.type) {
     case "LOGIN":
       // TODO: save to local storage
@@ -13,23 +14,41 @@ const userReducer = (state = [], action) => {
       return null;
     case "SAVE_NOTE":
       // TODO: send note to backend and add to state.user.notes
-      return null;
-    case "MODIFY_NOTE":
-      // TODO: send modified note to back and change state.user.notes.NOTEID
-      return null;
-    case "DELETE_NOTE":
-      // TODO: remove note from backend and state
-      return null;
-    case "SAVE_SETTINGS":
-      // TODO: save settings to user details
       return {
         ...state,
         user: {
           ...state.user,
-          settings: { ...state.user.settings, value: null },
+          notes: { ...state.user.notes, [action.data.id]: { ...action.data } },
         },
       };
-    case "USER_STATE":
+    case "MODIFY_NOTE":
+      // TODO: send modified note to back and change state.user.notes.NOTEID
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          notes: { ...state.user.notes, [action.data.id]: { ...action.data } },
+        },
+      };
+    case "DELETE_NOTE":
+      // TODO: remove note from backend AND STATE (id too)
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          notes: { ...state.user.notes, [action.data.id]: null },
+        },
+      };
+    case "SAVE_SETTINGS":
+      // TODO: send settings to back and save to state
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          settings: { ...action.data },
+        },
+      };
+    case "USER":
       return state;
     default:
       return null;

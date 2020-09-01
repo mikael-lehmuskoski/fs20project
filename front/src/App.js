@@ -25,7 +25,13 @@ function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/">main</Route>
+          <Route path="/">
+            main
+            <br />
+            <button type="button" onClick={() => login("asdd", "asddd")}>
+              asd
+            </button>
+          </Route>
         </Switch>
         <Footer />
       </Router>
