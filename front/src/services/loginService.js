@@ -29,7 +29,7 @@
 }; */
 
 const loginService = ({ username, password }) => {
-  console.log("login service called", username, password);
+  console.log("loginService called", username, password);
   return {
     token: { value: "asd" },
     user: {

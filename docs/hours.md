@@ -24,4 +24,4 @@
 |               |         |           |
 |               |         |           |
 |               |         |           |
-| total hours   | 36 
+| total hours   | 39 

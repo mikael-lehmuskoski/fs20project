@@ -6,10 +6,15 @@ import Footer from "./components/footer";
 import Menu from "./components/menu";
 import About from "./components/about";
 
-import { login } from "./reducers/loginReducer";
+import { login as butt } from "./reducers/loginReducer";
 
 // TODO: add services/apollo client and redux
-function App() {
+const App = () => {
+  const handleClick = (values) => {
+    console.log("click!");
+    butt(values);
+  };
+
   return (
     <Container textAlign="center">
       <Router>
@@ -18,7 +23,7 @@ function App() {
           <Route path="/ebin">
             ebin:D
             <br />
-            <button type="button" value="asd" onClick={() => login()}>
+            <button type="button" onClick={() => handleClick()}>
               asd
             </button>
           </Route>
@@ -28,7 +33,7 @@ function App() {
           <Route path="/">
             main
             <br />
-            <button type="button" onClick={() => login("asdd", "asddd")}>
+            <button type="button" onClick={() => butt("asdd", "asddd")}>
               asd
             </button>
           </Route>
@@ -37,6 +42,6 @@ function App() {
       </Router>
     </Container>
   );
-}
+};
 
 export default App;

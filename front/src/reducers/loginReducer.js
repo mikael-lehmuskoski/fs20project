@@ -18,27 +18,11 @@ const loginReducer = (state = [], action) => {
 
 export const login = (details) => {
   return async (dispatch) => {
+    console.log("login at loginReducer!", details);
     const newLogin = await loginService(details);
     dispatch({
       type: "LOGIN",
       data: newLogin,
-    });
-  };
-};
-
-export const toggleImportanceOf = (id) => {
-  return {
-    type: "TOGGLE_IMPORTANCE",
-    data: { id },
-  };
-};
-
-export const initializeNotes = () => {
-  return async (dispatch) => {
-    const notes = await loginService.getAll();
-    dispatch({
-      type: "INIT_NOTES",
-      data: notes,
     });
   };
 };
