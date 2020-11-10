@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const BACK_URI = process.env.BACK_URI || null;
+const BACK_URI = "http://localhost:3001/graphql";
 
 module.exports = {
   BACK_URI,

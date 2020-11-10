@@ -19,6 +19,9 @@ app.disable("x-powered-by");
 
 mongoose.set("useFindAndModify", false);
 
+/**
+ * Connect to MongoDB
+ */
 if (MONGODB_URI && typeof MONGODB_URI === "string") {
   mongoose
     .connect(MONGODB_URI, {
@@ -28,12 +31,15 @@ if (MONGODB_URI && typeof MONGODB_URI === "string") {
     })
     .then(console.log(`connected to: ${MONGODB_URI}`))
     .catch((err) => {
-      throw new Error(`error: ${err.message}`);
+      console.error(`ERROR: ${err.message}`);
     });
 } else {
-  throw new Error(`invalid URL: ${MONGODB_URI}`);
+  console.error(`invalid URL: ${MONGODB_URI}`);
 }
 
+/**
+ * Create new Apollo server
+ */
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -49,6 +55,10 @@ const server = new ApolloServer({
 });
 
 server.applyMiddleware({ app });
+
+/**
+ * Start listening
+ */
 
 if (!PORT || isNaN(PORT)) throw new Error("invalid PORT"); // eslint-disable-line
 app.listen(PORT, () => {

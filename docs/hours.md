@@ -9,7 +9,7 @@
 | 21.8.         | 8       | front: create-react-app'd, added basic routing and structure, research/testing graphql-request |
 | 23.-25.8.     | 4       | front: redux, planning, todos |
 | 30.-31.8.     | 3       | front: switch to apollo-client, reducer, planning services |
-|               |         |           |
+| 10.11.        | 2       | back: mongodb debug, some thinking bout things and stuff |
 |               |         |           |
 |               |         |           |
 |               |         |           |
