@@ -1,9 +1,8 @@
 // TODO: services -> userservice
-const userService = null;
+import loginService from "../services/login";
 
 // does reducer call services (backend) or do components call both services AND actioncreators?
 // also might only need one reducer if user details are sent with token on login anyway
-
 const userReducer = (state = null, action) => {
   switch (action.type) {
     case "LOGIN":
@@ -22,7 +21,7 @@ const userReducer = (state = null, action) => {
         },
       };
     case "MODIFY_NOTE":
-      // TODO: send modified note to back and change state.user.notes.NOTEID
+      // TODO: send modified note to back and change state.user.notes.id.data
       return {
         ...state,
         user: {
@@ -56,9 +55,12 @@ const userReducer = (state = null, action) => {
 };
 
 // TODO: action creators
-export const login = (deets) => {
-  return async (dispatch) => {
-    const newLogin = await userService.login(deets);
+export const login = (details) => {
+  console.log("login at userReducer!", details);
+  return /* async */ (dispatch) => {
+    console.log("inside dispatch!");
+    const newLogin = /* await */ loginService.login(details);
+    console.log(newLogin);
     dispatch({
       type: "LOGIN",
       data: newLogin,

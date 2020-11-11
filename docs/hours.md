@@ -10,6 +10,7 @@
 | 23.-25.8.     | 4       | front: redux, planning, todos |
 | 30.-31.8.     | 3       | front: switch to apollo-client, reducer, planning services |
 | 10.11.        | 2       | back: mongodb debug, some thinking bout things and stuff |
+| 11.11.        | 5       | front: login |
 |               |         |           |
 |               |         |           |
 |               |         |           |
@@ -23,5 +24,4 @@
 |               |         |           |
 |               |         |           |
 |               |         |           |
-|               |         |           |
-| total hours   | 39 
+| total hours   | 46 

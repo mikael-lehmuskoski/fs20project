@@ -1,3 +1,6 @@
+import { useMutation } from "@apollo/client";
+import LOGIN from "./auxiliary/queries";
+
 // import { request, gql } from "graphql-request";
 
 // import BACK_URI from "../config";
@@ -28,8 +31,11 @@
   return null;
 }; */
 
-const loginService = ({ username, password }) => {
-  console.log("loginService called", username, password);
+const login = ({ username, password }) => {
+  const [login, result] = useMutation(LOGIN);
+
+  const user = { username, password };
+  console.log(user);
   return {
     token: { value: "asd" },
     user: {
@@ -43,4 +49,6 @@ const loginService = ({ username, password }) => {
   };
 };
 
-export default loginService;
+export default {
+  login,
+};

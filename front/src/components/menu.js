@@ -13,6 +13,9 @@ const Menu = () => {
         <Button as={Link} to="/about">
           about
         </Button>
+        <Button as={Link} to="/login">
+          login
+        </Button>
       </Container>
     </Header>
   );
