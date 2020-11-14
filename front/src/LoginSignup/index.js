@@ -1,31 +1,18 @@
 /* eslint react/prop-types: 0 */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { useMutation } from "@apollo/client";
-import { setUser } from "../reducers";
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
-import LOGIN from "../mutations";
+import actionCreators from "../reducers";
 
 const LoginSignup = (props) => {
-  const [login, result] = useMutation(LOGIN);
-
-  useEffect(() => {
-    if (result.data) {
-      props.setUser(result);
-    }
-  }, [result.data]); // eslint-disable-line
-
-  const [flip, setFlip] = useState(true);
+  const [flip, setFlip] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordAgain, setPasswordAgain] = useState("");
 
-  const submit = (event) => {
-    event.preventDefault();
-    login({
-      variables: { username, password },
-    });
+  const submit = () => {
+    props.login({ username, password });
     setPassword("");
     setUsername("");
   };
@@ -38,6 +25,11 @@ const LoginSignup = (props) => {
         onClick={() => setFlip((prev) => !prev)}
       />
       {flip ? (
+        <SignupForm
+          passwordAgain={passwordAgain}
+          setPasswordAgain={setPasswordAgain}
+        />
+      ) : (
         <LoginForm
           submit={submit}
           username={username}
@@ -45,22 +37,18 @@ const LoginSignup = (props) => {
           setUsername={setUsername}
           setPassword={setPassword}
         />
-      ) : (
-        <SignupForm
-          passwordAgain={passwordAgain}
-          setPasswordAgain={setPasswordAgain}
-        />
       )}
     </div>
   );
 };
 
+// DODO: map State To Props
 const mapStateToProps = (state) => {
   return { state };
 };
 
 const mapDispatchToProps = {
-  setUser,
+  login: actionCreators.login,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginSignup);

@@ -59,7 +59,6 @@ server.applyMiddleware({ app });
 /**
  * Start listening
  */
-
 if (!PORT || isNaN(PORT)) throw new Error("invalid PORT"); // eslint-disable-line
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

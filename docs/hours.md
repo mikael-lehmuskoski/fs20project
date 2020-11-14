@@ -13,6 +13,7 @@
 | 11.11.        | 5       | front: login |
 | 12.11.        | 5       | front: login, update react-scripts & eslint |
 | 13.11.        | 5       | front: debug apollo |
+| 14.11.        | 9 (65)  | front: switch from apollo-client to axios, refactored things and stuff |
 |               |         |           |
 |               |         |           |
 |               |         |           |
@@ -23,5 +24,4 @@
 |               |         |           |
 |               |         |           |
 |               |         |           |
-|               |         |           |
-| total hours   | 51 
+| total hours   | 65 ||

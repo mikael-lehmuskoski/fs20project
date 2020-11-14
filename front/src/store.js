@@ -1,14 +1,12 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
-// TODO: reducers
-import userReducer from "./reducers";
+import reducer from "./reducers";
 
-// might only need one reducer if user details are sent with token on login anyway
-const reducer = combineReducers({
-  userReducer,
+const reducers = combineReducers({
+  userReducer: reducer.userReducer,
 });
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const store = createStore(reducers, applyMiddleware(thunk));
 
 export default store;
