@@ -11,6 +11,8 @@
 | 30.-31.8.     | 3       | front: switch to apollo-client, reducer, planning services |
 | 10.11.        | 2       | back: mongodb debug, some thinking bout things and stuff |
 | 11.11.        | 5       | front: login |
+| 12.11.        | 5       | front: login, update react-scripts & eslint |
+| 13.11.        | 5       | front: debug apollo |
 |               |         |           |
 |               |         |           |
 |               |         |           |
@@ -22,6 +24,4 @@
 |               |         |           |
 |               |         |           |
 |               |         |           |
-|               |         |           |
-|               |         |           |
-| total hours   | 46 
+| total hours   | 51 

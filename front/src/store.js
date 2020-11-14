@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
 // TODO: reducers
-import userReducer from "./reducers/reducer";
+import userReducer from "./reducers";
 
 // might only need one reducer if user details are sent with token on login anyway
 const reducer = combineReducers({

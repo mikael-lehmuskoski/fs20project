@@ -1,21 +1,20 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Container } from "semantic-ui-react";
-
 import Footer from "./components/footer";
 import Menu from "./components/menu";
 import About from "./components/about";
-import Doorway from "./views/login/Doorway";
+import LoginSignup from "./LoginSignup";
 
 // TODO: add services/apollo client and redux
 const App = () => {
   return (
-    <Container textAlign="center">
+    <Container>
       <Router>
         <Menu />
         <Switch>
           <Route path="/login">
-            <Doorway />
+            <LoginSignup />
           </Route>
           <Route path="/about">
             <About />

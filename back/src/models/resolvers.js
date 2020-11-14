@@ -28,6 +28,7 @@ const resolvers = {
         const result = await user.save();
         return result.toJSON();
       }
+      console.log(validUser);
       throw new Error("invalid user details");
     },
     login: async (root, args, context) => {

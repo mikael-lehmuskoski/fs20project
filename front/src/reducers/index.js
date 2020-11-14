@@ -1,5 +1,5 @@
 // TODO: services -> userservice
-import loginService from "../services/login";
+// import loginService from "../services/login";
 
 // does reducer call services (backend) or do components call both services AND actioncreators?
 // also might only need one reducer if user details are sent with token on login anyway
@@ -55,15 +55,15 @@ const userReducer = (state = null, action) => {
 };
 
 // TODO: action creators
-export const login = (details) => {
-  console.log("login at userReducer!", details);
+export const setUser = (details) => {
+  console.log("setUser at Reducer!", details);
   return /* async */ (dispatch) => {
     console.log("inside dispatch!");
-    const newLogin = /* await */ loginService.login(details);
-    console.log(newLogin);
+    // const newLogin = /* await */ loginService.login(details);
+    // console.log(newLogin);
     dispatch({
       type: "LOGIN",
-      data: newLogin,
+      data: details,
     });
   };
 };

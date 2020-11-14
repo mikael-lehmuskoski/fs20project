@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema(
       maxlength: 20,
       required: [true, "username is required"],
       validate: {
-      validator: async (username) => await User.where({ username }).countDocuments() === 0, //eslint-disable-line
+        validator: async (username) => await User.where({ username }).countDocuments() === 0, //eslint-disable-line
         message: ({ username }) => `Username ${username} is already taken`,
       },
     },
