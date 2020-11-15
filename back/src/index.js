@@ -29,7 +29,7 @@ if (MONGODB_URI && typeof MONGODB_URI === "string") {
       useUnifiedTopology: true,
       useCreateIndex: true,
     })
-    .then(console.log(`connected to: ${MONGODB_URI}`))
+    .then(console.log(`Connected to MongoDB`))
     .catch((err) => {
       console.error(`ERROR: ${err.message}`);
     });
@@ -45,12 +45,10 @@ const server = new ApolloServer({
   resolvers,
   context: async ({ req }) => {
     const auth = req ? req.headers.authorization : null;
-    if (auth && auth.toLowerCase().startsWith("bearer: ")) {
-      const decodedToken = jwt.verify(auth.substring(7).trim(), JWT_SECRET);
-      const currentUser = await User.findById({ _id: decodedToken.id });
-      return { currentUser: currentUser.toJSON() };
-    }
-    return null;
+    if (!auth || !auth.toLowerCase().startsWith("bearer: ")) return null;
+    const decodedToken = jwt.verify(auth.substring(7).trim(), JWT_SECRET);
+    const currentUser = await User.findById({ _id: decodedToken.id });
+    return { currentUser: currentUser.toJSON() };
   },
 });
 

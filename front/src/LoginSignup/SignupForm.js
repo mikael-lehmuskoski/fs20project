@@ -1,36 +1,18 @@
-import React, { useState } from "react";
-// TODO: signup service
+/* eslint react/prop-types: 0 */
+import React from "react";
 
-/**
- * [INCOMPLETE] Renders a form for signup
- */
-const SignupForm = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordAgain, setPasswordAgain] = useState("");
-
-  // lähettää tiedot palvelimelle
-  /* const submit = (event) => {
-    event.preventDefault();
-
-    if (password !== passwordAgain) window.alert("password dont match!")
-    else {
-      signup({ username, password })
-        .then((res) => {
-          // TODO: notification, save res.config.data to local
-          console.log(res);
-          if (!res || res.status !== 200) throw new Error(res);
-          window.alert("tilin luominen onnistui!");
-        })
-        .catch((err) => window.alert(err)); // TODO: notification
-      setPassword("");
-      setUsername("");
-    }
-  }; */
-
+const SignupForm = ({
+  submit,
+  username,
+  setUsername,
+  password,
+  setPassword,
+  passwordAgain,
+  setPasswordAgain,
+}) => {
   return (
     <div className="signupForm">
-      <form onSubmit={null}>
+      <form>
         <div>
           <input
             type="text"
@@ -61,7 +43,13 @@ const SignupForm = () => {
             onChange={({ target }) => setPasswordAgain(target.value)}
           />
         </div>
-        <button type="submit">signup</button>
+        <input
+          type="button"
+          value="Create account"
+          onClick={() => {
+            submit();
+          }}
+        />
       </form>
     </div>
   );

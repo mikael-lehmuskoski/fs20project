@@ -12,20 +12,36 @@ const LoginSignup = (props) => {
   const [passwordAgain, setPasswordAgain] = useState("");
 
   const submit = () => {
-    props.login({ username, password });
-    setPassword("");
-    setUsername("");
+    try {
+      if (flip) {
+        if (!(password === passwordAgain))
+          throw new Error("Passwords do not match");
+        props.signup({ username, password });
+      } else {
+        props.login({ username, password });
+      }
+      setPassword("");
+      setUsername("");
+      setPasswordAgain("");
+    } catch (err) {
+      console.log(err.message);
+    }
   };
 
   return (
     <div className="loginSignup">
       <input
         type="button"
-        value={flip ? "login" : "signup"}
+        value={flip ? "Login" : "Create account"}
         onClick={() => setFlip((prev) => !prev)}
       />
       {flip ? (
         <SignupForm
+          submit={submit}
+          username={username}
+          password={password}
+          setUsername={setUsername}
+          setPassword={setPassword}
           passwordAgain={passwordAgain}
           setPasswordAgain={setPasswordAgain}
         />
@@ -49,6 +65,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   login: actionCreators.login,
+  signup: actionCreators.signup,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginSignup);

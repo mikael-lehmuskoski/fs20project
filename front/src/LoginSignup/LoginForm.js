@@ -30,7 +30,7 @@ const LoginForm = ({
       </div>
       <input
         type="button"
-        value="login"
+        value="Login"
         onClick={() => {
           submit();
         }}

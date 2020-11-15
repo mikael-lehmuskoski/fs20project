@@ -1,14 +1,18 @@
 import login from "./login";
+import signup from "./signup";
 
-const userReducer = (state = null, action) => {
+const reducer = (state = null, action) => {
   switch (action.type) {
     case "LOGIN":
-      // TODO: save to redux store
-      console.log(action.data);
+      if (!action.data || !action.data.token || !action.data.token.value)
+        return null;
       return action.data;
     case "LOGOUT":
-      // TODO: empty store
       return null;
+    case "SIGNUP":
+      if (!action.data || !action.data.token || !action.data.token.value)
+        return null;
+      return action.data;
     case "SAVE_NOTE":
       // TODO: send note to backend and add to state.user.notes
       return {
@@ -53,6 +57,7 @@ const userReducer = (state = null, action) => {
 };
 
 export default {
-  userReducer,
+  reducer,
   login,
+  signup,
 };
