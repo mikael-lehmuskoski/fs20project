@@ -1,15 +1,19 @@
+/* eslint-disable react/destructuring-assignment */
 /* eslint react/prop-types: 0 */
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import actionCreators from "../../reducers";
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
-import actionCreators from "../reducers";
 
 const LoginSignup = (props) => {
   const [flip, setFlip] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordAgain, setPasswordAgain] = useState("");
+
+  const user = props.user ? props.user.user : null;
+  if (user) return <div> {`Logged in as ${user.username}`} </div>; // eslint-disable-line
 
   const submit = () => {
     try {
@@ -24,7 +28,7 @@ const LoginSignup = (props) => {
       setUsername("");
       setPasswordAgain("");
     } catch (err) {
-      console.log(err.message);
+      console.log(err.message); // DODO: notification
     }
   };
 
@@ -58,9 +62,8 @@ const LoginSignup = (props) => {
   );
 };
 
-// DODO: map State To Props
 const mapStateToProps = (state) => {
-  return { state };
+  return { user: state.user };
 };
 
 const mapDispatchToProps = {

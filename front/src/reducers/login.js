@@ -12,20 +12,22 @@ export const LOGIN = (details) => {
             throw new Error(error.message);
           });
         }
-        if (res) {
-          if (res.data) {
-            if (res.data.login) {
-              return res.data.login;
-            }
-          }
+        try {
+          if (res.data.login.token.value) return res.data.login; // DODO: notification
+        } catch (err) {
+          throw new Error(
+            "Didn't hear back from the server. Check your connection and try again!"
+          );
         }
-        throw new Error("Login data was not found.");
+        return null;
       })
       .catch((error) => console.log(error)); // DODO: send error.message to notification
-    dispatch({
-      type: "LOGIN",
-      data: response,
-    });
+    if (response) {
+      dispatch({
+        type: "LOGIN",
+        data: response,
+      });
+    }
   };
 };
 

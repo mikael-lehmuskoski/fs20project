@@ -12,16 +12,14 @@ export const SIGNUP = (details) => {
             throw new Error(error.message);
           });
         }
-        console.log(res);
-        if (res) {
-          if (res.data) {
-            if (res.data.signup) {
-              // ODOD: send a notification
-              return res.data.signup;
-            }
-          }
+        try {
+          if (res.data.signup.token.value) return res.data.signup; // DODO: notification
+        } catch (err) {
+          throw new Error(
+            "Didn't hear back from the server. Check your connection and try logging in with the username."
+          );
         }
-        throw new Error("Login data was not found.");
+        return null;
       })
       .catch((error) => console.log(error.message)); // DODO: send error.message to notification
     if (response) {

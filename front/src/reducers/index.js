@@ -1,17 +1,15 @@
 import login from "./login";
 import signup from "./signup";
+import logout from "./logout";
 
+// DODO: separate user & token
 const reducer = (state = null, action) => {
   switch (action.type) {
     case "LOGIN":
-      if (!action.data || !action.data.token || !action.data.token.value)
-        return null;
       return action.data;
     case "LOGOUT":
       return null;
     case "SIGNUP":
-      if (!action.data || !action.data.token || !action.data.token.value)
-        return null;
       return action.data;
     case "SAVE_NOTE":
       // TODO: send note to backend and add to state.user.notes
@@ -60,4 +58,5 @@ export default {
   reducer,
   login,
   signup,
+  logout,
 };

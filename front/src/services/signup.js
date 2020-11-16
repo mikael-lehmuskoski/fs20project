@@ -1,12 +1,12 @@
 import axios from "axios";
 import { print } from "graphql";
 import config from "../config";
-import mutations from "../mutations";
+import operations from "../operations";
 
 const signup = async ({ variables }) => {
   try {
     const res = await axios.post(config.BACK_URI, {
-      query: print(mutations.SIGNUP),
+      query: print(operations.mutations.SIGNUP),
       variables,
     });
     return res.data;
