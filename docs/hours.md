@@ -14,7 +14,9 @@
 | 12.11.        | 5       | front: login, update react-scripts & eslint |
 | 13.11.        | 5       | front: debug apollo |
 | 14.11.        | 9       | front: switch from apollo-client to axios, refactored things and stuff |
-| 15.11.        | 6 (71)  | front & back: login, account creation; Login and account creation work from front |
+| 15.11.        | 6       | front & back: login, account creation; Login and account creation work from front |
+| 16.11.        | 6       | front: logout works, refactored stuff |
+| 17.11.        | 5 (82)  | front: rudimentary clock, semantic ui |
 |               |         |           |
 |               |         |           |
 |               |         |           |
@@ -22,6 +24,4 @@
 |               |         |           |
 |               |         |           |
 |               |         |           |
-|               |         |           |
-|               |         |           |
-| total hours   | 71
+| total hours   | 82

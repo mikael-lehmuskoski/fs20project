@@ -1,5 +1,6 @@
 /* eslint react/prop-types: 0 */
 import React from "react";
+import { Input, Button } from "semantic-ui-react";
 
 const LoginForm = ({
   submit,
@@ -11,7 +12,7 @@ const LoginForm = ({
   return (
     <form>
       <div>
-        <input
+        <Input
           type="text"
           placeholder="username"
           value={username}
@@ -20,7 +21,7 @@ const LoginForm = ({
         />
       </div>
       <div>
-        <input
+        <Input
           type="password"
           placeholder="password"
           value={password}
@@ -28,13 +29,16 @@ const LoginForm = ({
           onChange={({ target }) => setPassword(target.value)}
         />
       </div>
-      <input
+      <Button
         type="button"
         value="Login"
         onClick={() => {
           submit();
         }}
-      />
+        disabled={!username || !password}
+      >
+        Login
+      </Button>
     </form>
   );
 };

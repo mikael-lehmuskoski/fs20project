@@ -1,6 +1,8 @@
 /* eslint react/prop-types: 0 */
 import React from "react";
+import { Input, Button, Label } from "semantic-ui-react";
 
+// DODO: check if username is taken through onChange -> add <Label>
 const SignupForm = ({
   submit,
   username,
@@ -14,7 +16,7 @@ const SignupForm = ({
     <div className="signupForm">
       <form>
         <div>
-          <input
+          <Input
             type="text"
             placeholder="username"
             value={username}
@@ -24,7 +26,7 @@ const SignupForm = ({
           />
         </div>
         <div>
-          <input
+          <Input
             type="password"
             placeholder="password"
             value={password}
@@ -34,22 +36,29 @@ const SignupForm = ({
           />
         </div>
         <div>
-          <input
+          <Input
             type="password"
             placeholder="password again"
             value={passwordAgain}
             required
             name="PasswordAgain"
             onChange={({ target }) => setPasswordAgain(target.value)}
+            error={password !== passwordAgain}
           />
+          {password !== passwordAgain ? (
+            <Label pointing="left">Passwords do not match</Label>
+          ) : (
+            ""
+          )}
         </div>
-        <input
-          type="button"
-          value="Create account"
+        <Button
           onClick={() => {
             submit();
           }}
-        />
+          disabled={!username || !password || password !== passwordAgain}
+        >
+          Create account
+        </Button>
       </form>
     </div>
   );

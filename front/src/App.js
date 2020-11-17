@@ -4,6 +4,8 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Container } from "semantic-ui-react";
 import { connect } from "react-redux";
+
+import Main from "./components/Main";
 import Footer from "./components/footer";
 import Menu from "./components/menu";
 import About from "./components/about";
@@ -26,7 +28,9 @@ const App = () => {
           <Route path="/settings">
             <Settings />
           </Route>
-          <Route path="/">main</Route>
+          <Route path="/">
+            <Main />
+          </Route>
         </Switch>
         <Footer />
       </Router>

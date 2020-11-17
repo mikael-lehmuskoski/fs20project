@@ -2,6 +2,7 @@
 /* eslint react/prop-types: 0 */
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { Button } from "semantic-ui-react";
 import actionCreators from "../../reducers";
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
@@ -34,11 +35,9 @@ const LoginSignup = (props) => {
 
   return (
     <div className="loginSignup">
-      <input
-        type="button"
-        value={flip ? "Login" : "Create account"}
-        onClick={() => setFlip((prev) => !prev)}
-      />
+      <Button onClick={() => setFlip((prev) => !prev)}>
+        {flip ? "Login" : "Create account"}
+      </Button>
       {flip ? (
         <SignupForm
           submit={submit}
