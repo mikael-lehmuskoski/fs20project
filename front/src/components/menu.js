@@ -1,13 +1,17 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { Menu } from "semantic-ui-react";
+import { Menu, Button, Popup, Modal } from "semantic-ui-react";
 import actionCreators from "../reducers";
+import LoginSignup from "./LoginSignup";
 
 const MenuBar = (props) => {
   const [activeItem, setActive] = useState("bulletin");
+  const [open, setOpen] = useState(false);
+
   const user = props.user ? props.user.user : null;
   return (
     <Menu pointing secondary>
@@ -34,26 +38,39 @@ const MenuBar = (props) => {
       />
       <Menu.Menu position="right">
         {user ? (
-          <Menu.Item
-            name="Logout"
-            active={activeItem === "bulletin"}
-            onClick={() => {
-              setActive("bulletin");
-              props.logout();
-            }}
-            as={Link}
-            to="/"
+          <Popup
+            trigger={(
+              <Menu.Item
+                name="Logout"
+              />
+            )}
+            content={(
+              <div style={{ justifyContent:"center" }}>
+                <p>Log out?</p>
+                <Button
+                  color="red"
+                  content="Yes"
+                  onClick={() => props.logout()}
+                />
+              </div>
+            )}
+            on="click"
+            position="bottom center"
           />
         ) : (
           <Menu.Item
             name="Login"
-            active={activeItem === "login"}
-            onClick={() => setActive("login")}
-            as={Link}
-            to="/login"
+            onClick={() => setOpen(true)}
           />
         )}
       </Menu.Menu>
+      <Modal
+        onClose={() => setOpen(false)}
+        onOpen={() => setOpen(true)}
+        open={open}
+      >
+        <LoginSignup />
+      </Modal>
     </Menu>
   );
 };

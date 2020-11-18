@@ -10,7 +10,6 @@ import Footer from "./components/footer";
 import Menu from "./components/menu";
 import About from "./components/about";
 import Settings from "./components/settings";
-import LoginSignup from "./components/LoginSignup";
 
 // TODO: Clock, notes, rss reader
 const App = () => {
@@ -19,9 +18,6 @@ const App = () => {
       <Router>
         <Menu />
         <Switch>
-          <Route path="/login">
-            <LoginSignup />
-          </Route>
           <Route path="/about">
             <About />
           </Route>

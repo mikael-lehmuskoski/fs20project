@@ -2,7 +2,7 @@
 /* eslint react/prop-types: 0 */
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Button } from "semantic-ui-react";
+import { Button, Modal } from "semantic-ui-react";
 import actionCreators from "../../reducers";
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
@@ -34,6 +34,51 @@ const LoginSignup = (props) => {
   };
 
   return (
+    <div>
+      <Modal.Header>{flip ? "Create an account" : "Login"}</Modal.Header>
+      <Modal.Content>
+        {flip ? (
+          <SignupForm
+            submit={submit}
+            username={username}
+            password={password}
+            setUsername={setUsername}
+            setPassword={setPassword}
+            passwordAgain={passwordAgain}
+            setPasswordAgain={setPasswordAgain}
+          />
+        ) : (
+          <LoginForm
+            submit={submit}
+            username={username}
+            password={password}
+            setUsername={setUsername}
+            setPassword={setPassword}
+          />
+        )}
+      </Modal.Content>
+      <Modal.Content>
+        {flip ? "" : "Don't have an account? Sign up!"}
+        <Button onClick={() => setFlip((prev) => !prev)}>
+          {flip ? "Login" : "Create account"}
+        </Button>
+      </Modal.Content>
+    </div>
+  );
+};
+
+const mapStateToProps = (state) => {
+  return { user: state.user };
+};
+
+const mapDispatchToProps = {
+  login: actionCreators.login,
+  signup: actionCreators.signup,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginSignup);
+
+/*
     <div className="loginSignup">
       <Button onClick={() => setFlip((prev) => !prev)}>
         {flip ? "Login" : "Create account"}
@@ -58,16 +103,10 @@ const LoginSignup = (props) => {
         />
       )}
     </div>
-  );
-};
 
-const mapStateToProps = (state) => {
-  return { user: state.user };
-};
 
-const mapDispatchToProps = {
-  login: actionCreators.login,
-  signup: actionCreators.signup,
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginSignup);
+
+
+
+*/
