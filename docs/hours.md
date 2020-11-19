@@ -17,11 +17,11 @@
 | 15.11.        | 6       | front & back: login, account creation; Login and account creation work from front |
 | 16.11.        | 6       | front: logout works, refactored stuff |
 | 17.11.        | 5       | front: rudimentary clock, semantic ui |
-| 18.11.        | 5 (87)  | front: clock, semantic ui |
+| 18.11.        | 5       | front: clock, semantic ui |
+| 19.11.        | 6 (93)  | front: refactored reducers, added notifications, redux-persist (session is now persistent), semantic ui, clock |
 |               |         |           |
 |               |         |           |
 |               |         |           |
 |               |         |           |
 |               |         |           |
-|               |         |           |
-| total hours   | 87
+| total hours   | 93

@@ -14,7 +14,12 @@ const LoginSignup = (props) => {
   const [passwordAgain, setPasswordAgain] = useState("");
 
   const user = props.user ? props.user.user : null;
-  if (user) return <div> {`Logged in as ${user.username}`} </div>; // eslint-disable-line
+  if (user) props.setOpen(false);
+  /* if (user) {
+    props.setOpen(false);
+    return <div> {`Logged in as ${user.username}`} </div>; // eslint-disable-line
+  } */
+  console.log("logged in inside loginsignup I WANNA RENDER YA BINCH", user);
 
   const submit = () => {
     try {
@@ -58,7 +63,9 @@ const LoginSignup = (props) => {
         )}
       </Modal.Content>
       <Modal.Content>
-        {flip ? "" : "Don't have an account? Sign up!"}
+        {flip
+          ? "Already have an account? Log in!"
+          : "Don't have an account? Sign up!"}
         <Button onClick={() => setFlip((prev) => !prev)}>
           {flip ? "Login" : "Create account"}
         </Button>
@@ -68,45 +75,15 @@ const LoginSignup = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { user: state.user };
+  return {
+    user: state.user,
+  };
 };
 
 const mapDispatchToProps = {
   login: actionCreators.login,
   signup: actionCreators.signup,
+  postNotification: actionCreators.postNotification,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginSignup);
-
-/*
-    <div className="loginSignup">
-      <Button onClick={() => setFlip((prev) => !prev)}>
-        {flip ? "Login" : "Create account"}
-      </Button>
-      {flip ? (
-        <SignupForm
-          submit={submit}
-          username={username}
-          password={password}
-          setUsername={setUsername}
-          setPassword={setPassword}
-          passwordAgain={passwordAgain}
-          setPasswordAgain={setPasswordAgain}
-        />
-      ) : (
-        <LoginForm
-          submit={submit}
-          username={username}
-          password={password}
-          setUsername={setUsername}
-          setPassword={setPassword}
-        />
-      )}
-    </div>
-
-
-
-
-
-
-*/

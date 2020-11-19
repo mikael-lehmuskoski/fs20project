@@ -1,62 +1,26 @@
-import login from "./login";
-import signup from "./signup";
-import logout from "./logout";
+// user stuff
+import userReducer from "./userReducer";
+import login from "./userReducer/login";
+import signup from "./userReducer/signup";
+import logout from "./userReducer/logout";
 
-// DODO: separate user & token
-const reducer = (state = null, action) => {
-  switch (action.type) {
-    case "LOGIN":
-      return action.data;
-    case "LOGOUT":
-      return null;
-    case "SIGNUP":
-      return action.data;
-    case "SAVE_NOTE":
-      // TODO: send note to backend and add to state.user.notes
-      return {
-        ...state,
-        user: {
-          ...state.user,
-          notes: { ...state.user.notes, [action.data.id]: { ...action.data } },
-        },
-      };
-    case "MODIFY_NOTE":
-      // TODO: send modified note to back and change state.user.notes.id.data
-      return {
-        ...state,
-        user: {
-          ...state.user,
-          notes: { ...state.user.notes, [action.data.id]: { ...action.data } },
-        },
-      };
-    case "DELETE_NOTE":
-      // TODO: remove note from backend AND STATE (id too)
-      return {
-        ...state,
-        user: {
-          ...state.user,
-          notes: { ...state.user.notes, [action.data.id]: null },
-        },
-      };
-    case "SAVE_SETTINGS":
-      // TODO: send settings to back and save to state
-      return {
-        ...state,
-        user: {
-          ...state.user,
-          settings: { ...action.data },
-        },
-      };
-    case "USER":
-      return state;
-    default:
-      return null;
-  }
-};
+// saving stuff
+import saveReducer from "./saveReducer";
+
+// notifications
+import notificationReducer from "./notificationReducer";
+import postNotification from "./notificationReducer/postNotification";
+import clearNotification from "./notificationReducer/clearNotification";
+import setTimeoutID from "./notificationReducer/setTimoutID";
 
 export default {
-  reducer,
+  userReducer,
   login,
   signup,
   logout,
+  saveReducer,
+  notificationReducer,
+  postNotification,
+  clearNotification,
+  setTimeoutID,
 };

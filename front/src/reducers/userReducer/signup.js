@@ -1,9 +1,9 @@
-import services from "../services";
+import services from "../../services";
 
-export const LOGIN = (details) => {
+export const SIGNUP = (details) => {
   return async (dispatch) => {
     const response = await services
-      .login({
+      .signup({
         variables: { ...details },
       })
       .then((res) => {
@@ -13,22 +13,22 @@ export const LOGIN = (details) => {
           });
         }
         try {
-          if (res.data.login.token.value) return res.data.login; // DODO: notification
+          if (res.data.signup.token.value) return res.data.signup; // DODO: notification
         } catch (err) {
           throw new Error(
-            "Didn't hear back from the server. Check your connection and try again!"
+            "Didn't hear back from the server. Check your connection and try logging in with the username."
           );
         }
         return null;
       })
-      .catch((error) => console.log(error)); // DODO: send error.message to notification
+      .catch((error) => console.log(error.message)); // DODO: send error.message to notification
     if (response) {
       dispatch({
-        type: "LOGIN",
+        type: "SIGNUP",
         data: response,
       });
     }
   };
 };
 
-export default LOGIN;
+export default SIGNUP;
