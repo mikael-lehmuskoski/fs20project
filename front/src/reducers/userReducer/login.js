@@ -27,7 +27,9 @@ export const LOGIN = (details) => {
         type: "LOGIN",
         data: response,
       });
+      return response;
     }
+    return null;
   };
 };
 

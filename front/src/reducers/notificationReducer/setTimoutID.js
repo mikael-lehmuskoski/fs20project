@@ -2,7 +2,7 @@ const setTimeoutID = (timeoutID) => {
   return (dispatch) => {
     dispatch({
       type: "SET_TIMEOUTID",
-      timeoutID: timeoutID || null,
+      data: timeoutID || null,
     });
   };
 };

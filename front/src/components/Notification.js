@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
-import React, { useEffect, useState } from "react";
-import { Popup } from "semantic-ui-react";
+import React, { useEffect /* useState */ } from "react";
+// import { Popup } from "semantic-ui-react";
+import { Menu } from "semantic-ui-react";
 import { connect } from "react-redux";
 import actionCreators from "../reducers";
 
 // TODO: fix infinite renders
 const Notification = (props) => {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (props.timeoutID) {
@@ -19,26 +20,14 @@ const Notification = (props) => {
       () => {
         props.clearNotification();
       },
-      props.timeout ? props.timeout * 1000 : 3000
+      props.timeout ? props.timeout * 1000 : 0
     );
-    props.setTimeoutID(newTimeoutID);
+    if (props.id) props.setTimeoutID(newTimeoutID);
+  }, [props.id]); // eslint-disable-line
 
-    /* return () => {
-      clearTimeout(newTimeoutID);
-      props.setTimeoutID();
-    }; */
-  }, [props.id, props.message]); // eslint-disable-line
-
-  if (props.message)
-    return (
-      <Popup
-        trigger={props.message}
-        content={props.message}
-        open={open}
-        onClose={setOpen(false)}
-        onOpen={setOpen(true)}
-      />
-    );
+  if (props.message) {
+    return <Menu.Item active name={props.message} color={'orange'} />;// eslint-disable-line
+  }
   return null;
 };
 
@@ -54,7 +43,7 @@ const mapStateToProps = (state) => {
         : null,
     timeout:
       state.notification && state.notification.timeout
-        ? state.notification.id
+        ? state.notification.timeout
         : null,
     timeoutID:
       state.notification && state.notification.timeoutID

@@ -27,7 +27,9 @@ export const SIGNUP = (details) => {
         type: "SIGNUP",
         data: response,
       });
+      return response;
     }
+    return null;
   };
 };
 

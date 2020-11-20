@@ -1,4 +1,4 @@
-const init = { message: "", notifyID: null, timeout: 0, timeoutID: null };
+const init = { message: "", id: null, timeout: 0, timeoutID: null };
 
 const notificationReducer = (state = init, action) => {
   switch (action.type) {
@@ -12,9 +12,6 @@ const notificationReducer = (state = init, action) => {
     case "CLEAR_NOTIFICATION":
       return init;
     case "SET_TIMEOUTID":
-      console.log("inside reducer, state: ", { ...state }, " action.data: ", {
-        ...action.data,
-      });
       return {
         ...state,
         timeoutID: action.data,

@@ -12,13 +12,18 @@ import Notification from "./Notification";
 const MenuBar = (props) => {
   const [activeItem, setActive] = useState("bulletin");
   const [open, setOpen] = useState(false);
+  const user = props.user ? props.user.user : null;
+
+  const handleLogin = () => {
+    setOpen(false);
+    props.postNotification(`Logged in!`, 3);
+  }
 
   const handleLogout = () => {
     props.logout()
-    props.postNotification("Logged out!", 5);
+    props.postNotification("Logged out!", 3);
   }
 
-  const user = props.user ? props.user.user : null;
   return (
     <Menu pointing secondary>
       <Menu.Item
@@ -28,22 +33,15 @@ const MenuBar = (props) => {
         as={Link}
         to="/"
       />
-      <Menu.Item
-        name="About"
-        active={activeItem === "about"}
-        onClick={() => setActive("about")}
-        as={Link}
-        to="/about"
-      />
-      <Menu.Item
-        name="Settings"
-        active={activeItem === "settings"}
-        onClick={() => setActive("settings")}
-        as={Link}
-        to="/settings"
-      />
       <Menu.Menu position="right">
         <Notification />
+        <Menu.Item
+          name="Settings"
+          active={activeItem === "settings"}
+          onClick={() => setActive("settings")}
+          as={Link}
+          to="/settings"
+        />
         {user ? (
           <Popup
             trigger={(
@@ -77,7 +75,7 @@ const MenuBar = (props) => {
         onOpen={() => setOpen(true)}
         open={open}
       >
-        <LoginSignup setOpen={setOpen} />
+        <LoginSignup handleLogin={() => handleLogin()} />
       </Modal>
     </Menu>
   );

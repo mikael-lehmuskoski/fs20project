@@ -8,7 +8,6 @@ import { connect } from "react-redux";
 import Main from "./components/Main";
 import Footer from "./components/footer";
 import Menu from "./components/menu";
-import About from "./components/about";
 import Settings from "./components/settings";
 
 // TODO: Clock, notes, rss reader
@@ -18,9 +17,6 @@ const App = () => {
       <Router>
         <Menu />
         <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
           <Route path="/settings">
             <Settings />
           </Route>

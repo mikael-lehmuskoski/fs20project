@@ -18,10 +18,10 @@
 | 16.11.        | 6       | front: logout works, refactored stuff |
 | 17.11.        | 5       | front: rudimentary clock, semantic ui |
 | 18.11.        | 5       | front: clock, semantic ui |
-| 19.11.        | 6 (93)  | front: refactored reducers, added notifications, redux-persist (session is now persistent), semantic ui, clock |
+| 19.11.        | 6       | front: refactored reducers, added notifications, redux-persist (session is now persistent), semantic ui, clock |
+| 20.11.        | 5 (98)  | front: notifications now work |
 |               |         |           |
 |               |         |           |
 |               |         |           |
 |               |         |           |
-|               |         |           |
-| total hours   | 93
+| total hours   | 98
