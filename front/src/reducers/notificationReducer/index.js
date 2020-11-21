@@ -7,6 +7,7 @@ const notificationReducer = (state = init, action) => {
         ...state,
         message: action.data.message,
         id: action.data.id,
+        error: action.data.error,
         timeout: action.data.timeout,
       };
     case "CLEAR_NOTIFICATION":

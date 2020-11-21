@@ -14,14 +14,18 @@ const MenuBar = (props) => {
   const [open, setOpen] = useState(false);
   const user = props.user ? props.user.user : null;
 
-  const handleLogin = () => {
-    setOpen(false);
-    props.postNotification(`Logged in!`, 3);
+  const handleResponse = (success, message) => {
+    if (success) {
+      setOpen(false);
+      props.postNotification(message, 3, false);
+    } else {
+      props.postNotification(message, 3, true);
+    }
   }
 
   const handleLogout = () => {
     props.logout()
-    props.postNotification("Logged out!", 3);
+    props.postNotification("Logged out!", 3, false);
   }
 
   return (
@@ -74,8 +78,9 @@ const MenuBar = (props) => {
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
+        centered
       >
-        <LoginSignup handleLogin={() => handleLogin()} />
+        <LoginSignup handleResponse={(success,message) => handleResponse(success,message)} />
       </Modal>
     </Menu>
   );

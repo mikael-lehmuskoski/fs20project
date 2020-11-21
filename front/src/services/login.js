@@ -11,7 +11,7 @@ const login = async ({ variables }) => {
     });
     return res.data;
   } catch (error) {
-    throw new Error(error.message);
+    return error.toJSON();
   }
 };
 

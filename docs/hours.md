@@ -19,9 +19,9 @@
 | 17.11.        | 5       | front: rudimentary clock, semantic ui |
 | 18.11.        | 5       | front: clock, semantic ui |
 | 19.11.        | 6       | front: refactored reducers, added notifications, redux-persist (session is now persistent), semantic ui, clock |
-| 20.11.        | 5 (98)  | front: notifications now work |
+| 20.11.        | 5       | front: notifications now work |
+| 21.11.        | 8 (106) | front: refactored login/signup, notifications now show errors also |
 |               |         |           |
 |               |         |           |
 |               |         |           |
-|               |         |           |
-| total hours   | 98
+| total hours   | 106

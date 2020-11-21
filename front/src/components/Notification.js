@@ -26,7 +26,7 @@ const Notification = (props) => {
   }, [props.id]); // eslint-disable-line
 
   if (props.message) {
-    return <Menu.Item active name={props.message} color={'orange'} />;// eslint-disable-line
+    return <Menu.Item active name={props.message} color={props.error ? 'red' : 'green'} />;// eslint-disable-line
   }
   return null;
 };
@@ -44,6 +44,10 @@ const mapStateToProps = (state) => {
     timeout:
       state.notification && state.notification.timeout
         ? state.notification.timeout
+        : null,
+    error:
+      state.notification && state.notification.error
+        ? state.notification.error
         : null,
     timeoutID:
       state.notification && state.notification.timeoutID

@@ -13,31 +13,23 @@ const LoginSignup = (props) => {
   const [password, setPassword] = useState("");
   const [passwordAgain, setPasswordAgain] = useState("");
 
-  /* if (user) {
-    props.setOpen(false);
-    return <div> {`Logged in as ${user.username}`} </div>; // eslint-disable-line
-  } */
-
-  const submit = () => {
-    let res = null;
+  const submit = async () => {
+    let res;
     try {
       if (flip) {
         if (!(password === passwordAgain))
           throw new Error("Passwords do not match");
-        res = props.signup({ username, password });
+        res = await props.signup({ username, password });
       } else {
-        res = props.login({ username, password });
+        res = await props.login({ username, password });
       }
-      if (res && !flip) {
-        props.handleLogin(username);
-        setPassword("");
-        setUsername("");
-        setPasswordAgain("");
-      } else {
-        // show login/signup error or sumn
-      }
+      if (res.message) throw new Error(res.message);
+      setPassword("");
+      setUsername("");
+      setPasswordAgain("");
+      props.handleResponse(true, `logged in as ${res.user.username}`);
     } catch (err) {
-      console.log(err.message); // DODO: notification
+      props.handleResponse(false, err.message);
     }
   };
 

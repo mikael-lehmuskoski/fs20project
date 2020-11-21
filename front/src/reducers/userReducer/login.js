@@ -2,34 +2,40 @@ import services from "../../services";
 
 export const LOGIN = (details) => {
   return async (dispatch) => {
-    const response = await services
-      .login({
-        variables: { ...details },
-      })
-      .then((res) => {
-        if (res.errors) {
-          res.errors.map((error) => {
-            throw new Error(error.message);
-          });
-        }
-        try {
-          if (res.data.login.token.value) return res.data.login; // DODO: notification
-        } catch (err) {
-          throw new Error(
-            "Didn't hear back from the server. Check your connection and try again!"
-          );
-        }
-        return null;
-      })
-      .catch((error) => console.log(error)); // DODO: send error.message to notification
-    if (response) {
-      dispatch({
-        type: "LOGIN",
-        data: response,
-      });
-      return response;
+    try {
+      const response = await services
+        .login({
+          variables: { ...details },
+        })
+        .then((res) => {
+          if (res.message) throw new Error(res.message);
+          else if (res.errors) {
+            res.errors.map((error) => {
+              throw new Error(error.message);
+            });
+          } else {
+            try {
+              if (res.data.login.token.value) return res.data.login;
+            } catch (_) {
+              throw new Error("invalid data received");
+            }
+          }
+          return null;
+        })
+        .catch((err) => {
+          throw new Error(err.message);
+        });
+      if (response) {
+        dispatch({
+          type: "LOGIN",
+          data: response,
+        });
+        return response;
+      }
+    } catch (err) {
+      return err;
     }
-    return null;
+    return false;
   };
 };
 
