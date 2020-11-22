@@ -17,15 +17,15 @@ const MenuBar = (props) => {
   const handleResponse = (success, message) => {
     if (success) {
       setOpen(false);
-      props.postNotification(message, 3, false);
+      props.POST_NOTIFICATION(message, 3, false);
     } else {
-      props.postNotification(message, 3, true);
+      props.POST_NOTIFICATION(message, 3, true);
     }
   }
 
   const handleLogout = () => {
-    props.logout()
-    props.postNotification("Logged out!", 3, false);
+    props.LOGOUT()
+    props.POST_NOTIFICATION("Logged out!", 3, false);
   }
 
   return (
@@ -37,7 +37,7 @@ const MenuBar = (props) => {
         as={Link}
         to="/"
       />
-      <Menu.Menu position="right">
+      <Menu.Menu position="right" id="right">
         <Notification />
         <Menu.Item
           name="Settings"
@@ -91,8 +91,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  logout: actionCreators.logout,
-  postNotification: actionCreators.postNotification,
+  LOGOUT: actionCreators.LOGOUT,
+  POST_NOTIFICATION: actionCreators.POST_NOTIFICATION,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MenuBar);

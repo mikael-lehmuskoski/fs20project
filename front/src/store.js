@@ -7,7 +7,6 @@ import reducers from "./reducers";
 
 const comboReducer = combineReducers({
   user: reducers.userReducer,
-  save: reducers.saveReducer,
   notification: reducers.notificationReducer,
 });
 

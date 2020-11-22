@@ -13,16 +13,16 @@ const Notification = (props) => {
   useEffect(() => {
     if (props.timeoutID) {
       clearTimeout(props.timeoutID);
-      props.setTimeoutID();
+      props.SET_TIMEOUTID();
     }
 
     const newTimeoutID = setTimeout(
       () => {
-        props.clearNotification();
+        props.CLEAR_NOTIFICATION();
       },
       props.timeout ? props.timeout * 1000 : 0
     );
-    if (props.id) props.setTimeoutID(newTimeoutID);
+    if (props.id) props.SET_TIMEOUTID(newTimeoutID);
   }, [props.id]); // eslint-disable-line
 
   if (props.message) {
@@ -57,8 +57,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  clearNotification: actionCreators.clearNotification,
-  setTimeoutID: actionCreators.setTimeoutID,
+  CLEAR_NOTIFICATION: actionCreators.CLEAR_NOTIFICATION,
+  SET_TIMEOUTID: actionCreators.SET_TIMEOUTID,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Notification);

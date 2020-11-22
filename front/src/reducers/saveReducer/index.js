@@ -1,4 +1,6 @@
-const saveReducer = (state = null, action) => {
+import init from "../default";
+
+const saveReducer = (state = init, action) => {
   switch (action.type) {
     case "SAVE_NOTE":
       // TODO: send note to backend and add to state.user.notes
@@ -20,6 +22,7 @@ const saveReducer = (state = null, action) => {
       };
     case "DELETE_NOTE":
       // TODO: remove note from backend AND STATE (id too)
+      // use: delete notes[action.data.id]
       return {
         ...state,
         user: {
@@ -29,15 +32,19 @@ const saveReducer = (state = null, action) => {
       };
     case "SAVE_SETTINGS":
       // TODO: send settings to back and save to state
+      console.log("reducer: ", action.data);
       return {
         ...state,
         user: {
           ...state.user,
-          settings: { ...action.data },
+          user: {
+            ...state.user.user,
+            settings: { ...action.data },
+          },
         },
       };
     default:
-      return null;
+      return state;
   }
 };
 

@@ -19,9 +19,9 @@ const LoginSignup = (props) => {
       if (flip) {
         if (!(password === passwordAgain))
           throw new Error("Passwords do not match");
-        res = await props.signup({ username, password });
+        res = await props.SIGNUP({ username, password });
       } else {
-        res = await props.login({ username, password });
+        res = await props.LOGIN({ username, password });
       }
       if (res.message) throw new Error(res.message);
       setPassword("");
@@ -76,9 +76,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  login: actionCreators.login,
-  signup: actionCreators.signup,
-  postNotification: actionCreators.postNotification,
+  LOGIN: actionCreators.LOGIN,
+  SIGNUP: actionCreators.SIGNUP,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginSignup);

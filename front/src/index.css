@@ -1,3 +1,20 @@
+.container {
+  position: fixed;
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.dark-mode {
+  background-color: #262626;
+  color: #f2f2f2;
+}
+
+.light-mode {
+  background-color: #f2f2f2;
+  color: #262626;
+}
+
 .Modal.signupForm {
   width: 50vw;
   height: 50vh;

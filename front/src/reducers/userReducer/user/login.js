@@ -1,6 +1,6 @@
-import services from "../../services";
+import services from "../../../services";
 
-export const LOGIN = (details) => {
+const LOGIN = (details) => {
   return async (dispatch) => {
     try {
       const response = await services

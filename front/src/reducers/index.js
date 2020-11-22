@@ -1,26 +1,26 @@
-// user stuff
+// main reducer
 import userReducer from "./userReducer";
-import login from "./userReducer/login";
-import signup from "./userReducer/signup";
-import logout from "./userReducer/logout";
-
+// user stuff
+import LOGIN from "./userReducer/user/login";
+import SIGNUP from "./userReducer/user/signup";
+import LOGOUT from "./userReducer/user/logout";
 // saving stuff
-import saveReducer from "./saveReducer";
+import SAVE_SETTINGS from "./userReducer/save/saveSettings";
 
 // notifications
 import notificationReducer from "./notificationReducer";
-import postNotification from "./notificationReducer/postNotification";
-import clearNotification from "./notificationReducer/clearNotification";
-import setTimeoutID from "./notificationReducer/setTimoutID";
+import POST_NOTIFICATION from "./notificationReducer/postNotification";
+import CLEAR_NOTIFICATION from "./notificationReducer/clearNotification";
+import SET_TIMEOUTID from "./notificationReducer/setTimoutID";
 
 export default {
   userReducer,
-  login,
-  signup,
-  logout,
-  saveReducer,
+  LOGIN,
+  SIGNUP,
+  LOGOUT,
+  SAVE_SETTINGS,
   notificationReducer,
-  postNotification,
-  clearNotification,
-  setTimeoutID,
+  POST_NOTIFICATION,
+  CLEAR_NOTIFICATION,
+  SET_TIMEOUTID,
 };

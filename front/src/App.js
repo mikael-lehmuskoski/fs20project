@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import Main from "./components/Main";
 import Footer from "./components/footer";
 import Menu from "./components/menu";
-import Settings from "./components/settings";
+import Settings from "./components/Settings";
 
 // TODO: Clock, notes, rss reader
 const App = () => {
