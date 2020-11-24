@@ -22,7 +22,7 @@
 | 20.11.        | 5       | front: notifications now work |
 | 21.11.        | 8       | front: refactored login/signup, notifications now show errors also |
 | 22.11.        | 5 (111) | front: refactored reducers, css/semantic ui |
-| 23.11.        | x (111 + 5) | front: semantic ui, setting themes from the settings now work |
+| x.11.        | x (111 + x) | front: semantic ui, setting themes from the settings now work |
 |               |         |           |
 |               |         |           |
 |               |         |           |
