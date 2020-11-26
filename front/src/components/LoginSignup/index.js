@@ -34,11 +34,14 @@ const LoginSignup = (props) => {
   };
 
   return (
-    <div>
-      <Modal.Header>{flip ? "Create an account" : "Login"}</Modal.Header>
-      <Modal.Content>
+    <div id="card">
+      <Modal.Content id="cardContent">
+        {flip ? "Create an account" : "Login"}
+      </Modal.Content>
+      <Modal.Content id="cardContent">
         {flip ? (
           <SignupForm
+            id="cardContent"
             submit={submit}
             username={username}
             password={password}
@@ -49,6 +52,7 @@ const LoginSignup = (props) => {
           />
         ) : (
           <LoginForm
+            id="cardContent"
             submit={submit}
             username={username}
             password={password}
@@ -57,13 +61,17 @@ const LoginSignup = (props) => {
           />
         )}
       </Modal.Content>
-      <Modal.Content>
-        {flip
-          ? "Already have an account? Log in!"
-          : "Don't have an account? Sign up!"}
-        <Button onClick={() => setFlip((prev) => !prev)}>
-          {flip ? "Login" : "Create account"}
-        </Button>
+      <Modal.Content id="cardContent">
+        <div id="cardContent">
+          {flip ? (
+            <p id="cardContent">Already have an account? Log in!</p>
+          ) : (
+            <p id="cardContent">Don&apos;t have an account? Sign up!</p>
+          )}
+          <Button onClick={() => setFlip((prev) => !prev)} id="cardContent">
+            {flip ? "Login" : "Create account"}
+          </Button>
+        </div>
       </Modal.Content>
     </div>
   );

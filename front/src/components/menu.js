@@ -4,7 +4,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { Menu, Button, Popup, Modal } from "semantic-ui-react";
+import { Menu, Button, Popup, Modal, Container } from "semantic-ui-react";
 import actionCreators from "../reducers";
 import LoginSignup from "./LoginSignup";
 import Notification from "./Notification";
@@ -29,60 +29,66 @@ const MenuBar = (props) => {
   }
 
   return (
-    <Menu pointing secondary>
-      <Menu.Item
-        name="BULLETIN."
-        active={activeItem === "bulletin"}
-        onClick={() => setActive("bulletin")}
-        as={Link}
-        to="/"
-      />
-      <Menu.Menu position="right" id="right">
-        <Notification />
-        <Menu.Item
-          name="Settings"
-          active={activeItem === "settings"}
-          onClick={() => setActive("settings")}
-          as={Link}
-          to="/settings"
-        />
-        {user ? (
-          <Popup
-            trigger={(
-              <Menu.Item
-                name="Logout"
-              />
-            )}
-            content={(
-              <div className="popup">
-                <p>Log out?</p>
-                <Button
-                  color="red"
-                  content="Yes"
-                  onClick={() => handleLogout()}
-                />
-              </div>
-            )}
-            on="click"
-            position="bottom center"
+    <div className="header">
+      <Container>
+        <Menu pointing secondary>
+          <Menu.Item
+            content={`BULLETIN.`} // eslint-disable-line
+            id="linkbutton"
+            active={activeItem === "bulletin"}
+            onClick={() => setActive("bulletin")}
+            as={Link}
+            to="/"
           />
+          <Menu.Menu position="right" id="right">
+            <Notification />
+            <Menu.Item
+              name="Settings"
+              id="linkbutton"
+              active={activeItem === "settings"}
+              onClick={() => setActive("settings")}
+              as={Link}
+              to="/settings"
+            />
+            {user ? (
+              <Popup
+                trigger={(
+                  <Menu.Item
+                    name="Logout"
+                  />
+            )}
+                content={(
+                  <div className="popup">
+                    <p>Log out?</p>
+                    <Button
+                      color="red"
+                      content="Yes"
+                      onClick={() => handleLogout()}
+                    />
+                  </div>
+            )}
+                on="click"
+                position="bottom center"
+              />
         ) : (
           <Menu.Item
             name="Login"
+            id="linkbutton"
             onClick={() => setOpen(true)}
           />
         )}
-      </Menu.Menu>
-      <Modal
-        className="ui Modal signupform"
-        onClose={() => setOpen(false)}
-        onOpen={() => setOpen(true)}
-        open={open}
-        centered
-      >
-        <LoginSignup handleResponse={(success,message) => handleResponse(success,message)} />
-      </Modal>
-    </Menu>
+          </Menu.Menu>
+          <Modal
+            onClose={() => setOpen(false)}
+            onOpen={() => setOpen(true)}
+            open={open}
+            centered
+          >
+            <LoginSignup handleResponse={(success,message) => handleResponse(success,message)} />
+          </Modal>
+        </Menu>
+      </Container>
+    </div>
   );
 };
 

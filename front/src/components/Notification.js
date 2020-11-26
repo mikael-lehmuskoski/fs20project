@@ -6,10 +6,7 @@ import { Menu } from "semantic-ui-react";
 import { connect } from "react-redux";
 import actionCreators from "../reducers";
 
-// TODO: fix infinite renders
 const Notification = (props) => {
-  // const [open, setOpen] = useState(false);
-
   useEffect(() => {
     if (props.timeoutID) {
       clearTimeout(props.timeoutID);

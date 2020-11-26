@@ -1,11 +1,14 @@
 import React from "react";
+import { Container } from "semantic-ui-react";
 import Clock from "./Clock";
 
 const Main = () => {
   return (
-    <div className="Main">
-      <Clock />
-    </div>
+    <Container className="Main">
+      <Container>
+        <Clock />
+      </Container>
+    </Container>
   );
 };
 

@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Container } from "semantic-ui-react";
+// import { Container } from "semantic-ui-react";
 import { connect } from "react-redux";
 
 import Main from "./components/Main";
@@ -13,7 +13,7 @@ import Settings from "./components/Settings";
 // TODO: Clock, notes, rss reader
 const App = () => {
   return (
-    <Container>
+    <div className="canvas light-mode">
       <Router>
         <Menu />
         <Switch>
@@ -26,7 +26,7 @@ const App = () => {
         </Switch>
         <Footer />
       </Router>
-    </Container>
+    </div>
   );
 };
 

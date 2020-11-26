@@ -10,7 +10,7 @@ const LoginForm = ({
   setPassword,
 }) => {
   return (
-    <form>
+    <form id="cardContent">
       <div>
         <Input
           type="text"
