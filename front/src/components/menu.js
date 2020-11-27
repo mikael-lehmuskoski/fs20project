@@ -1,6 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -21,12 +18,12 @@ const MenuBar = (props) => {
     } else {
       props.POST_NOTIFICATION(message, 3, true);
     }
-  }
+  };
 
   const handleLogout = () => {
-    props.LOGOUT()
+    props.LOGOUT();
     props.POST_NOTIFICATION("Logged out!", 3, false);
-  }
+  };
 
   return (
     <div className="header">
@@ -34,7 +31,7 @@ const MenuBar = (props) => {
         <Menu pointing secondary>
           <Menu.Item
             content={`BULLETIN.`} // eslint-disable-line
-            id="linkbutton"
+            id="linkButton"
             active={activeItem === "bulletin"}
             onClick={() => setActive("bulletin")}
             as={Link}
@@ -44,47 +41,55 @@ const MenuBar = (props) => {
             <Notification />
             <Menu.Item
               name="Settings"
-              id="linkbutton"
+              id="linkButton"
               active={activeItem === "settings"}
               onClick={() => setActive("settings")}
               as={Link}
               to="/settings"
             />
-            {user ? (
-              <Popup
-                trigger={(
-                  <Menu.Item
-                    name="Logout"
-                  />
-            )}
-                content={(
-                  <div className="popup">
-                    <p>Log out?</p>
-                    <Button
-                      color="red"
-                      content="Yes"
-                      onClick={() => handleLogout()}
+            { /* eslint-disable prettier/prettier */ // eslint-disable-line
+              user ? (
+                <Popup
+                  trigger={(
+                    <Menu.Item
+                      name="Logout"
                     />
-                  </div>
-            )}
-                on="click"
-                position="bottom center"
-              />
-        ) : (
-          <Menu.Item
-            name="Login"
-            id="linkbutton"
-            onClick={() => setOpen(true)}
-          />
-        )}
+                  )}
+                  content={(
+                    <div className="popup">
+                      <p>Log out?</p>
+                      <Button
+                        color="red"
+                        content="Yes"
+                        onClick={() => handleLogout()}
+                      />
+                    </div>
+                  )}
+                  on="click"
+                  position="bottom center"
+                />
+              ) : (
+                <Menu.Item
+                  name="Login"
+                  id="linkButton"
+                  onClick={() => setOpen(true)}
+                />
+                )
+              /* eslint-enable prettier/prettier */
+            }
           </Menu.Menu>
           <Modal
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}
             open={open}
+            size="mini"
             centered
           >
-            <LoginSignup handleResponse={(success,message) => handleResponse(success,message)} />
+            <LoginSignup
+              handleResponse={(success, message) =>
+                handleResponse(success, message)
+              } // eslint-disable-line
+            />
           </Modal>
         </Menu>
       </Container>

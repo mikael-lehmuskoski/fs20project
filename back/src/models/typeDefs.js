@@ -6,7 +6,7 @@ const typeDefs = gql`
     username: String!
     passwordHash: String!
     notes: [Note]
-    settings: [Settings]
+    settings: Settings
   }
 
   type Token {
@@ -22,7 +22,11 @@ const typeDefs = gql`
   }
 
   type Settings {
-    value: String
+    user: [String]
+    interface: [String]
+    rss: [String]
+    clock: [String]
+    notes: [String]
   }
 
   type Login {
@@ -37,6 +41,7 @@ const typeDefs = gql`
   type Mutation {
     signup(username: String!, password: String!): Login
     login(username: String!, password: String!): Login
+    updateSettings(settings: String!): Settings
   }
 `;
 

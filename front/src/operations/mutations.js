@@ -10,7 +10,11 @@ const LOGIN = gql`
         username
         id
         settings {
-          value
+          user
+          interface
+          rss
+          clock
+          notes
         }
         notes {
           id
@@ -33,7 +37,11 @@ const SIGNUP = gql`
         username
         id
         settings {
-          value
+          user
+          interface
+          rss
+          clock
+          notes
         }
         notes {
           id

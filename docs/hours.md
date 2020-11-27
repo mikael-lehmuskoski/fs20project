@@ -22,8 +22,8 @@
 | 20.11.        | 5       | front: notifications now work |
 | 21.11.        | 8       | front: refactored login/signup, notifications now show errors also |
 | 22.11.        | 5       | front: refactored reducers, css/semantic ui |
-| 26.11.        | 6 (117) | front: semantic ui, settings component |
-|               |         |           |
+| 26.11.        | 6       | front: semantic ui, settings component |
+| 27.11.        | 6 (122) | front: semantic ui, settings, back: resolvers for updating settings  |
 |               |         |           |
 |               |         |           |
 |               |         |           |

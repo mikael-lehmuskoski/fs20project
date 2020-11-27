@@ -1,44 +1,61 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
 import React, { useState } from "react";
-import { Container, Dropdown, Accordion, Icon } from "semantic-ui-react";
+import { Container, Accordion, Icon, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 
-import themes from "./themes";
+import Theme from "./themes";
 import actionCreators from "../../reducers";
 
+const init = {
+  user: null,
+  interface: JSON.stringify({ theme: "asd" }),
+  rss: null,
+  clock: null,
+  notes: null,
+};
+
 // TODO: separate Accordion.content into own components, save settings
-const Settings = (props) => {
-  const user = props.user ? props.user.user : null;
-  console.log(user);
+const Settings = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  /* const user = props.user ? props.user.user : null;
+  const [localSettings, setLocalSettings] = useState(
+    user ? user.settings : null
+  ); */
+  const [localSettings, setLocalSettings] = useState(init);
+  const user = true;
+  if (!user) return <div className="Main"><Container style={{ marginTop: "10px" }}>You need to log in to edit settings.</Container></div>; // eslint-disable-line
 
-  const handleClick = (e, titleProps) => {
-    const { index } = titleProps;
-    const newIndex = activeIndex === index ? -1 : index;
-
-    setActiveIndex(newIndex);
+  const handleChange = (props) => {
+    const subset = JSON.parse(localSettings[props.subset]);
+    subset[props.key] = props.value;
+    setLocalSettings((prev) => {
+      return { ...prev, [props.subset]: JSON.stringify({ ...subset }) };
+    });
+    console.log(localSettings);
   };
+
+  const handleSave = () => {
+    console.log("saving!: ", localSettings);
+  };
+
   return (
     <Container className="Main">
-      <Container className="Settings">
+      <Container>
         <Accordion>
           <Accordion.Title
             active={activeIndex === 0}
             index={0}
-            onClick={handleClick}
+            onClick={() => setActiveIndex(0)}
           >
             <Icon name="dropdown" />
             Interface
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 0}>
-            Theme:
-            <Dropdown placeholder="Theme" fluid selection options={themes} />
+            <Theme handleChange={handleChange} />
           </Accordion.Content>
           <Accordion.Title
             active={activeIndex === 1}
             index={1}
-            onClick={handleClick}
+            onClick={() => setActiveIndex(1)}
           >
             <Icon name="dropdown" />
             User
@@ -46,7 +63,7 @@ const Settings = (props) => {
           <Accordion.Title
             active={activeIndex === 2}
             index={2}
-            onClick={handleClick}
+            onClick={() => setActiveIndex(2)}
           >
             <Icon name="dropdown" />
             RSS Reader
@@ -54,12 +71,17 @@ const Settings = (props) => {
           <Accordion.Title
             active={activeIndex === 3}
             index={3}
-            onClick={handleClick}
+            onClick={() => setActiveIndex(3)}
           >
             <Icon name="dropdown" />
             Clock
           </Accordion.Title>
         </Accordion>
+        <Button
+          content="Save settings"
+          onClick={() => handleSave()}
+          style={{ marginTop: "10px" }}
+        />
       </Container>
     </Container>
   );

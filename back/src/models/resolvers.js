@@ -22,7 +22,13 @@ const resolvers = {
           username: validUser.username,
           passwordHash,
           notes: [],
-          settings: [],
+          settings: {
+            user: null,
+            interface: null,
+            rss: null,
+            clock: null,
+            notes: null,
+          },
         });
 
         await user.save();
@@ -69,6 +75,26 @@ const resolvers = {
         };
       }
       throw new Error("Invalid credentials");
+    },
+    updateSettings: async (_, args, context) => {
+      console.log(args, context);
+      if (!context.currentUser) throw new Error("Unauthorized");
+      if (!args) throw new Error("Invalid properties");
+      await User.findOne(
+        {
+          username: context.username,
+          id: context.id,
+        },
+        (err, foundUser) => {
+          if (err) throw new Error(err.message);
+          if (!foundUser) throw new Error("User account not found");
+          if (args.settings) foundUser.settings = args.settings; //eslint-disable-line
+          foundUser.save((error, updatedSettings) => {
+            if (error) throw new Error(err.message);
+            else return updatedSettings;
+          });
+        }
+      );
     },
   },
 };

@@ -13,7 +13,7 @@ import Settings from "./components/Settings";
 // TODO: Clock, notes, rss reader
 const App = () => {
   return (
-    <div className="canvas light-mode">
+    <div className="canvas dark-mode">
       <Router>
         <Menu />
         <Switch>

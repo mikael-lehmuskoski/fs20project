@@ -7,7 +7,7 @@ import LOGOUT from "./userReducer/user/logout";
 // saving stuff
 import SAVE_SETTINGS from "./userReducer/save/saveSettings";
 
-// notifications
+// notifications reducement
 import notificationReducer from "./notificationReducer";
 import POST_NOTIFICATION from "./notificationReducer/postNotification";
 import CLEAR_NOTIFICATION from "./notificationReducer/clearNotification";
