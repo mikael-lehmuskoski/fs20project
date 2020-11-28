@@ -5,6 +5,7 @@
  * @param {*} settings settings is ALL of the settings every time 100% of the time
  */
 const SAVE_SETTINGS = (settings) => {
+  console.log("SAVE_SETTINGS action creator, settings: ", settings);
   return async (dispatch) => {
     // TODO: save to backend
     dispatch({

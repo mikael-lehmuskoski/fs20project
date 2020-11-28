@@ -22,17 +22,21 @@ mongoose.set("useFindAndModify", false);
 /**
  * Connect to MongoDB
  */
-if (MONGODB_URI && typeof MONGODB_URI === "string") {
-  mongoose
-    .connect(MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-    })
-    .then(console.log(`Connected to MongoDB`))
-    .catch((err) => {
-      console.error(`ERROR: ${err.message}`);
-    });
+if (MONGODB_URI) {
+  try {
+    mongoose
+      .connect(MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+      })
+      .then(console.log(`Connected to MongoDB`))
+      .catch((err) => {
+        throw new Error(err.message);
+      });
+  } catch (err) {
+    console.error(`ERROR: ${err.message}`);
+  }
 } else {
   console.error(`invalid URL: ${MONGODB_URI}`);
 }

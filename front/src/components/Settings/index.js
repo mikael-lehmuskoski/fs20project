@@ -1,40 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Accordion, Icon, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 
 import Theme from "./themes";
 import actionCreators from "../../reducers";
 
-const init = {
-  user: null,
-  interface: JSON.stringify({ theme: "asd" }),
-  rss: null,
-  clock: null,
-  notes: null,
-};
-
 // TODO: separate Accordion.content into own components, save settings
-const Settings = () => {
+const Settings = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  /* const user = props.user ? props.user.user : null;
-  const [localSettings, setLocalSettings] = useState(
-    user ? user.settings : null
-  ); */
-  const [localSettings, setLocalSettings] = useState(init);
-  const user = true;
-  if (!user) return <div className="Main"><Container style={{ marginTop: "10px" }}>You need to log in to edit settings.</Container></div>; // eslint-disable-line
+  const [localSettings, setLocalSettings] = useState(null);
 
-  const handleChange = (props) => {
-    const subset = JSON.parse(localSettings[props.subset]);
-    subset[props.key] = props.value;
-    setLocalSettings((prev) => {
-      return { ...prev, [props.subset]: JSON.stringify({ ...subset }) };
-    });
-    console.log(localSettings);
+  useEffect(() => {
+    setLocalSettings(props.user ? props.user.user.settings : null);
+  }, [props.user]); // eslint-disable-line
+
+  if (!localSettings) return <div className="Main"><Container style={{ marginTop: "10px" }}>You need to log in to edit settings.</Container></div>; // eslint-disable-line
+
+  /**
+   * Updates state when a change happens
+   *
+   * @param {String} subset the subset of settings about to be changed
+   * @param {String} key the key under subset of settings about to be changed
+   * @param {String} value value of subset[key] about to be changed
+   *
+   * @example
+   * // sets key {Session} of subset {User} to value of {Persist}
+   * handleChange("User","Session","Persist")
+   */
+  const handleChange = ({ subset, key, value }) => {
+    // todo: validate value
+    if (subset in localSettings && key in localSettings[subset]) {
+      setLocalSettings((prev) => ({
+        ...prev,
+        [subset]: { ...prev[subset], [key]: value },
+      }));
+    }
   };
 
   const handleSave = () => {
-    console.log("saving!: ", localSettings);
+    props.SAVE_SETTINGS({ settings: localSettings });
   };
 
   return (
@@ -92,7 +96,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  // TODO: save settings
+  SAVE_SETTINGS: actionCreators.SAVE_SETTINGS,
   POST_NOTIFICATION: actionCreators.POST_NOTIFICATION,
 };
 

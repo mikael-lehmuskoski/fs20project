@@ -37,12 +37,11 @@ const userReducer = (state = init, action) => {
         },
       };
     case "SAVE_SETTINGS":
-      // TODO: send settings to back and save to state
       return {
         ...state,
         user: {
           ...state.user,
-          settings: { ...action.data },
+          ...action.data,
         },
       };
     default:
