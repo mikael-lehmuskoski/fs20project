@@ -65,7 +65,31 @@ const SIGNUP = gql`
   }
 `;
 
+const SAVE_SETTINGS = gql`
+  mutation updateSettings($settings: SettingsInput!) {
+    updateSettings(settings: $settings) {
+      user {
+        session
+      }
+      interface {
+        theme
+      }
+      rss {
+        src
+      }
+      clock {
+        format
+        timezone
+      }
+      notes {
+        autodelete
+      }
+    }
+  }
+`;
+
 export default {
   LOGIN,
   SIGNUP,
+  SAVE_SETTINGS,
 };

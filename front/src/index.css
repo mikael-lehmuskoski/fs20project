@@ -22,8 +22,13 @@
   margin-top: 20px;
 }
 
+.ui.accordion .title:not(.ui) {
+  color: grey;
+}
+
 #linkButton {
   color: #a6a6a6;
+  border-bottom-color: grey;
 }
 
 #card {
@@ -46,6 +51,10 @@
 }
 .light-mode {
   background-color: #f2f2f2;
+  color: #262626;
+}
+.some-colors {
+  background-image: linear-gradient(#fdfd81,#fd81d4);
   color: #262626;
 }
 

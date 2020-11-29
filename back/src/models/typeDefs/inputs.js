@@ -22,11 +22,11 @@ input NoteSettingsInput {
 }
 
 input SettingsInput {
-  user: UserSettingsInput
-  interface: InterfaceSettingsInput
-  rss: RssSettingsInput
-  clock: ClockSettingsInput
-  notes: NoteSettingsInput
+  user: UserSettingsInput!
+  interface: InterfaceSettingsInput!
+  rss: RssSettingsInput!
+  clock: ClockSettingsInput!
+  notes: NoteSettingsInput!
 }`;
 
 module.exports = inputs;

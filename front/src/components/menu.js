@@ -52,6 +52,7 @@ const MenuBar = (props) => {
                 <Popup
                   trigger={(
                     <Menu.Item
+                      id="linkButton"
                       name="Logout"
                     />
                   )}

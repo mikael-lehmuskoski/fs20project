@@ -1,12 +1,13 @@
 import services from "../../../services";
 
+const { signup } = services;
+
 const SIGNUP = (details) => {
   return async (dispatch) => {
     try {
-      const response = await services
-        .signup({
-          variables: { ...details },
-        })
+      const response = await signup({
+        variables: { ...details },
+      })
         .then((res) => {
           if (res.message) throw new Error(res.message);
           else if (res.errors) {

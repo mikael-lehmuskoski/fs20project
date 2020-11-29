@@ -5,13 +5,13 @@ import { connect } from "react-redux";
 import Theme from "./themes";
 import actionCreators from "../../reducers";
 
-// TODO: separate Accordion.content into own components, save settings
+// TODO: rest of the stuff
 const Settings = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [localSettings, setLocalSettings] = useState(null);
 
   useEffect(() => {
-    setLocalSettings(props.user ? props.user.user.settings : null);
+    setLocalSettings(props.user ? props.user.settings : null);
   }, [props.user]); // eslint-disable-line
 
   if (!localSettings) return <div className="Main"><Container style={{ marginTop: "10px" }}>You need to log in to edit settings.</Container></div>; // eslint-disable-line
@@ -37,8 +37,19 @@ const Settings = (props) => {
     }
   };
 
-  const handleSave = () => {
-    props.SAVE_SETTINGS({ settings: localSettings });
+  const handleSave = async () => {
+    try {
+      if (!props.token && !props.token.value) throw new Error("No token!");
+      const result = await props.SAVE_SETTINGS(
+        { settings: localSettings },
+        props.token.value
+      );
+      if (!result || !result.updateSettings || result.message)
+        throw new Error(result.message || "Compurnal error");
+      else props.POST_NOTIFICATION("Settings saved", 3, false);
+    } catch (err) {
+      props.POST_NOTIFICATION(err.message, 3, true);
+    }
   };
 
   return (
@@ -54,7 +65,10 @@ const Settings = (props) => {
             Interface
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 0}>
-            <Theme handleChange={handleChange} />
+            <Theme
+              handleChange={handleChange}
+              init={localSettings.interface.theme}
+            />
           </Accordion.Content>
           <Accordion.Title
             active={activeIndex === 1}
@@ -64,6 +78,9 @@ const Settings = (props) => {
             <Icon name="dropdown" />
             User
           </Accordion.Title>
+          <Accordion.Content active={activeIndex === 1}>
+            user stuff
+          </Accordion.Content>
           <Accordion.Title
             active={activeIndex === 2}
             index={2}
@@ -72,6 +89,9 @@ const Settings = (props) => {
             <Icon name="dropdown" />
             RSS Reader
           </Accordion.Title>
+          <Accordion.Content active={activeIndex === 2}>
+            rss stuff
+          </Accordion.Content>
           <Accordion.Title
             active={activeIndex === 3}
             index={3}
@@ -80,6 +100,9 @@ const Settings = (props) => {
             <Icon name="dropdown" />
             Clock
           </Accordion.Title>
+          <Accordion.Content active={activeIndex === 3}>
+            clock stuff
+          </Accordion.Content>
         </Accordion>
         <Button
           content="Save settings"
@@ -92,7 +115,10 @@ const Settings = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { user: state.user };
+  return {
+    user: state.user ? state.user.user : null,
+    token: state.user ? state.user.token : null,
+  };
 };
 
 const mapDispatchToProps = {

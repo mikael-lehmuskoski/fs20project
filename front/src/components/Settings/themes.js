@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dropdown } from "semantic-ui-react";
 
 const themes = [
@@ -7,7 +7,18 @@ const themes = [
   { text: "Some colors", key: "some-colors", value: "some-colors" },
 ];
 
-const Theme = ({ handleChange }) => {
+const Theme = ({ handleChange, init }) => {
+  const [current, setCurrent] = useState(init);
+
+  const sendToSettings = (data) => {
+    setCurrent(data);
+    handleChange({
+      subset: "interface",
+      key: "theme",
+      value: data,
+    });
+  };
+
   return (
     <div>
       {`Theme: `}
@@ -15,13 +26,8 @@ const Theme = ({ handleChange }) => {
         placeholder="Theme"
         selection
         options={themes}
-        onChange={(_, data) => {
-          handleChange({
-            subset: "interface",
-            key: "theme",
-            value: data.value,
-          });
-        }} // eslint-disable-line
+        value={current}
+        onChange={(_, data) => sendToSettings(data.value)}
       />
     </div>
   );

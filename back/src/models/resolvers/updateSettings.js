@@ -3,7 +3,7 @@ const User = require("../user");
 const updateSettings = async (_, args, context) => {
   if (!context || !context.currentUser) throw new Error("Unauthorized");
   if (!args) throw new Error("Invalid properties"); // TODO: validate args
-  const newSettings = JSON.parse(JSON.stringify(args.input)); // strip off the null prototype object
+  const newSettings = JSON.parse(JSON.stringify(args.settings)); // strip off the null prototype object
   try {
     const user = await User.findOneAndUpdate(
       {

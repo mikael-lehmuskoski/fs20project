@@ -1,6 +1,4 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import { Container } from "semantic-ui-react";
 import { connect } from "react-redux";
@@ -11,9 +9,16 @@ import Menu from "./components/menu";
 import Settings from "./components/Settings";
 
 // TODO: Clock, notes, rss reader
-const App = () => {
+const App = (props) => {
+  const [theme, setTheme] = useState("light-mode");
+  const settings = props.user ? props.user.settings : null;
+
+  useEffect(() => {
+    if (settings) setTheme(settings.interface.theme);
+  }, [props.user]); // eslint-disable-line
+
   return (
-    <div className="canvas dark-mode">
+    <div className={`canvas ${theme}`}>
       <Router>
         <Menu />
         <Switch>
@@ -31,7 +36,7 @@ const App = () => {
 };
 
 const mapStateToProps = (state) => {
-  return { user: state.user };
+  return { user: state.user ? state.user.user : null };
 };
 
 export default connect(mapStateToProps)(App);

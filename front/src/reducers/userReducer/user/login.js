@@ -1,12 +1,13 @@
 import services from "../../../services";
 
+const { login } = services;
+
 const LOGIN = (details) => {
   return async (dispatch) => {
     try {
-      const response = await services
-        .login({
-          variables: { ...details },
-        })
+      const response = await login({
+        variables: { ...details },
+      })
         .then((res) => {
           if (res.message) throw new Error(res.message);
           else if (res.errors) {

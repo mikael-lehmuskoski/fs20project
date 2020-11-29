@@ -3,10 +3,13 @@ import { print } from "graphql";
 import config from "../config";
 import operations from "../operations";
 
+const { LOGIN } = operations.mutations;
+const { BACK_URI } = config;
+
 const login = async ({ variables }) => {
   try {
-    const res = await axios.post(config.BACK_URI, {
-      query: print(operations.mutations.LOGIN),
+    const res = await axios.post(BACK_URI, {
+      query: print(LOGIN),
       variables,
     });
     return res.data;
