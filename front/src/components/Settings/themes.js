@@ -7,15 +7,26 @@ const themes = [
   { text: "Some colors", key: "some-colors", value: "some-colors" },
 ];
 
+/**
+ * Renders UI elements for selecting the theme
+ * @param {Function} handleChange eventhandler for updating the parent's state
+ * @param {String} init initial value of the UI element
+ */
 const Theme = ({ handleChange, init }) => {
   const [current, setCurrent] = useState(init);
+  const subset = "interface";
+  const key = "theme";
 
-  const sendToSettings = (data) => {
-    setCurrent(data);
+  /**
+   * Sends the current value of the state to the eventhandler specified in the props.
+   * @param {String} value value of the UI element
+   */
+  const sendToSettings = (value) => {
+    setCurrent(value);
     handleChange({
-      subset: "interface",
-      key: "theme",
-      value: data,
+      subset,
+      key,
+      value,
     });
   };
 

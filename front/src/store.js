@@ -5,9 +5,11 @@ import thunk from "redux-thunk";
 
 import reducers from "./reducers";
 
+const { userReducer, notificationReducer } = reducers;
+
 const comboReducer = combineReducers({
-  user: reducers.userReducer,
-  notification: reducers.notificationReducer,
+  user: userReducer,
+  notification: notificationReducer,
 });
 
 const persistConfig = {

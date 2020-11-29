@@ -24,7 +24,8 @@
 | 22.11.        | 5       | front: refactored reducers, css/semantic ui |
 | 26.11.        | 6       | front: semantic ui, settings component |
 | 27.11.        | 6       | front: semantic ui, settings, back: resolvers for updating settings  |
-| 28.11.        | 6 (128) | front & back: whole buncha settings stuff |
+| 28.11.        | 6       | front & back: whole buncha settings stuff |
+| 29.11.        | 6 (134) | front & back: settings work (saves to back & updates), themes work |
 |               |         |           |
 |               |         |           |
 |               |         |           |
@@ -33,5 +34,4 @@
 |               |         |           |
 |               |         |           |
 |               |         |           |
-|               |         |           |
-| total hours   | 128
+| total hours   | 134

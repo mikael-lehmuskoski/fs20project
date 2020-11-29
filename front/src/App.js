@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import { Container } from "semantic-ui-react";
 import { connect } from "react-redux";
 
 import Main from "./components/Main";
@@ -14,7 +13,8 @@ const App = (props) => {
   const settings = props.user ? props.user.settings : null;
 
   useEffect(() => {
-    if (settings) setTheme(settings.interface.theme);
+    if (settings && theme !== settings.interface.theme)
+      setTheme(settings.interface.theme);
   }, [props.user]); // eslint-disable-line
 
   return (

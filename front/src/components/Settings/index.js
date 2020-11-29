@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Container, Accordion, Icon, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 
-import Theme from "./themes";
 import actionCreators from "../../reducers";
+
+import Theme from "./themes";
+import User from "./user";
 
 // TODO: rest of the stuff
 const Settings = (props) => {
@@ -37,6 +39,9 @@ const Settings = (props) => {
     }
   };
 
+  /**
+   * Sends state (localSettings) to reducer and posts a notification depending on result
+   */
   const handleSave = async () => {
     try {
       if (!props.token && !props.token.value) throw new Error("No token!");
@@ -46,9 +51,9 @@ const Settings = (props) => {
       );
       if (!result || !result.updateSettings || result.message)
         throw new Error(result.message || "Compurnal error");
-      else props.POST_NOTIFICATION("Settings saved", 3, false);
+      else props.POST_NOTIFICATION("Settings saved", 3, false); // success
     } catch (err) {
-      props.POST_NOTIFICATION(err.message, 3, true);
+      props.POST_NOTIFICATION(err.message, 3, true); // error
     }
   };
 
@@ -79,7 +84,10 @@ const Settings = (props) => {
             User
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 1}>
-            user stuff
+            <User
+              handleChange={handleChange}
+              init={localSettings.user.session}
+            />
           </Accordion.Content>
           <Accordion.Title
             active={activeIndex === 2}
