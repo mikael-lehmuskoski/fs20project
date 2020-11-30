@@ -26,7 +26,7 @@
 | 27.11.        | 6       | front: semantic ui, settings, back: resolvers for updating settings  |
 | 28.11.        | 6       | front & back: whole buncha settings stuff |
 | 29.11.        | 6       | front & back: settings work (saves to back & updates), themes work |
-| 30.11.        | 3 (139) | front: settings component complete |
+| 30.11.        | 5 (139) | front: settings (complete), added analog clock |
 |               |         |           |
 |               |         |           |
 |               |         |           |
