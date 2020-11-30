@@ -6,17 +6,18 @@ import { Checkbox } from "semantic-ui-react";
  * @param {Function} handleChange eventhandler for updating the parent's state
  * @param {String} init initial value of the UI element
  */
-const User = ({ handleChange, init }) => {
-  const [current, setCurrent] = useState(init === "persist");
-  const subset = "user";
-  const key = "session";
+const Format = ({ handleChange, init }) => {
+  const [current, setCurrent] = useState(init === "24h");
+  const subset = "clock";
+  const key = "format";
 
   /**
-   * Sends an updated value ("persist" or "logout") based on the state to the eventhandler specified in the props.
+   * Sends the current value of the state to the eventhandler specified in the props.
+   * @param {String} value value of the UI element
    */
   const sendToSettings = () => {
     setCurrent((prev) => !prev);
-    const value = !current ? "persist" : "logout";
+    const value = !current ? "24h" : "12h";
     handleChange({
       subset,
       key,
@@ -25,11 +26,10 @@ const User = ({ handleChange, init }) => {
   };
 
   return (
-    <div>
-      {`Stay logged in: `}
+    <div style={{ marginTop: "10px" }}>
+      {`24h clock: `}
       <Checkbox
         toggle
-        label="Stay logged in: "
         defaultChecked={current}
         onChange={() => sendToSettings()}
       />
@@ -37,4 +37,4 @@ const User = ({ handleChange, init }) => {
   );
 };
 
-export default User;
+export default Format;

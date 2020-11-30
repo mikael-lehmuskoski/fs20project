@@ -23,7 +23,14 @@
 }
 
 .ui.accordion .title:not(.ui) {
+  margin-top: 10px;
   color: grey;
+}
+
+.active.content {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
 }
 
 #linkButton {

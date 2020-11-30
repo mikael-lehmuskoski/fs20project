@@ -6,8 +6,11 @@ import actionCreators from "../../reducers";
 
 import Theme from "./themes";
 import User from "./user";
+import Rss from "./rss";
+import Timezone from "./timezone";
+import Format from "./format";
+import Notes from "./notes";
 
-// TODO: rest of the stuff
 const Settings = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [localSettings, setLocalSettings] = useState(null);
@@ -98,7 +101,7 @@ const Settings = (props) => {
             RSS Reader
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 2}>
-            rss stuff
+            <Rss handleChange={handleChange} init={localSettings.rss.src} />
           </Accordion.Content>
           <Accordion.Title
             active={activeIndex === 3}
@@ -109,7 +112,28 @@ const Settings = (props) => {
             Clock
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 3}>
-            clock stuff
+            <Timezone
+              handleChange={handleChange}
+              init={localSettings.clock.timezone}
+            />
+            <Format
+              handleChange={handleChange}
+              init={localSettings.clock.format}
+            />
+          </Accordion.Content>
+          <Accordion.Title
+            active={activeIndex === 4}
+            index={4}
+            onClick={() => setActiveIndex(4)}
+          >
+            <Icon name="dropdown" />
+            Notes
+          </Accordion.Title>
+          <Accordion.Content active={activeIndex === 4}>
+            <Notes
+              handleChange={handleChange}
+              init={localSettings.notes.autodelete}
+            />
           </Accordion.Content>
         </Accordion>
         <Button
