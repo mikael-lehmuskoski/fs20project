@@ -6,6 +6,19 @@ import { Menu } from "semantic-ui-react";
 import { connect } from "react-redux";
 import actionCreators from "../reducers";
 
+/**
+ * Displays notification element, handles the notification's timeout with the notification reducer
+ *
+ * @param {Object} props mapStateToProps
+ * @param {String} props.message Notification message
+ * @param {int} props.id notification id
+ * @param {int} props.timeout notification length in seconds
+ * @param {Boolean} props.error true for error notification
+ * @param {int} props.timeoutID previous notification's timeoutID
+ *
+ * @param {Function} props.CLEAR_NOTIFICATION action creator for clearing the notification
+ * @param {Function} props.SET_TIMEOUTID action creator for setting the current notification's timeoutID
+ */
 const Notification = (props) => {
   useEffect(() => {
     if (props.timeoutID) {
@@ -23,7 +36,7 @@ const Notification = (props) => {
   }, [props.id]); // eslint-disable-line
 
   if (props.message) {
-    return <Menu.Item active name={props.message} color={props.error ? 'red' : 'green'} />;// eslint-disable-line
+    return <Menu.Item active name={props.message} color={props.error ? 'red' : 'green'} />; // eslint-disable-line
   }
   return null;
 };

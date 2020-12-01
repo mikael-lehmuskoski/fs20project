@@ -5,10 +5,11 @@ import Clock from "./Clock";
 import Notes from "./Notes";
 import RSS from "./RSS";
 
+// TODO: notes, rss
 const Main = () => {
   return (
-    <Container className="Main">
-      <Container>
+    <Container className="Mid">
+      <Container className="Main" id="Main">
         <Clock />
         <Notes />
         <RSS />

@@ -7,10 +7,11 @@ import Footer from "./components/footer";
 import Menu from "./components/menu";
 import Settings from "./components/Settings";
 
-// TODO: Clock, notes, rss reader
 const App = (props) => {
-  const [theme, setTheme] = useState("light-mode");
   const settings = props.user ? props.user.settings : null;
+  const [theme, setTheme] = useState(
+    settings ? settings.interface.theme : false || "light-mode"
+  ); // check settings, default to light-mode
 
   useEffect(() => {
     if (settings && theme !== settings.interface.theme)

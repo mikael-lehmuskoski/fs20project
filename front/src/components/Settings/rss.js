@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Input } from "semantic-ui-react";
 
+// TODO: validate input url
+
 /**
  * Renders UI elements for selecting the theme
  * @param {Function} handleChange eventhandler for updating the parent's state

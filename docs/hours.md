@@ -26,12 +26,12 @@
 | 27.11.        | 6       | front: semantic ui, settings, back: resolvers for updating settings  |
 | 28.11.        | 6       | front & back: whole buncha settings stuff |
 | 29.11.        | 6       | front & back: settings work (saves to back & updates), themes work |
-| 30.11.        | 5 (139) | front: settings (complete), added analog clock |
+| 30.11.        | 5       | front: settings (complete), added analog clock |
+| 1.12.         | 3 (142) | front: css stuff, JSDOC comments, rss service |
 |               |         |           |
 |               |         |           |
 |               |         |           |
 |               |         |           |
 |               |         |           |
 |               |         |           |
-|               |         |           |
-| total hours   | 139
+| total hours   | 142

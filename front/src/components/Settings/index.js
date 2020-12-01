@@ -61,7 +61,7 @@ const Settings = (props) => {
   };
 
   return (
-    <Container className="Main">
+    <Container className="Mid">
       <Container>
         <Accordion>
           <Accordion.Title

@@ -1,43 +1,46 @@
+/* root stuff */
 .canvas {
   position: fixed;
   display: block;
   min-width: 100vw;
   min-height: 100vh;
 }
-
 .header {
   display: block;
   min-width: 100vw;
   top: 0; left: 0;
 }
-
-.Main {
-  min-width: 100vw;
-  height: 88vh;
+.input {
+  margin: 5px;
+}
+.Mid {
+    min-width: 100vw;
+    height: 88vh;
 }
 
+/* Settings */
 .Settings {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
 }
-
 .ui.accordion .title:not(.ui) {
   margin-top: 10px;
   color: grey;
 }
 
+/* menu elements */
 .active.content {
   margin-top: 10px;
   display: flex;
   align-items: center;
 }
-
 #linkButton {
   color: #a6a6a6;
   border-bottom-color: grey;
 }
 
+/* login/signup modal */
 #card {
   display: flex;
   justify-content: center;
@@ -51,7 +54,11 @@
   align-items: center;
   flex-direction: column;
 }
+.ui.dimmer{
+  background: transparent;
+}
 
+/* themes */
 .dark-mode {
   background-color: #262626;
   color: #f2f2f2;
@@ -65,10 +72,26 @@
   color: #262626;
 }
 
-.input {
-  margin: 5px;
+/* Main view and its modules */
+.Main, #Main {
+  display: flex;
+
+  /*
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(35vw, 1fr)); 
+  */
+}
+.Clock {
+  width: 100%;
+  height: 100%;
+}
+.Notes {
+  width: 100%;
+  height: 100%;
+}
+.RSS {
+  width: 100%;
+  height: 100%;
 }
 
-.ui.dimmer{
-  background: transparent;
-}

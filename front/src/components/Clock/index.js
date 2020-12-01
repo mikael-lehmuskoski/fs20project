@@ -3,7 +3,7 @@ import Ticker from "./Ticker";
 
 const Clock = () => {
   return (
-    <div className="Clock">
+    <div className="Clock" id="Clock">
       <Ticker />
     </div>
   );

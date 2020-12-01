@@ -22,9 +22,6 @@ const Ticker = () => {
   return (
     <div className="Ticker">
       <Analog time={{ hours, minutes, seconds }} />
-      {`${hours.toString().length === 1 ? 0 + hours.toString() : hours}:${
-        minutes.toString().length === 1 ? 0 + minutes.toString() : minutes
-      }:${seconds.toString().length === 1 ? 0 + seconds.toString() : seconds}`}
     </div>
   );
 };
