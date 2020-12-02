@@ -39,14 +39,16 @@ const MenuBar = (props) => {
           />
           <Menu.Menu position="right" id="right">
             <Notification />
-            <Menu.Item
-              name="Settings"
-              id="linkButton"
-              active={activeItem === "settings"}
-              onClick={() => setActive("settings")}
-              as={Link}
-              to="/settings"
-            />
+            {user ? (
+              <Menu.Item
+                name="Settings"
+                id="linkButton"
+                active={activeItem === "settings"}
+                onClick={() => setActive("settings")}
+                as={Link}
+                to="/settings"
+              />
+            ) : null}
             { /* eslint-disable prettier/prettier */ // eslint-disable-line
               user ? (
                 <Popup

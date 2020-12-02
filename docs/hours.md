@@ -28,7 +28,7 @@
 | 29.11.        | 6       | front & back: settings work (saves to back & updates), themes work |
 | 30.11.        | 5       | front: settings (complete), added analog clock |
 | 1.12.         | 3 (142) | front: css stuff, JSDOC comments, rss service |
-|               |         |           |
+| 2.12.         | 3       | front: rss reader |
 |               |         |           |
 |               |         |           |
 |               |         |           |

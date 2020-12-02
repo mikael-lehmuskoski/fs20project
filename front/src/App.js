@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Main from "./components/Main";
-import Footer from "./components/footer";
 import Menu from "./components/menu";
 import Settings from "./components/Settings";
 
@@ -23,14 +22,15 @@ const App = (props) => {
       <Router>
         <Menu />
         <Switch>
-          <Route path="/settings">
-            <Settings />
-          </Route>
+          {props.user ? (
+            <Route path="/settings">
+              <Settings />
+            </Route>
+          ) : null}
           <Route path="/">
             <Main />
           </Route>
         </Switch>
-        <Footer />
       </Router>
     </div>
   );
