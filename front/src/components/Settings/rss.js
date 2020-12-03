@@ -1,7 +1,25 @@
 import React, { useState } from "react";
-import { Input } from "semantic-ui-react";
+import { Dropdown } from "semantic-ui-react";
 
 // TODO: validate input url
+
+const sources = [
+  {
+    text: "New York Times",
+    key: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+    value: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+  },
+  {
+    text: "New York Times",
+    key: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+    value: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+  },
+  {
+    text: "New York Times",
+    key: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+    value: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
+  },
+];
 
 /**
  * Renders UI elements for selecting the theme
@@ -29,11 +47,14 @@ const Rss = ({ handleChange, init }) => {
   return (
     <div>
       {`Source URL: `}
-      <Input
-        placeholder="eg. https://yle.fi/uutiset/rss"
+      <Dropdown
+        placeholder="Select RSS source"
+        selection
+        search
+        options={sources}
+        labeled
         value={current}
         onChange={(_, data) => sendToSettings(data.value)}
-        fluid
       />
     </div>
   );
