@@ -29,9 +29,9 @@
 | 30.11.        | 5       | front: settings (complete), added analog clock |
 | 1.12.         | 3       | front: css stuff, JSDOC comments, rss service |
 | 2.12.         | 3       | front: rss reader |
-| 3.12.         | 3 (148) | front: rss, css |
+| 3.12.         | 3       | front: rss, css |
+| 4.12.         | 3 (151) | front: rss (complete!), css, settings |
+|               |         | front: notes |
 |               |         |           |
 |               |         |           |
-|               |         |           |
-|               |         |           |
-| total hours   | 148
+| total hours   | 151

@@ -1,53 +1,47 @@
 import React, { useEffect, useState } from "react";
-import ReactList from "react-list";
 import { connect } from "react-redux";
 
 import fetchFeed from "./fetchFeed";
+import sources from "./sources";
 
-// TODO: list only valid urls in settings, list items with ReactList or sumn, connect RSS to reducer, pass url to fetchFeed
+const renderItem = (item) => {
+  return (
+    <a key={item.title} href={item.link} className="rssListItem">
+      {item.title}
+    </a>
+  );
+};
+
+const renderList = (items) => {
+  return (
+    <div className="rssList" id="rssList">
+      {items.map((item) => renderItem(item))}
+    </div>
+  );
+};
+
 const RSS = (props) => {
   const settings = props.user ? props.user.settings : null;
   const [items, setItems] = useState(null);
   const url = settings ? settings.rss.src : null;
 
-  const renderItem = (index, key) => {
-    return (
-      <input
-        key={key}
-        type="button"
-        className="rssListItem"
-        value={items[index].title}
-        onClick={() => window.open(items[index].link, "_blank")}
-      />
-    );
-  };
-
-  const renderList = () => {
-    return (
-      <ReactList
-        className="rssList"
-        id="rssList"
-        itemRenderer={renderItem}
-        length={items.length}
-        type="uniform"
-        style={{ overflow: "auto" }}
-      />
-    );
-  };
-
   useEffect(() => {
     fetchFeed(
-      url || "https://rss.nytimes.com/services/xml/rss/nyt/World.xml"
+      url || "https://feeds.yle.fi/uutiset/v1/majorHeadlines/YLE_UUTISET.rss"
     ).then((result) => {
       setItems(result);
     });
   }, [props.user]); // eslint-disable-line
 
   if (items && items.error) return <div className="RSS" id="RSS"> {items.error} </div> // eslint-disable-line
-  if (!items) return <div className="RSS" id="RSS">loading...</div>; // eslint-disable-line
   return (
     <div className="RSS" id="RSS">
-      {items && items.loaded ? renderList() : "Loading feed..."}
+      <h2 className="rssHeader">
+        {
+          sources.map((s) => (s.value === url ? s : null)).find((s) => s).text || "Yle Pääuutiset" // eslint-disable-line
+        }
+      </h2>
+      {items && items.loaded ? renderList(items) : "Loading feed..."}
     </div>
   );
 };

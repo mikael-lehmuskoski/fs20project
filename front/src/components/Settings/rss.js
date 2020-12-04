@@ -1,26 +1,9 @@
 import React, { useState } from "react";
 import { Dropdown } from "semantic-ui-react";
 
+import sources from "../RSS/sources";
+
 // TODO: validate input url
-
-const sources = [
-  {
-    text: "New York Times",
-    key: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-    value: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-  },
-  {
-    text: "New York Times",
-    key: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-    value: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-  },
-  {
-    text: "New York Times",
-    key: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-    value: "https://rss.nytimes.com/services/xml/rss/nyt/World.xml",
-  },
-];
-
 /**
  * Renders UI elements for selecting the theme
  * @param {Function} handleChange eventhandler for updating the parent's state
