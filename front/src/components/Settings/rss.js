@@ -5,7 +5,7 @@ import sources from "../RSS/sources";
 
 // TODO: validate input url
 /**
- * Renders UI elements for selecting the theme
+ * Renders UI elements for selecting the RSS feed source
  * @param {Function} handleChange eventhandler for updating the parent's state
  * @param {String} init initial value of the UI element
  */

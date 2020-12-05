@@ -14,7 +14,7 @@ const userReducer = (state = init, action) => {
         ...state,
         user: {
           ...state.user,
-          notes: { ...state.user.notes, [action.data.id]: { ...action.data } },
+          notes: [...state.user.notes, { ...action.data }],
         },
       };
     case "MODIFY_NOTE":

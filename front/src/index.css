@@ -78,22 +78,41 @@
   max-height: inherit;
 }
 /* Clock */
+/* extended in src/components/Clock/analog/analog.css */
 .Clock {
   min-width: 33%;
   min-height: 80vh;
   max-height: 80vh;
-  height: 80%;
   margin-top: 15px;
 }
 /* Notes */
 .Notes {
   min-width: 33%;
+  max-width: 33%;
   min-height: 90vh;
   max-height: 90vh;
   background-color: #404040;
   border: 4px solid #091921;
   border-radius: 5px;
   margin: 10px;
+}
+.PostForm {
+  background-color: #FF9020;
+  width: 100%;
+  min-height: 10%;
+}
+.NoteList {
+  width: 100%;
+  min-height: 90%;
+  max-height: 90%;
+  overflow:hidden; 
+  overflow-y:scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+.Note {
+  margin: 15px;
 }
 /* RSS */
 .RSS {
@@ -110,7 +129,8 @@
   overflow-y:scroll;
 }
 .rssHeader {
-  margin: 10px;
+  width: 100%;
+  background-color: #FF9020;
 }
 .rssList, #rssList {
   display: flex;
@@ -124,12 +144,7 @@
   max-width: inherit;
   color: #a6a6a6;
   cursor: pointer;
-  border: 0;
-  background: none;
-  box-shadow: none;
-  border-radius: 0px;
   margin: 5px;
-  margin-bottom: 5px;
 }
 .rssListItem:hover, #rssListItem:hover {
   color: #6666ff;
@@ -137,8 +152,5 @@
 }
 .rssListItem::selection, #rssListItem::selection {
   color: #6666ff;
-  text-decoration: underline;
-  border: 0;
-  border-width: 0;
-  box-shadow: 0;
+  text-decoration: underline; 
 }

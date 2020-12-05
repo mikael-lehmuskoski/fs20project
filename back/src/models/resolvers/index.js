@@ -1,6 +1,7 @@
 const signup = require("./signup");
 const login = require("./login");
 const updateSettings = require("./updateSettings");
+const saveNote = require("./saveNote");
 
 const resolvers = {
   Query: {
@@ -10,6 +11,7 @@ const resolvers = {
     signup,
     login,
     updateSettings,
+    saveNote,
   },
 };
 

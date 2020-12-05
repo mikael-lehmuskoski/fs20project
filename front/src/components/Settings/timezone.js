@@ -4,7 +4,7 @@ import { Dropdown } from "semantic-ui-react";
 import timezones from "./timezones";
 
 /**
- * Renders UI elements for selecting the theme
+ * Renders UI elements for selecting the timezone
  * @param {Function} handleChange eventhandler for updating the parent's state
  * @param {String} init initial value of the UI element
  */

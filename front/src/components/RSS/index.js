@@ -4,6 +4,12 @@ import { connect } from "react-redux";
 import fetchFeed from "./fetchFeed";
 import sources from "./sources";
 
+/**
+ * Renders a link element
+ * @param {Object} item
+ * @param {String} item.title title for the element
+ * @param {String} item.link href value for the element
+ */
 const renderItem = (item) => {
   return (
     <a key={item.title} href={item.link} className="rssListItem">
@@ -12,6 +18,10 @@ const renderItem = (item) => {
   );
 };
 
+/**
+ * Renders a list of links with renderItem
+ * @param {Array} items an array of items
+ */
 const renderList = (items) => {
   return (
     <div className="rssList" id="rssList">
@@ -21,9 +31,12 @@ const renderList = (items) => {
 };
 
 const RSS = (props) => {
-  const settings = props.user ? props.user.settings : null;
   const [items, setItems] = useState(null);
+  const settings = props.user ? props.user.settings : null;
   const url = settings ? settings.rss.src : null;
+  const header = url
+    ? sources.find((s) => (s.value === url ? s : null)).text
+    : null;
 
   useEffect(() => {
     fetchFeed(
@@ -38,7 +51,7 @@ const RSS = (props) => {
     <div className="RSS" id="RSS">
       <h2 className="rssHeader">
         {
-          sources.map((s) => (s.value === url ? s : null)).find((s) => s).text || "Yle Pääuutiset" // eslint-disable-line
+          header || "Yle Pääuutiset" // eslint-disable-line
         }
       </h2>
       {items && items.loaded ? renderList(items) : "Loading feed..."}

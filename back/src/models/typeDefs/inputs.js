@@ -27,6 +27,12 @@ input SettingsInput {
   rss: RssSettingsInput!
   clock: ClockSettingsInput!
   notes: NoteSettingsInput!
+}
+
+input NoteInput {
+  date: String!
+  content: String!
+  reminder: String
 }`;
 
 module.exports = inputs;

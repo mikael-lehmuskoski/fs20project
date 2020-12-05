@@ -1,5 +1,7 @@
 const Joi = require("joi");
 
+const format = /^\d{4}-([0]\d|1[0-2])-([0-2]\d|3[01])$/;
+
 const signUpSchema = Joi.object({
   username: Joi.string().alphanum().min(3).max(7).required(),
   password: Joi.string().alphanum().min(3).max(20).required(),
@@ -10,4 +12,18 @@ const loginSchema = Joi.object({
   password: Joi.string().alphanum().required(),
 });
 
-module.exports = { signUpSchema, loginSchema };
+const validateDate = (args) => {
+  const dateExists = args.note ? args.note.date : false;
+  const dateValid = dateExists ? args.note.date.match(format) : false;
+  return dateValid;
+};
+
+const validateReminder = (args) => {
+  const reminderExists = args.note ? args.note.reminder : false;
+  const reminderValid = reminderExists
+    ? args.note.reminder.match(format)
+    : true;
+  return reminderValid;
+};
+
+module.exports = { signUpSchema, loginSchema, validateDate, validateReminder };

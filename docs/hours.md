@@ -30,8 +30,13 @@
 | 1.12.         | 3       | front: css stuff, JSDOC comments, rss service |
 | 2.12.         | 3       | front: rss reader |
 | 3.12.         | 3       | front: rss, css |
-| 4.12.         | 3 (151) | front: rss (complete!), css, settings |
-|               |         | front: notes |
+| 4.12.         | 3       | front: rss (complete!), css, settings |
+| 5.12.         | 8 (159) | front: notes (posting notes works from the front), reducer for notes, JSDOC, back: resolvers and stuff for notes |
 |               |         |           |
 |               |         |           |
-| total hours   | 151
+|               |         |           |
+|               |         |           |
+|               |         |           |
+|               |         |           |
+|               |         |           |
+| total hours   | 159

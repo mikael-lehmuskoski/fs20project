@@ -3,8 +3,9 @@ import services from "../../../services";
 const { saveSettings } = services;
 
 /**
- * sends the settings object to state
- * @param {*} settings settings is ALL of the settings every time 100% of the time
+ * sends the settings object to the backend and then to the reducer
+ * @param {Object} settings settings is ALL of the settings every time 100% of the time
+ * @param {String} token user's token for authentication
  */
 const SAVE_SETTINGS = (settings, token) => {
   return async (dispatch) => {

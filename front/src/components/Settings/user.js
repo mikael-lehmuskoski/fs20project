@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Checkbox } from "semantic-ui-react";
 
 /**
- * Renders UI elements for selecting the theme
+ * Renders UI elements for selecting the session persistence setting
  * @param {Function} handleChange eventhandler for updating the parent's state
  * @param {String} init initial value of the UI element
  */

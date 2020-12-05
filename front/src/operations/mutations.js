@@ -48,11 +48,22 @@ const SIGNUP = gql`
         username
         id
         settings {
-          user
-          interface
-          rss
-          clock
-          notes
+          user {
+            session
+          }
+          interface {
+            theme
+          }
+          rss {
+            src
+          }
+          clock {
+            format
+            timezone
+          }
+          notes {
+            autodelete
+          }
         }
         notes {
           id
@@ -88,8 +99,20 @@ const SAVE_SETTINGS = gql`
   }
 `;
 
+const SAVE_NOTE = gql`
+  mutation saveNote($note: NoteInput!) {
+    saveNote(note: $note) {
+      id
+      date
+      content
+      reminder
+    }
+  }
+`;
+
 export default {
   LOGIN,
   SIGNUP,
   SAVE_SETTINGS,
+  SAVE_NOTE,
 };

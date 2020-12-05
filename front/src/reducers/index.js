@@ -4,10 +4,14 @@ import userReducer from "./userReducer";
 import LOGIN from "./userReducer/user/login";
 import SIGNUP from "./userReducer/user/signup";
 import LOGOUT from "./userReducer/user/logout";
-// saving stuff
-import SAVE_SETTINGS from "./userReducer/save/saveSettings";
+// saving settings
+import SAVE_SETTINGS from "./userReducer/settings/saveSettings";
+// note stuff
+import SAVE_NOTE from "./userReducer/note/saveNote";
+import MODIFY_NOTE from "./userReducer/note/modifyNote";
+import REMOVE_NOTE from "./userReducer/note/removeNote";
 
-// notifications reducement
+// notifications reducer
 import notificationReducer from "./notificationReducer";
 import POST_NOTIFICATION from "./notificationReducer/postNotification";
 import CLEAR_NOTIFICATION from "./notificationReducer/clearNotification";
@@ -19,6 +23,9 @@ export default {
   SIGNUP,
   LOGOUT,
   SAVE_SETTINGS,
+  SAVE_NOTE,
+  MODIFY_NOTE,
+  REMOVE_NOTE,
   notificationReducer,
   POST_NOTIFICATION,
   CLEAR_NOTIFICATION,

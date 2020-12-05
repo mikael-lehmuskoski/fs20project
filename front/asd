@@ -1,0 +1,52 @@
+mutation signup($username: String!, $password: String!) {
+        signup(username: $username, password: $password) {
+      token {
+            value
+      }
+          user {
+            username
+            id
+            settings {
+              user {session}
+              interface {theme}
+              rss {src}
+              clock {
+                format
+                timezone
+              }
+              notes {autodelete}
+            }
+            notes {
+              id
+              content
+              date
+             reminder
+            }
+         }
+        }
+}
+
+mutation login{
+  login(
+    username: "asd", 
+    password: "asd"
+  ){
+    token {
+      value
+    }
+  }
+}
+
+mutation saveNote{
+  saveNote(
+    note: {
+      date:"2020-12-05", 
+      content:"jibbijibbiyuuu",
+    }
+  ){
+    id, 
+    date, 
+    content,
+    reminder
+  }
+}

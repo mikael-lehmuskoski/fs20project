@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -12,11 +13,24 @@ const signup = async (_, args) => {
   if (validUser) {
     const saltRounds = 10;
     const passwordHash = await bcrypt.hash(validUser.password, saltRounds);
-
     const user = new User({
       username: validUser.username,
       passwordHash,
-      notes: [],
+      notes: [
+        {
+          id: new mongoose.mongo.ObjectId(),
+          date: new Date().toISOString().substring(0, 10),
+          content:
+            "Save your notes here and they'll be with you in any browser",
+          reminder: "",
+        },
+        {
+          id: new mongoose.mongo.ObjectId(),
+          date: new Date().toISOString().substring(0, 10),
+          content: "Easy, huh?",
+          reminder: "",
+        },
+      ],
       settings: {
         user: {
           session: "expire",
