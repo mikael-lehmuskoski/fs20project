@@ -110,9 +110,16 @@ const SAVE_NOTE = gql`
   }
 `;
 
+const REMOVE_NOTE = gql`
+  mutation removeNote($note: modNoteInput!) {
+    removeNote(note: $note)
+  }
+`;
+
 export default {
   LOGIN,
   SIGNUP,
   SAVE_SETTINGS,
   SAVE_NOTE,
+  REMOVE_NOTE,
 };

@@ -9,7 +9,6 @@ const userReducer = (state = init, action) => {
     case "SIGNUP":
       return action.data;
     case "SAVE_NOTE":
-      // TODO: send note to backend and add to state.user.notes
       return {
         ...state,
         user: {
@@ -18,22 +17,25 @@ const userReducer = (state = init, action) => {
         },
       };
     case "MODIFY_NOTE":
-      // TODO: send modified note to back and change state.user.notes.id.data
+      const updatedNotes = state.user.notes.map((n) =>
+        n.id === action.data.id ? action.data : n
+      );
       return {
         ...state,
         user: {
           ...state.user,
-          notes: { ...state.user.notes, [action.data.id]: { ...action.data } },
+          notes: [...updatedNotes],
         },
       };
-    case "DELETE_NOTE":
-      // TODO: remove note from backend AND STATE (id too)
-      // use: delete notes[action.data.id]
+    case "REMOVE_NOTE":
+      const filteredNotes = state.user.notes.filter(
+        (n) => n.id !== action.data
+      );
       return {
         ...state,
         user: {
           ...state.user,
-          notes: { ...state.user.notes, [action.data.id]: null },
+          notes: [...filteredNotes],
         },
       };
     case "SAVE_SETTINGS":

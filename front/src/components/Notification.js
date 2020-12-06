@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import actionCreators from "../reducers";
 
 /**
- * Displays notification element, handles the notification's timeout with the notification reducer
+ * Renders a simple notification element, handles the notification's timeout
  *
  * @param {Object} props mapStateToProps
  * @param {String} props.message Notification message

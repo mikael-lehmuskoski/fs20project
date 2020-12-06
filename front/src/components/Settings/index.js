@@ -11,6 +11,14 @@ import Timezone from "./timezone";
 import Format from "./format";
 import Notes from "./notes";
 
+/**
+ * Renders the main Settings view
+ * @param {*} props
+ * @param {Object} props.user contains user's details
+ * @param {Object} props.token contains field value
+ * @param {Function} props.SAVE_SETTINGS action creator for saving the settings
+ * @param {Function} props.POST_NOTIFICATION action creator for letting the user know the settings are saved or something
+ */
 const Settings = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [localSettings, setLocalSettings] = useState(null);
@@ -22,7 +30,7 @@ const Settings = (props) => {
   if (!localSettings) return <div className="Main"><Container style={{ marginTop: "10px" }}>You need to log in to edit settings.</Container></div>; // eslint-disable-line
 
   /**
-   * Updates state when a change happens
+   * Event handler for updating the localSettings state.
    *
    * @param {String} subset the subset of settings about to be changed
    * @param {String} key the key under subset of settings about to be changed

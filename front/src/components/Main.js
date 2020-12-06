@@ -5,7 +5,9 @@ import Clock from "./Clock";
 import Notes from "./Notes";
 import RSS from "./RSS";
 
-// TODO: notes, rss
+/**
+ * Renders the main view.
+ */
 const Main = () => {
   return (
     <Container className="Mid">

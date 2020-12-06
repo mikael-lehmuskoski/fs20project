@@ -30,6 +30,11 @@ const renderList = (items) => {
   );
 };
 
+/**
+ * Renders the RSS applet
+ * @param {*} props
+ * @param {Object} props.user the main user object. mainly to get the nested settings object.
+ */
 const RSS = (props) => {
   const [items, setItems] = useState(null);
   const settings = props.user ? props.user.settings : null;

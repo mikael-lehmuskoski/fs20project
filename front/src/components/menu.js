@@ -6,11 +6,23 @@ import actionCreators from "../reducers";
 import LoginSignup from "./LoginSignup";
 import Notification from "./Notification";
 
+/**
+ * Renders the top bar with links to the main view, the settings and buttons for logging in and out
+ * @param {*} props
+ * @param {Object} props.user the user's details
+ * @param {Function} props.LOGOUT action creator for logging out
+ * @param {Function} props.POST_NOTIFICATION action creator for showing notifications
+ */
 const MenuBar = (props) => {
   const [activeItem, setActive] = useState("bulletin");
   const [open, setOpen] = useState(false);
   const user = props.user ? props.user.user : null;
 
+  /**
+   * Callback function for closing the modal and posting an appropriate notification
+   * @param {boolean} success
+   * @param {String} message
+   */
   const handleResponse = (success, message) => {
     if (success) {
       setOpen(false);
@@ -20,6 +32,9 @@ const MenuBar = (props) => {
     }
   };
 
+  /**
+   * Event handler for logging out and letting the user know they've logged out
+   */
   const handleLogout = () => {
     props.LOGOUT();
     props.POST_NOTIFICATION("Logged out!", 3, false);

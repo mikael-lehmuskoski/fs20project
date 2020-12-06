@@ -33,6 +33,13 @@ input NoteInput {
   date: String!
   content: String!
   reminder: String
+}
+
+input modNoteInput {
+  id: String!
+  date: String
+  content: String
+  reminder: String
 }`;
 
 module.exports = inputs;

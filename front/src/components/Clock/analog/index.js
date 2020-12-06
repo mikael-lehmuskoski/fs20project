@@ -2,6 +2,13 @@ import React from "react";
 
 import "./analog.css";
 
+/**
+ * Renders an analog clock
+ * @param {Object} time
+ * @param {number} time.hours
+ * @param {number} time.minutes
+ * @param {number} time.seconds
+ */
 const Analog = ({ time }) => {
   const { hours, minutes, seconds } = time;
 

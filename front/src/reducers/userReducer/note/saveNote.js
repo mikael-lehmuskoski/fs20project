@@ -1,16 +1,17 @@
 import services from "../../../services";
+import operations from "../../../operations";
 
-const { saveNote } = services;
+const { mutations } = operations;
 
 /**
  * sends the note to backend and then to the reducer
- * @param {String} note a string to be sent to the backend
+ * @param {Object} note a string to be sent to the backend
  * @param {String} token user's token for authentication
  */
 const SAVE_NOTE = (note, token) => {
   return async (dispatch) => {
     try {
-      const response = await saveNote({ note }, token)
+      const response = await services(mutations.SAVE_NOTE, { note }, token)
         .then((res) => {
           if (res.message) throw new Error(res.message);
           try {

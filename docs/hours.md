@@ -14,29 +14,27 @@
 | 12.11.        | 5       | front: login, update react-scripts & eslint |
 | 13.11.        | 5       | front: debug apollo |
 | 14.11.        | 9       | front: switch from apollo-client to axios, refactored things and stuff |
-| 15.11.        | 6       | front & back: login, account creation; Login and account creation work from front |
-| 16.11.        | 6       | front: logout works, refactored stuff |
+| 15.11.        | 6       | front & back: Login & signup (complete) |
+| 16.11.        | 6       | front: logout (complete), refactored stuff |
 | 17.11.        | 5       | front: rudimentary clock, semantic ui |
 | 18.11.        | 5       | front: clock, semantic ui |
 | 19.11.        | 6       | front: refactored reducers, added notifications, redux-persist (session is now persistent), semantic ui, clock |
-| 20.11.        | 5       | front: notifications now work |
-| 21.11.        | 8       | front: refactored login/signup, notifications now show errors also |
+| 20.11.        | 5       | front: notifications |
+| 21.11.        | 8       | front: refactored login/signup, notifications (complete) |
 | 22.11.        | 5       | front: refactored reducers, css/semantic ui |
 | 26.11.        | 6       | front: semantic ui, settings component |
 | 27.11.        | 6       | front: semantic ui, settings, back: resolvers for updating settings  |
 | 28.11.        | 6       | front & back: whole buncha settings stuff |
-| 29.11.        | 6       | front & back: settings work (saves to back & updates), themes work |
+| 29.11.        | 6       | front & back: settings, themes (complete) |
 | 30.11.        | 5       | front: settings (complete), added analog clock |
 | 1.12.         | 3       | front: css stuff, JSDOC comments, rss service |
 | 2.12.         | 3       | front: rss reader |
 | 3.12.         | 3       | front: rss, css |
-| 4.12.         | 3       | front: rss (complete!), css, settings |
-| 5.12.         | 8 (159) | front: notes (posting notes works from the front), reducer for notes, JSDOC, back: resolvers and stuff for notes |
-|               |         |           |
-|               |         |           |
-|               |         |           |
-|               |         |           |
-|               |         |           |
-|               |         |           |
-|               |         |           |
-| total hours   | 159
+| 4.12.         | 3       | front: rss (complete), css, settings |
+| 5.12.         | 8       | front: notes, JSDOC, back: resolvers and stuff |
+| 6.12.         | 4 (163) | front & back: notes (complete), refactored services, css, JSDOC |
+
+| 7.12.         | 4?      | weather? JSDOC from reducers -> |
+| 8.12.         | 4?      | mobile interface? |
+| 9.12.         | 4?      | moar (clock) styles? |
+| total hours   | 163

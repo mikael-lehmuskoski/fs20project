@@ -1,6 +1,7 @@
 import services from "../../../services";
+import operations from "../../../operations";
 
-const { saveSettings } = services;
+const { mutations } = operations;
 
 /**
  * sends the settings object to the backend and then to the reducer
@@ -10,7 +11,11 @@ const { saveSettings } = services;
 const SAVE_SETTINGS = (settings, token) => {
   return async (dispatch) => {
     try {
-      const response = await saveSettings({ ...settings }, token)
+      const response = await services(
+        mutations.SAVE_SETTINGS,
+        { ...settings },
+        token
+      )
         .then((res) => {
           if (res.message) throw new Error(res.message);
           try {

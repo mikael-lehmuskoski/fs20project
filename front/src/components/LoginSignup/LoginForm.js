@@ -2,6 +2,14 @@
 import React from "react";
 import { Input, Button } from "semantic-ui-react";
 
+/**
+ * Renders a whole entire login form. Login button is disabled if there is are no values in the form.
+ * @param {Function} submit event handler function in the parent
+ * @param {String} username the value from the parents username state
+ * @param {Function} setUsername updates the username state in the parent
+ * @param {String} password the value from the parents password state
+ * @param {Function} setPassword updates the password state in the parent
+ */
 const LoginForm = ({
   submit,
   username,

@@ -7,12 +7,22 @@ import actionCreators from "../../reducers";
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 
+/**
+ * Renders content for a Semantic UI modal. Flip flips between login form and sign up form.
+ * @param {*} props
+ * @param {Function} props.SIGNUP Action creator that signs you up
+ * @param {Function} props.LOGIN Action creator that logs you in
+ * @param {Function} props.handleResponse Callback function for closing the modal and showing a notification
+ */
 const LoginSignup = (props) => {
   const [flip, setFlip] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordAgain, setPasswordAgain] = useState("");
 
+  /**
+   * Event handler that checks whether the user is on the signup form or the login form and calls the appropriate action creator. Also sends a thingy for the callback function in the parent element.
+   */
   const submit = async () => {
     let res;
     try {
@@ -77,15 +87,9 @@ const LoginSignup = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user,
-  };
-};
-
 const mapDispatchToProps = {
   LOGIN: actionCreators.LOGIN,
   SIGNUP: actionCreators.SIGNUP,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginSignup);
+export default connect(null, mapDispatchToProps)(LoginSignup);

@@ -103,8 +103,8 @@
 }
 .NoteList {
   width: 100%;
-  min-height: 90%;
-  max-height: 90%;
+  min-height: 86%;
+  max-height: 86%;
   overflow:hidden; 
   overflow-y:scroll;
   display: flex;
@@ -112,7 +112,13 @@
   justify-content: left;
 }
 .Note {
+  display: flex;
+  flex-direction: column;
   margin: 15px;
+  max-width: 100%;
+}
+.noteContent {
+  max-width: 100%;
 }
 /* RSS */
 .RSS {
@@ -125,19 +131,22 @@
   border-radius: 5px;
   margin: 10px;
   text-align: center;
-  overflow:hidden; 
-  overflow-y:scroll;
 }
 .rssHeader {
   width: 100%;
+  min-height: 10%;
   background-color: #FF9020;
 }
 .rssList, #rssList {
   display: flex;
+  min-height: 87%;
+  max-height: 87%;
   flex-direction: column;
   justify-content: left;
   text-align: left;
   max-width: 100%;
+  overflow:hidden; 
+  overflow-y:scroll;
 }
 .rssListItem, #rssListItem {
   display: flex;

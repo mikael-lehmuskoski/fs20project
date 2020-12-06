@@ -1,13 +1,12 @@
 import services from "../../../services";
+import operations from "../../../operations";
 
-const { signup } = services;
+const { mutations } = operations;
 
-const SIGNUP = (details) => {
+const SIGNUP = (variables) => {
   return async (dispatch) => {
     try {
-      const response = await signup({
-        variables: { ...details },
-      })
+      const response = await services(mutations.SIGNUP, variables)
         .then((res) => {
           if (res.message) throw new Error(res.message);
           else if (res.errors) {
@@ -16,7 +15,7 @@ const SIGNUP = (details) => {
             });
           } else {
             try {
-              if (res.data.signup.token.value) return res.data.signup;
+              if (res.data.data.signup.token.value) return res.data.data.signup;
             } catch (_) {
               throw new Error("invalid data received");
             }

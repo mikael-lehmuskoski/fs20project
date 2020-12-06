@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import Analog from "./analog";
 
-// ODOD: styling, lots and lots of styling
+/**
+ * Returns a ticking clockerino
+ */
 const Ticker = () => {
   const [time, setTime] = useState(new Date());
 
