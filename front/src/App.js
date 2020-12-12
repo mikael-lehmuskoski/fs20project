@@ -6,25 +6,27 @@ import Main from "./components/Main";
 import Menu from "./components/menu";
 import Settings from "./components/Settings";
 
+import actionCreators from "./reducers";
+
 const App = (props) => {
-  const settings = props.user ? props.user.settings : null;
-  const [theme, setTheme] = useState(
-    settings ? settings.interface.theme : false || "light-mode"
-  ); // check settings, default to light-mode
+  const [theme, setTheme] = useState(props.user?.settings.interface.theme);
 
   useEffect(() => {
-    if (settings && theme !== settings.interface.theme)
-      setTheme(settings.interface.theme);
+    props.GET_USER(props.token?.value);
+  }, []); // eslint-disable-line
+
+  useEffect(() => {
+    setTheme(props.user?.settings.interface.theme);
   }, [props.user]); // eslint-disable-line
 
   return (
-    <div className={`canvas ${theme}`}>
+    <div className={`canvas ${theme || "light-mode"}`}>
       <Router>
         <Menu />
         <Switch>
           {props.user ? (
             <Route path="/settings">
-              <Settings />
+              <Settings setTheme={setTheme} />
             </Route>
           ) : null}
           <Route path="/">
@@ -37,7 +39,14 @@ const App = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { user: state.user ? state.user.user : null };
+  return {
+    user: state.user ? state.user.user : null,
+    token: state.user ? state.user.token : null,
+  };
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = {
+  GET_USER: actionCreators.GET_USER,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

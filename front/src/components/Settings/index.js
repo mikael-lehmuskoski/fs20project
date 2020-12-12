@@ -13,11 +13,16 @@ import Notes from "./notes";
 
 /**
  * Renders the main Settings view
+ *
  * @param {*} props
+ *
  * @param {Object} props.user contains user's details
  * @param {Object} props.token contains field value
+ *
+ * @param {Function} props.setTheme event handler for updating the app after changes in the settings
  * @param {Function} props.SAVE_SETTINGS action creator for saving the settings
  * @param {Function} props.POST_NOTIFICATION action creator for letting the user know the settings are saved or something
+ *
  */
 const Settings = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -62,7 +67,10 @@ const Settings = (props) => {
       );
       if (!result || !result.updateSettings || result.message)
         throw new Error(result.message || "Compurnal error");
-      else props.POST_NOTIFICATION("Settings saved", 3, false); // success
+      else {
+        props.POST_NOTIFICATION("Settings saved", 3, false); // success
+        props.setTheme(localSettings.interface.theme);
+      }
     } catch (err) {
       props.POST_NOTIFICATION(err.message, 3, true); // error
     }

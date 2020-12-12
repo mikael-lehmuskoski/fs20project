@@ -3,28 +3,31 @@ import { Button } from "semantic-ui-react";
 
 /**
  * Renders a single note complete with its delete button
+ *
  * @param {Object} note a single note object with the fields id, content, date and maybe reminder
  * @param {Function} removeNote event handler for removing a note
+ *
  */
-const renderItem = (note, removeNote) => {
+const renderItem = (item, removeItem) => {
+  if (!item || !item.id || !removeItem) return null;
   return (
-    <div key={note.id} className="Note" id="Note">
+    <div key={item.id} className="Note" id="Note">
       <div className="noteContent">
-        <h3>{note.content}</h3>
+        <h3>{item.content}</h3>
         <p
           style={{
             margin: "10px",
           }}
         >
           {`created on `}
-          {note.date}
+          {item.date}
         </p>
       </div>
       <Button
         size="tiny"
-        value={JSON.stringify(note)}
+        value={JSON.stringify(item)}
         onClick={(e) => {
-          removeNote(e.target.value);
+          removeItem(e.target.value);
         }}
         style={{ marginLeft: "10px" }}
       >
@@ -36,11 +39,13 @@ const renderItem = (note, removeNote) => {
 
 /**
  * Renders a list of items
- * @param {Array} notes an array of notes
- * @param {Function} removeNote event handler
+ *
+ * @param {Array} item an array of items
+ * @param {Function} removeItem event handler for removing the item it's attached to
+ *
  */
-const renderList = (notes, removeNote) =>
-  notes.map((note) => renderItem(note, removeNote));
+const renderList = (items, removeItem) =>
+  items.map((item) => renderItem(item, removeItem));
 
 const NoteList = ({ notes, removeNote }) => {
   if (!notes || !notes[0]) return null;

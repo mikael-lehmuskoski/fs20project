@@ -4,6 +4,15 @@ import config from "../config";
 
 const { BACK_URI } = config;
 
+/**
+ * Connects to an Apollo server via Axios' post()-method.
+ *
+ * @requires BACK_URI uri for the Apollo server
+ *
+ * @param {DocumentNode} operation
+ * @param {object} variables variables for the operation, can be null
+ * @param {String} token user's token for identification, can be null
+ */
 const serviceClient = async (operation, variables, token) => {
   try {
     const res = await axios.post(
@@ -11,7 +20,7 @@ const serviceClient = async (operation, variables, token) => {
       {
         // payload
         query: print(operation),
-        variables,
+        variables: variables || null,
       },
       {
         // config

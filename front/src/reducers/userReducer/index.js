@@ -2,6 +2,14 @@ import init from "../default";
 
 const userReducer = (state = init, action) => {
   switch (action.type) {
+    case "GET_USER":
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          ...action.data,
+        },
+      };
     case "LOGIN":
       return action.data;
     case "LOGOUT":

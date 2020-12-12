@@ -3,7 +3,6 @@ import { Dropdown } from "semantic-ui-react";
 
 import sources from "../RSS/sources";
 
-// TODO: validate input url
 /**
  * Renders UI elements for selecting the RSS feed source
  * @param {Function} handleChange eventhandler for updating the parent's state
@@ -29,9 +28,8 @@ const Rss = ({ handleChange, init }) => {
 
   return (
     <div>
-      {`Source URL: `}
+      {`Source: `}
       <Dropdown
-        placeholder="Select RSS source"
         selection
         search
         options={sources}

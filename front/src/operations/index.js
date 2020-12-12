@@ -1,4 +1,5 @@
 import mutations from "./mutations";
+import queries from "./queries";
 
 /**
  * indexes the various operations used with graphql
@@ -6,4 +7,5 @@ import mutations from "./mutations";
 
 export default {
   mutations,
+  queries,
 };

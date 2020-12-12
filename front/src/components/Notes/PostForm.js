@@ -3,6 +3,7 @@ import { Button, Input } from "semantic-ui-react";
 
 /**
  * Renders a simple form for saving a note. Gets disabled if user has over 10 notes already.
+ *
  * @param {Function} saveNote event handler for saving a note
  * @param {Array} notes array of notes, used to check if the user has too many notes
  */
@@ -26,7 +27,7 @@ const PostForm = ({ saveNote, notes }) => {
       />
       <Button
         style={{ margin: "5px" }}
-        disabled={noteCount}
+        disabled={noteCount || content === null || content === ""}
         onClick={() => handleSave()}
       >
         Save

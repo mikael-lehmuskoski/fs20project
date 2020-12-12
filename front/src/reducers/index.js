@@ -4,6 +4,7 @@ import userReducer from "./userReducer";
 import LOGIN from "./userReducer/user/login";
 import SIGNUP from "./userReducer/user/signup";
 import LOGOUT from "./userReducer/user/logout";
+import GET_USER from "./userReducer/user/getUser";
 // saving settings
 import SAVE_SETTINGS from "./userReducer/settings/saveSettings";
 // note stuff
@@ -22,6 +23,7 @@ export default {
   LOGIN,
   SIGNUP,
   LOGOUT,
+  GET_USER,
   SAVE_SETTINGS,
   SAVE_NOTE,
   MODIFY_NOTE,

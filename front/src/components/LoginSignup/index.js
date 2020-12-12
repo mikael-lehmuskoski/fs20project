@@ -33,7 +33,8 @@ const LoginSignup = (props) => {
       } else {
         res = await props.LOGIN({ username, password });
       }
-      if (res.message) throw new Error(res.message);
+      if (res.message || res[0]?.message)
+        throw new Error(res.message || res[0]?.message);
       setPassword("");
       setUsername("");
       setPasswordAgain("");

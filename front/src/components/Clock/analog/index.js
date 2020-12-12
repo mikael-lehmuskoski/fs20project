@@ -3,11 +3,18 @@ import React from "react";
 import "./analog.css";
 
 /**
- * Renders an analog clock
+ * Renders an analog clock.
+ *
+ * The hands (hour, min & sec) are rotated by their respective formulae.
+ * Minutes and seconds are simply rotated six degrees per unit of time.
+ * The hour hand is slightly more complicated.
+ *
  * @param {Object} time
  * @param {number} time.hours
  * @param {number} time.minutes
  * @param {number} time.seconds
+ *
+ * @returns JSX element
  */
 const Analog = ({ time }) => {
   const { hours, minutes, seconds } = time;
@@ -16,9 +23,16 @@ const Analog = ({ time }) => {
   const m = minutes * 6 - 180; // rotate 180 bc CSS rules are weird
   const s = seconds * 6 - 180; // same as above
 
-  const rotate = (unit) => {
+  /**
+   * Returns a React inline style object to rotate an element by its z-axis.
+   *
+   * @param {number} deg degrees of rotation
+   *
+   * @returns React inline style object
+   */
+  const rotate = (deg) => {
     return {
-      transform: `rotateZ(${unit}deg)`,
+      transform: `rotateZ(${deg}deg)`,
     };
   };
 

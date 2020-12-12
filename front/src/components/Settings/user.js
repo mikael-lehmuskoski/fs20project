@@ -29,7 +29,6 @@ const User = ({ handleChange, init }) => {
       {`Stay logged in: `}
       <Checkbox
         toggle
-        label="Stay logged in: "
         defaultChecked={current}
         onChange={() => sendToSettings()}
       />

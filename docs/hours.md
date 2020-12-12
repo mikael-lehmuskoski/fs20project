@@ -32,9 +32,8 @@
 | 3.12.         | 3       | front: rss, css |
 | 4.12.         | 3       | front: rss (complete), css, settings |
 | 5.12.         | 8       | front: notes, JSDOC, back: resolvers and stuff |
-| 6.12.         | 4 (163) | front & back: notes (complete), refactored services, css, JSDOC |
+| 6.12.         | 4       | front & back: notes (complete), refactored services, css, JSDOC |
+| 12.12.        | 6 (169) | front: sync w/ backend on render, rerender on settings save, refactored clock & notes |
 
-| 7.12.         | 4?      | weather? JSDOC from reducers -> |
-| 8.12.         | 4?      | mobile interface? |
-| 9.12.         | 4?      | moar (clock) styles? |
-| total hours   | 163
+| 13.12.        | 6?      | deployment + docs? |
+| total hours   | 169

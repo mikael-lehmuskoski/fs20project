@@ -1,25 +1,23 @@
 import services from "../../../services";
 import operations from "../../../operations";
 
-const { mutations } = operations;
+const { queries } = operations;
 
-const SIGNUP = (variables) => {
+const GET_USER = (token) => {
   return async (dispatch) => {
     try {
-      const response = await services(mutations.SIGNUP, variables)
+      const response = await services(queries.GET_USER, null, token)
         .then((res) => {
           if (res.message) throw new Error(res.message);
-          if (res.data.errors) {
-            res.data.errors.map((error) => {
-              if (error.message.includes("unique"))
-                throw new Error(`Username is already in use.`);
+          else if (res.errors) {
+            res.errors.map((error) => {
               throw new Error(error.message);
             });
           } else {
             try {
-              if (res.data.data.signup.token.value) return res.data.data.signup;
-            } catch (err) {
-              throw new Error(err || "invalid data received");
+              if (res.data.data.user) return res.data.data.user;
+            } catch (_) {
+              throw new Error("invalid data received");
             }
           }
           return null;
@@ -29,7 +27,7 @@ const SIGNUP = (variables) => {
         });
       if (response) {
         dispatch({
-          type: "SIGNUP",
+          type: "GET_USER",
           data: response,
         });
         return response;
@@ -41,4 +39,4 @@ const SIGNUP = (variables) => {
   };
 };
 
-export default SIGNUP;
+export default GET_USER;

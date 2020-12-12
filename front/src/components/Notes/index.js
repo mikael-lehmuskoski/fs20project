@@ -8,6 +8,7 @@ import NoteList from "./NoteList";
 
 /**
  * Renders the note applet
+ *
  * @param {*} props
  * @param {Object} props.user the main user object
  * @param {Object} props.user.token contains field value that contains the token value
@@ -15,10 +16,11 @@ import NoteList from "./NoteList";
  * @param {Function} props.SAVE_NOTE action creator for creating a note
  * @param {Function} props.REMOVE_NOTE action creator for removing a note
  * @param {Function} props.POST_NOTIFICATION action creator for posting a notification
+ *
  */
 const Notes = (props) => {
-  const token = props.user ? props.user.token.value : null;
-  const user = props.user ? props.user.user : null;
+  const token = props.token ? props.token.value : null;
+  const user = props.user ? props.user : null;
   const notes = user ? user.notes : null;
 
   /**
@@ -56,7 +58,10 @@ const Notes = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { user: state.user ? state.user : null };
+  return {
+    user: state.user ? state.user.user : null,
+    token: state.user ? state.user.token : null,
+  };
 };
 
 const mapDispatchToProps = {

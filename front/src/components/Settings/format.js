@@ -3,6 +3,7 @@ import { Checkbox } from "semantic-ui-react";
 
 /**
  * Renders UI elements for selecting the time format
+ *
  * @param {Function} handleChange eventhandler for updating the parent's state
  * @param {String} init initial value of the UI element
  */
