@@ -10,7 +10,7 @@ Creating an account is easy; Click the login button in the top-right corner of t
 A modal will open up showing a login form.
 Below the login form is a button that reads "Create an account", click that button. 
 
-The modal now shows a form for creating an account. Input a 
+The modal now shows a form for creating an account.
 The username and password must be 3-20 characters in length and only contain alphanumerical characters.
 You will be asked to input the password twice and the passwords must match before you can submit the details.
 
