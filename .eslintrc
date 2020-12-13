@@ -1,5 +1,4 @@
 {
-  "include": "src",
   "env": {
       "browser": true,
       "node": true
@@ -25,5 +24,10 @@
       "no-unused-vars": "warn",
       "react/destructuring-assignment": "off",
       "no-console": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["src/"]
+    }
+  ]
 }

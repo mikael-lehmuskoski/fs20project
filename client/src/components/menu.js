@@ -16,7 +16,7 @@ import Notification from "./Notification";
 const MenuBar = (props) => {
   const [activeItem, setActive] = useState("bulletin");
   const [open, setOpen] = useState(false);
-  const user = props.user ? props.user.user : null;
+  const user = props.user?.token?.value ? props.user.user : null;
 
   /**
    * Callback function for closing the modal and posting an appropriate notification

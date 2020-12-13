@@ -19,8 +19,8 @@ import NoteList from "./NoteList";
  *
  */
 const Notes = (props) => {
-  const token = props.token ? props.token.value : null;
-  const user = props.user ? props.user : null;
+  const token = props.token?.value ? props.token.value : null;
+  const user = token ? props.user : null;
   const notes = user ? user.notes : null;
 
   /**
@@ -48,7 +48,7 @@ const Notes = (props) => {
     else props.POST_NOTIFICATION("Note deleted!", 3, false);
   };
 
-  if (!props.user) return <div className="Notes" id="Notes"><h3  style={{ margin: "30px", textAlign: "center" }} >You must log in to use notes</h3></div>; // eslint-disable-line
+  if (!user) return <div className="Notes" id="Notes"><h3  style={{ margin: "30px", textAlign: "center" }} >You must log in to use notes</h3></div>; // eslint-disable-line
   return (
     <div className="Notes" id="Notes">
       <PostForm saveNote={saveNote} notes={notes} />

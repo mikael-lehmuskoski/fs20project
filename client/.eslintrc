@@ -11,11 +11,15 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "include": "src",
   "rules": {
     "no-case-declarations": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/prop-types": "off",
     "react/destructuring-assignment": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["src/"]
+    }
+  ]
 }

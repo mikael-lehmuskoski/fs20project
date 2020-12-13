@@ -24,7 +24,7 @@ const App = (props) => {
       <Router>
         <Menu />
         <Switch>
-          {props.user ? (
+          {props.user?.token?.value ? (
             <Route path="/settings">
               <Settings setTheme={setTheme} />
             </Route>

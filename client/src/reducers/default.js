@@ -1,16 +1,8 @@
 const init = {
   user: {
-    user: {
-      username: null,
-      id: null,
-      settings: [],
-      notes: [],
-    },
-    token: {
-      value: null,
-    },
+    user: null,
+    token: null,
   },
-  save: null,
   notification: null,
 };
 
