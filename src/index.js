@@ -18,6 +18,10 @@ app.use(cors());
 app.disable("x-powered-by");
 app.use(express.static("build"));
 
+app.get('/*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+});
+
 mongoose.set("useFindAndModify", false);
 
 /**

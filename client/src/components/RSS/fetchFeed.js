@@ -9,8 +9,9 @@ const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
  * @returns {Array} array of news feed items with fields title and link
  */
 const fetchFeed = async (url) => {
-  const target =
-    process.env.NODE_ENV === "production" ? url : `${CORS_PROXY}${url}`;
+  // const target =
+  //   process.env.NODE_ENV === "production" ? url : `${CORS_PROXY}${url}`;
+  const target = `${CORS_PROXY}${url}`;
 
   try {
     return parser.parseURL(target).then((rawFeed) => {

@@ -19,6 +19,8 @@ const App = (props) => {
     setTheme(props.user?.settings?.interface?.theme);
   }, [props.user]); // eslint-disable-line
 
+  console.log(props.user?.token?.value);
+
   return (
     <div className={`canvas ${theme || "light-mode"}`}>
       <Router>
