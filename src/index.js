@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
+const path = require("path");
 
 const typeDefs = require("./models/typeDefs");
 const resolvers = require("./models/resolvers");
