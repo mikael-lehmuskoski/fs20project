@@ -19,14 +19,14 @@ const App = (props) => {
     setTheme(props.user?.settings?.interface?.theme);
   }, [props.user]); // eslint-disable-line
 
-  console.log(props.user?.token?.value);
+  console.log(props.token?.value);
 
   return (
     <div className={`canvas ${theme || "light-mode"}`}>
       <Router>
         <Menu />
         <Switch>
-          {props.user?.token?.value ? (
+          {props.token?.value ? (
             <Route path="/settings">
               <Settings setTheme={setTheme} />
             </Route>
