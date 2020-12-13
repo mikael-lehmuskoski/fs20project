@@ -6,8 +6,8 @@
 
 ### Links:
 &emsp;&emsp;Hours used on this project: [./docs/hours.md](./docs/hours.md)<br />
-&emsp;&emsp;Backend JSdoc: [./docs/jsdocs/backend/index.html](./docs/jsdoc/backend/index.html)<br /> 
-&emsp;&emsp;Frontend JSdoc: [./docs/jsdocs/frontend/index.html](./docs/jsdoc/frontend/index.html)<br />
+&emsp;&emsp;Backend JSdoc: [./docs/jsdocs/backend/index.html](./docs/jsdocs/backend/index.html)<br /> 
+&emsp;&emsp;Frontend JSdoc: [./docs/jsdocs/frontend/index.html](./docs/jsdocs/frontend/index.html)<br />
 &emsp;&emsp;User manual: [./docs/manual.md](./docs/manual.md)<br />
 
 ## Description
