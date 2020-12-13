@@ -9,14 +9,14 @@ import Settings from "./components/Settings";
 import actionCreators from "./reducers";
 
 const App = (props) => {
-  const [theme, setTheme] = useState(props.user?.settings.interface.theme);
+  const [theme, setTheme] = useState(props.user?.settings?.interface?.theme);
 
   useEffect(() => {
     props.GET_USER(props.token?.value);
   }, []); // eslint-disable-line
 
   useEffect(() => {
-    setTheme(props.user?.settings.interface.theme);
+    setTheme(props.user?.settings?.interface?.theme);
   }, [props.user]); // eslint-disable-line
 
   return (
