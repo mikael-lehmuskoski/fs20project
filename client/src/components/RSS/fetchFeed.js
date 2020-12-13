@@ -10,7 +10,9 @@ const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
  */
 const fetchFeed = async (url) => {
   const target =
-    process.env.NODE_ENV === "production" ? url : `${CORS_PROXY}${url}`;
+    process.env.NODE_ENV === "production"
+      ? `${CORS_PROXY}${url}` // TODO: solve cors issue
+      : `${CORS_PROXY}${url}`;
 
   try {
     return parser.parseURL(target).then((rawFeed) => {
