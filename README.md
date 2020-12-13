@@ -60,7 +60,7 @@
 * React
   * The frontend uses the React-framework for rendering UI elements
 * Axios
-  * Axios is used to execute 
+  * Axios is used to execute communications between the client and the server
   * GQL is used to define the desired content 
 * React Redux  
   * Redux is used for internal routing
@@ -74,7 +74,7 @@
 ## Lessons learned: 
 
 * implement continuous testing  
-  * manages regression and keeps you sane(r)
+  * manages regression and keeps the dev sane(r)
 * implement continuous integration 
   * keeps deadlines in order and the Big Picture in mind
 * branching for robust version control
@@ -85,7 +85,7 @@
 
 ## TODO: 
 
-### I will be studying the folloring topics in my coming projects:
+### I will be studying the following topics in my coming projects:
 * TDD-method
 * scrum 
 * CI/CD 
