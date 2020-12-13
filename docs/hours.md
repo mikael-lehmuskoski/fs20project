@@ -33,7 +33,6 @@
 | 4.12.         | 3       | front: rss (complete), css, settings |
 | 5.12.         | 8       | front: notes, JSDOC, back: resolvers and stuff |
 | 6.12.         | 4       | front & back: notes (complete), refactored services, css, JSDOC |
-| 12.12.        | 6 (169) | front: sync w/ backend on render, rerender on settings save, refactored clock & notes |
-
-| 13.12.        | 6?      | deployment + docs? |
-| total hours   | 169
+| 12.12.        | 6       | front: sync w/ backend on render, rerender on settings save, refactored clock & notes |
+| 13.12.        | 6       | refactored project structure, deployed to Heroku, generated JSdocs |
+| total hours:  | 175
