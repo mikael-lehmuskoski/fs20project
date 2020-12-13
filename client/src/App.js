@@ -8,6 +8,24 @@ import Settings from "./components/Settings";
 
 import actionCreators from "./reducers";
 
+/**
+ *    App
+ *
+ * Main element of the UI. Contains the react router structure.
+ *
+ * Fetches user's details from the backend on render.
+ *
+ * Sets the theme every time user's details change.
+ *
+ * @param {object} props
+ * @param {object} props.user User's details. Contains settings-object, which in turn contains various sub-sections, including interface.theme.
+ * @param {object} props.token
+ * @param {object} props.token.value token
+ *
+ * @returns JSX element
+ *
+ * @author Mikael
+ */
 const App = (props) => {
   const [theme, setTheme] = useState(props.user?.settings?.interface?.theme);
 

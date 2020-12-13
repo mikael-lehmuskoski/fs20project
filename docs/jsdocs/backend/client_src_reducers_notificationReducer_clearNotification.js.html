@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: client/src/reducers/notificationReducer/clearNotification.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: client/src/reducers/notificationReducer/clearNotification.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @name clearNotification
+ *
+ * Sets notification to null in the reducer.
+ *
+ * @function
+ *
+ * @author Mikael
+ */
+const clearNotification = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "CLEAR_NOTIFICATION",
+    });
+  };
+};
+
+export default clearNotification;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AnalogRendersananalogclock.Thehands(hour,min&sec)arerotatedbytheirrespectiveformulae.Minutesandsecondsaresimplyrotatedsixdegreesperunitoftime.Thehourhandisslightlymorecomplicated.">Analog
+
+Renders an analog clock.
+
+The hands (hour, min & sec) are rotated by their respective formulae.
+Minutes and seconds are simply rotated six degrees per unit of time.
+The hour hand is slightly more complicated.</a></li><li><a href="global.html#app">app</a></li><li><a href="global.html#AppMainelementoftheUI.Containsthereactrouterstructure.Fetchesuser'sdetailsfromthebackendonrender.Setsthethemeeverytimeuser'sdetailschange.">App
+
+Main element of the UI. Contains the react router structure.
+
+Fetches user's details from the backend on render.
+
+Sets the theme every time user's details change.</a></li><li><a href="global.html#BACK_URISetsthebackenduritovaluespecifiedinthe.envdependingonwhetherNODE_ENVisproductionornot.">BACK_URI
+
+Sets the backend uri to value specified in the .env depending on whether NODE_ENV is production or not.</a></li><li><a href="global.html#clearNotificationSetsnotificationtonullinthereducer.">clearNotification
+
+Sets notification to null in the reducer.</a></li><li><a href="global.html#ClockReturnsaClockapplet.">Clock
+
+Returns a Clock applet.</a></li><li><a href="global.html#Eventhandlerforloggingoutandlettingtheuserknowthey'veloggedout">Event handler for logging out and letting the user know they've logged out</a></li><li><a href="global.html#fetchFeedFetchesanRSSfeed,returnsanarrayofrssfeeditems">fetchFeed
+
+Fetches an RSS feed, returns an array of rss feed items</a></li><li><a href="global.html#FormatRendersUIelementsforselectingthetimeformat">Format
+
+Renders UI elements for selecting the time format</a></li><li><a href="global.html#GET_USERfetchesthecurrentuser'sdetailsfromthebackend">GET_USER
+
+fetches the current user's details from the backend</a></li><li><a href="global.html#handleChangeEventhandlerforupdatingthelocalSettingsstate.">handleChange
+
+Event handler for updating the localSettings state.</a></li><li><a href="global.html#handleResponseCallbackfunctionforclosingthemodalandpostinganappropriatenotification">handleResponse
+
+Callback function for closing the modal and posting an appropriate notification</a></li><li><a href="global.html#handleSaveSendsstate(localSettings)toreducerandpostsanotificationdependingonresult">handleSave
+
+Sends state (localSettings) to reducer and posts a notification depending on result</a></li><li><a href="global.html#initdefaultreducermodel">init
+
+default reducer model</a></li><li><a href="global.html#LOGINlogstheuserin">LOGIN
+
+logs the user in</a></li><li><a href="global.html#loginUsesmongooseandbcrypttofindandcompareargumentstouserfoundindatabase.Therequestisrespondedwithanobjectcontainingtheuser'scompleteprofileandaJWTtokenuponsuccessfulcomparison.ArgumentsarevalidatedwithJOIbeforeoperations.">login
+
+Uses mongoose and bcrypt to find and compare arguments to user found in database.
+The request is responded with an object containing the user's complete profile and a JWT token upon successful comparison.
+
+Arguments are validated with JOI before operations.</a></li><li><a href="global.html#LoginFormRendersawholeentireloginform.Loginbuttonisdisabledifthereisarenovaluesintheform.">LoginForm
+
+Renders a whole entire login form. Login button is disabled if there is are no values in the form.</a></li><li><a href="global.html#loginSchemaValidationobjectforvalidatingargumentsrelatedtologgingin.">loginSchema
+
+Validation object for validating arguments related to logging in.</a></li><li><a href="global.html#LoginSignupRenderscontentforaSemanticUImodal.Flipsbetweenloginformandsignupform.">LoginSignup
+
+Renders content for a Semantic UI modal. Flips between login form and sign up form.</a></li><li><a href="global.html#LOGOUTlogsout">LOGOUT
+
+logs out</a></li><li><a href="global.html#MainRendersthemainview.">Main
+
+Renders the main view.</a></li><li><a href="global.html#MenuBarRendersthetopbarwithlinkstothemainview,thesettingsandbuttonsforlogginginandout">MenuBar
+
+Renders the top bar with links to the main view, the settings and buttons for logging in and out</a></li><li><a href="global.html#NotesRendersthenoteapplet">Notes
+
+Renders the note applet</a></li><li><a href="global.html#NotesRendersUIelementsforselectingtheautodeletesetting">Notes
+
+Renders UI elements for selecting the autodelete setting</a></li><li><a href="global.html#NotificationRendersasimplenotificationelement,handlesthenotification'stimeout">Notification
+
+Renders a simple notification element, handles the notification's timeout</a></li><li><a href="global.html#notificationReducer">notificationReducer</a></li><li><a href="global.html#PostFormRendersasimpleformforcreatinganote.Getsdisabledifuserhasover10notesalready.">PostForm
+
+Renders a simple form for creating a note. Gets disabled if user has over 10 notes already.</a></li><li><a href="global.html#postNotification">postNotification</a></li><li><a href="global.html#REMOVE_NOTEsendsthenotetobackendandthentothereducer">REMOVE_NOTE
+
+sends the note to backend and then to the reducer</a></li><li><a href="global.html#removeNoteSendsthespecifiednotetotheactioncreator,postsanappropriatenotificationaftertheactioncreatorisdonecreatingaction">removeNote
+
+Sends the specified note to the action creator, posts an appropriate notification after the action creator is done creating action</a></li><li><a href="global.html#removeNoteUsesmongoosetopullanotefromtheuser'sprofileifthecontexthasavalidcurrentUserandthenoteisfoundintheprofile.TherequestisrespondedwiththeIDoftheremovednoteuponsuccessfulremoval.">removeNote
+
+Uses mongoose to pull a note from the user's profile if the context has a valid currentUser and the note is found in the profile.
+The request is responded with the ID of the removed note upon successful removal.</a></li><li><a href="global.html#removeNoteUsesmongoosetoupdatethesettingsintheuser'sprofileifthecontexthasavalidcurrentUser.Therequestisrespondedwiththeupdatedsettingsuponsuccessfulupdate.Argumentsarenotvalidated.">removeNote
+
+Uses mongoose to update the settings in the user's profile if the context has a valid currentUser.
+The request is responded with the updated settings upon successful update.
+
+Arguments are not validated.</a></li><li><a href="global.html#renderItemRendersalinkelement">renderItem
+
+Renders a link element</a></li><li><a href="global.html#renderItemRendersasinglenotecompletewithitsdeletebutton">renderItem
+
+Renders a single note complete with its delete button</a></li><li><a href="global.html#renderListRendersalistofitems">renderList
+
+Renders a list of items</a></li><li><a href="global.html#renderListRendersalistoflinkswithrenderItem.">renderList
+
+Renders a list of links with renderItem.</a></li><li><a href="global.html#resolvers">resolvers</a></li><li><a href="global.html#rotateReturnsaReactinlinestyleobjecttorotateanelementbyitsz-axis.">rotate
+Returns a React inline style object to rotate an element by its z-axis.</a></li><li><a href="global.html#RSSRenderstheRSSapplet">RSS
+
+Renders the RSS applet</a></li><li><a href="global.html#RssRendersUIelementsforselectingtheRSSfeedsource">Rss
+
+Renders UI elements for selecting the RSS feed source</a></li><li><a href="global.html#SAVE_NOTEsendsthenotetobackendandthentothereducer">SAVE_NOTE
+
+sends the note to backend and then to the reducer</a></li><li><a href="global.html#SAVE_SETTINGSsendsthesettingsobjecttothebackendandthentothereducer">SAVE_SETTINGS
+
+sends the settings object to the backend and then to the reducer</a></li><li><a href="global.html#saveNoteCreatesthepropernoteobjectandsendsitawaytotheactioncreator,postsanappropriatenotificationaftertheactioncreatorisdonecreatingaction">saveNote
+
+Creates the proper note object and sends it away to the action creator, posts an appropriate notification after the action creator is done creating action</a></li><li><a href="global.html#saveNoteUsesmongoosetocreateanewnoteintheuser'sprofileifthecontexthasavalidcurrentUser.Therequestisrespondedwiththenewlycreatednoteuponsuccessfulcreation.ArgumentsarevalidatedwithvalidateDate()andvalidateReminder()beforeoperations.">saveNote
+
+Uses mongoose to create a new note in the user's profile if the context has a valid currentUser.
+The request is responded with the newly created note upon successful creation.
+
+Arguments are validated with validateDate() and validateReminder() before operations.</a></li><li><a href="global.html#sendToSettingsSendsthecurrentvalueofthestatetotheeventhandlerspecifiedintheprops.">sendToSettings
+
+Sends the current value of the state to the eventhandler specified in the props.</a></li><li><a href="global.html#server">server</a></li><li><a href="global.html#serviceClientConnectstoanApolloserverviaAxios'post()-method.">serviceClient
+
+Connects to an Apollo server via Axios' post()-method.</a></li><li><a href="global.html#setTimeoutID">setTimeoutID</a></li><li><a href="global.html#SettingsRendersthemainSettingsview">Settings
+
+Renders the main Settings view</a></li><li><a href="global.html#SIGNUPrequestsaccountcreation">SIGNUP
+
+requests account creation</a></li><li><a href="global.html#signupUsesmongooseandbcrypttocreateanewuseriftheusernamepassedasanargumentisunique.Therequestisrespondedwithanobjectcontainingtheuser'scompleteprofileandaJWTtokenuponsuccessfulcreation.ArgumentsarevalidatedwithJOIbeforeoperations.User'spasswordisstoredasahashinthedatabase.">signup
+
+Uses mongoose and bcrypt to create a new user if the username passed as an argument is unique.
+The request is responded with an object containing the user's complete profile and a JWT token upon successful creation.
+
+Arguments are validated with JOI before operations.
+
+User's password is stored as a hash in the database.</a></li><li><a href="global.html#SignupFormRendersawholeentireloginform.Loginbuttonisdisabledifthereisarenovaluesintheform.">SignupForm
+
+Renders a whole entire login form. Login button is disabled if there is are no values in the form.</a></li><li><a href="global.html#signUpSchemaValidationobjectforvalidatingargumentsrelatedtoaccountcreation.">signUpSchema
+
+Validation object for validating arguments related to account creation.</a></li><li><a href="global.html#submitEventhandlerthatcheckswhethertheuserisonthesignupformortheloginformandcallstheappropriateactioncreator.Alsosendsathingyforthecallbackfunctionintheparentelement.">submit
+
+Event handler that checks whether the user is on the signup form or the login form and calls the appropriate action creator.
+Also sends a thingy for the callback function in the parent element.</a></li><li><a href="global.html#ThemeRendersUIelementsforselectingthetheme">Theme
+
+Renders UI elements for selecting the theme</a></li><li><a href="global.html#TimezoneRendersUIelementsforselectingthetimezone">Timezone
+
+Renders UI elements for selecting the timezone</a></li><li><a href="global.html#typeDefs">typeDefs</a></li><li><a href="global.html#UserRendersUIelementsforselectingthesessionpersistencesetting">User
+
+Renders UI elements for selecting the session persistence setting</a></li><li><a href="global.html#userReducer">userReducer</a></li><li><a href="global.html#validateDateValidationfunctionforvalidatingargumentsrelatedtoadate.">validateDate
+
+Validation function for validating arguments related to a date.</a></li><li><a href="global.html#validateReminderValidationfunctionforvalidatingargumentsrelatedtoareminder.">validateReminder
+
+Validation function for validating arguments related to a reminder.</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sun Dec 13 2020 16:20:51 GMT+0200 (GMT+02:00)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

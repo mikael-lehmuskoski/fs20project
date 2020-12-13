@@ -1,5 +1,17 @@
 import init from "../default";
 
+/**
+ *    userReducer
+ *
+ * @function
+ *
+ * @param {object} state
+ * @param {object} action
+ *
+ * @returns the new state
+ *
+ * @author Mikael
+ */
 const userReducer = (state = init, action) => {
   switch (action.type) {
     case "GET_USER":

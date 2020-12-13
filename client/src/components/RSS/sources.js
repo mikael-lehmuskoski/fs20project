@@ -1,3 +1,11 @@
+/**
+ *    sources
+ *
+ * @file Contains all of the available RSS feeds. Formatted for the Semantic UI dropdown component.
+ *
+ * @author Mikael
+ */
+
 const sources = [
   {
     text: "New York Times",

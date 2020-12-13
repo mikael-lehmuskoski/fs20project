@@ -4,9 +4,16 @@ import operations from "../../../operations";
 const { mutations } = operations;
 
 /**
+ *    SAVE_SETTINGS
+ *
  * sends the settings object to the backend and then to the reducer
- * @param {Object} settings settings is ALL of the settings every time 100% of the time
- * @param {String} token user's token for authentication
+ *
+ * @function
+ *
+ * @param {object} settings settings is ALL of the settings every time 100% of the time
+ * @param {string} token user's token for authentication
+ *
+ * @author Mikael
  */
 const SAVE_SETTINGS = (settings, token) => {
   return async (dispatch) => {

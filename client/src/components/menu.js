@@ -7,11 +7,20 @@ import LoginSignup from "./LoginSignup";
 import Notification from "./Notification";
 
 /**
+ *    MenuBar
+ *
  * Renders the top bar with links to the main view, the settings and buttons for logging in and out
- * @param {*} props
- * @param {Object} props.user the user's details
- * @param {Function} props.LOGOUT action creator for logging out
- * @param {Function} props.POST_NOTIFICATION action creator for showing notifications
+ *
+ * @function
+ *
+ * @param {object} props
+ * @param {object} props.user the user's details
+ * @param {function} props.LOGOUT action creator for logging out
+ * @param {function} props.POST_NOTIFICATION action creator for showing notifications
+ *
+ * @returns JSX element
+ *
+ * @author Mikael
  */
 const MenuBar = (props) => {
   const [activeItem, setActive] = useState("bulletin");
@@ -19,13 +28,20 @@ const MenuBar = (props) => {
   const user = props.user?.token?.value ? props.user.user : null;
 
   /**
+   *    handleResponse
+   *
    * Callback function for closing the modal and posting an appropriate notification
-   * @param {boolean} success
-   * @param {String} message
+   *
+   * @function
+   *
+   * @param {boolean} success success
+   * @param {string} message message
+   *
+   * @author Mikael
    */
   const handleResponse = (success, message) => {
     if (success) {
-      setOpen(false);
+      setOpen(false); // close modal
       props.POST_NOTIFICATION(message, 3, false);
     } else {
       props.POST_NOTIFICATION(message, 3, true);
@@ -33,7 +49,13 @@ const MenuBar = (props) => {
   };
 
   /**
+   *    handleLogout
+   *
+   * @function
+   *
    * Event handler for logging out and letting the user know they've logged out
+   *
+   * @author Mikael
    */
   const handleLogout = () => {
     props.LOGOUT();

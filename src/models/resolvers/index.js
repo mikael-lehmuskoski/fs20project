@@ -4,6 +4,9 @@ const updateSettings = require("./updateSettings");
 const saveNote = require("./saveNote");
 const removeNote = require("./removeNote");
 
+/**
+ * @author Mikael
+ */
 const resolvers = {
   Query: {
     user: (_, __, context) => context.currentUser,

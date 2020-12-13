@@ -1,6 +1,22 @@
 const mongoose = require("mongoose");
 const User = require("../user");
 
+/**
+ *   removeNote
+ *
+ * Uses mongoose to pull a note from the user's profile if the context has a valid currentUser and the note is found in the profile.
+ * The request is responded with the ID of the removed note upon successful removal.
+ *
+ * @async
+ * @function
+ * @param {*} _ Parent. Unused.
+ * @param {object} args Contains all GraphQL arguments of the request.
+ * @param {object} context Context for the current request. Contains currentUser.
+ *
+ * @returns The ID of the removed note.
+ *
+ * @author Mikael
+ */
 const removeNote = async (_, args, context) => {
   if (!context || !context.currentUser) throw new Error("Unauthorized");
   if (!args || !args.note || !args.note.id)

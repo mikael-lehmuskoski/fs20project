@@ -3,6 +3,17 @@ import operations from "../../../operations";
 
 const { queries } = operations;
 
+/**
+ *    GET_USER
+ *
+ * fetches the current user's details from the backend
+ *
+ * @function
+ *
+ * @param {string} token user's token for authentication
+ *
+ * @author Mikael
+ */
 const GET_USER = (token) => {
   return async (dispatch) => {
     try {

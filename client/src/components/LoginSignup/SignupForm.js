@@ -3,7 +3,12 @@ import React from "react";
 import { Input, Button, Label } from "semantic-ui-react";
 
 /**
+ *    SignupForm
+ *
  * Renders a whole entire login form. Login button is disabled if there is are no values in the form.
+ *
+ * @function
+ *
  * @param {Function} submit event handler function in the parent
  * @param {String} username the value from the parents username state
  * @param {Function} setUsername updates the username state in the parent
@@ -11,6 +16,10 @@ import { Input, Button, Label } from "semantic-ui-react";
  * @param {Function} setPassword updates the password state in the parent
  * @param {String} passwordAgain the value from the parents password state, must match password or the event handler will cancel and the button probably gets disabled also
  * @param {Function} setPasswordAgain updates the password state in the parent
+ *
+ * @returns JSX element
+ *
+ * @author Mikael
  */
 const SignupForm = ({
   submit,

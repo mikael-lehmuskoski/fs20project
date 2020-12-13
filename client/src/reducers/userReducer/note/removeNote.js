@@ -4,9 +4,16 @@ import operations from "../../../operations";
 const { mutations } = operations;
 
 /**
+ *    REMOVE_NOTE
+ *
  * sends the note to backend and then to the reducer
- * @param {Object} note a note object to be sent to the backend
- * @param {String} token user's token for authentication
+ *
+ * @function
+ *
+ * @param {object} note a note object to be sent to the backend
+ * @param {string} token user's token for authentication
+ *
+ * @author Mikael
  */
 const REMOVE_NOTE = (note, token) => {
   return async (dispatch) => {

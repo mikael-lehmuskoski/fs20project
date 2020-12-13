@@ -7,16 +7,25 @@ import PostForm from "./PostForm";
 import NoteList from "./NoteList";
 
 /**
+ *    Notes
+ *
  * Renders the note applet
  *
- * @param {*} props
- * @param {Object} props.user the main user object
- * @param {Object} props.user.token contains field value that contains the token value
- * @param {Object} props.user.user contains all other user data and stuff
+ * @function
+ *
+ * @param {object} props
+ *
+ * @param {object} props.user the main user object
+ * @param {object} props.user.token contains field value that contains the token value
+ * @param {object} props.user.user contains all other user data and stuff
+ *
  * @param {Function} props.SAVE_NOTE action creator for creating a note
  * @param {Function} props.REMOVE_NOTE action creator for removing a note
  * @param {Function} props.POST_NOTIFICATION action creator for posting a notification
  *
+ * @returns JSX element
+ *
+ * @author Mikael
  */
 const Notes = (props) => {
   const token = props.token?.value ? props.token.value : null;
@@ -24,8 +33,15 @@ const Notes = (props) => {
   const notes = user ? user.notes : null;
 
   /**
+   *    saveNote
+   *
    * Creates the proper note object and sends it away to the action creator, posts an appropriate notification after the action creator is done creating action
+   *
+   * @function
+   *
    * @param {String} note string value for the note's content field
+   *
+   * @author Mikael
    */
   const saveNote = async (note) => {
     const noteObject = {
@@ -39,8 +55,15 @@ const Notes = (props) => {
   };
 
   /**
+   *    removeNote
+   *
    * Sends the specified note to the action creator, posts an appropriate notification after the action creator is done creating action
-   * @param {Object} note an entire note object stringified with JSON.stringify()
+   *
+   * @function
+   *
+   * @param {object} note an entire note object stringified with JSON.stringify()
+   *
+   * @author Mikael
    */
   const removeNote = async (note) => {
     const res = await props.REMOVE_NOTE(JSON.parse(note), token);

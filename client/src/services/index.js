@@ -5,13 +5,19 @@ import config from "../config";
 const { BACK_URI } = config;
 
 /**
+ *    serviceClient
+ *
  * Connects to an Apollo server via Axios' post()-method.
  *
  * @requires BACK_URI uri for the Apollo server
  *
- * @param {DocumentNode} operation
+ * @function
+ *
+ * @param {DocumentNode} operation Graph Query Language operation
  * @param {object} variables variables for the operation, can be null
- * @param {String} token user's token for identification, can be null
+ * @param {string} token user's token for identification, can be null
+ *
+ * @author Mikael
  */
 const serviceClient = async (operation, variables, token) => {
   try {

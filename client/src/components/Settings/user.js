@@ -2,9 +2,18 @@ import React, { useState } from "react";
 import { Checkbox } from "semantic-ui-react";
 
 /**
+ *    User
+ *
  * Renders UI elements for selecting the session persistence setting
- * @param {Function} handleChange eventhandler for updating the parent's state
- * @param {String} init initial value of the UI element
+ *
+ * @function
+ *
+ * @param {function} handleChange eventhandler for updating the parent's state
+ * @param {string} init initial value of the UI element
+ *
+ * @returns JSX element
+ *
+ * @author Mikael
  */
 const User = ({ handleChange, init }) => {
   const [current, setCurrent] = useState(init === "persist");
@@ -12,7 +21,13 @@ const User = ({ handleChange, init }) => {
   const key = "session";
 
   /**
-   * Sends an updated value ("persist" or "logout") based on the state to the eventhandler specified in the props.
+   *    sendToSettings
+   *
+   * Sends the current value of the state to the eventhandler specified in the props.
+   *
+   * @function
+   *
+   * @author Mikael
    */
   const sendToSettings = () => {
     setCurrent((prev) => !prev);

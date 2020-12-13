@@ -9,6 +9,11 @@ const queries = require("./queries");
 const inputs = require("./inputs");
 const mutations = require("./mutations");
 
+/**
+ * Contains all of the type definitions known by the Apollo server.
+ *
+ * @author Mikael
+ */
 const typeDefs = gql`
   ${user}
   ${token}

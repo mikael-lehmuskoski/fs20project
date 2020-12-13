@@ -1,3 +1,10 @@
+/**
+ *    init
+ *
+ * default reducer model
+ *
+ * @author Mikael
+ */
 const init = {
   user: {
     user: null,

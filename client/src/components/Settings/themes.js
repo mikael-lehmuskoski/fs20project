@@ -8,9 +8,18 @@ const themes = [
 ];
 
 /**
+ *    Theme
+ *
  * Renders UI elements for selecting the theme
- * @param {Function} handleChange eventhandler for updating the parent's state
- * @param {String} init initial value of the UI element
+ *
+ * @function
+ *
+ * @param {function} handleChange eventhandler for updating the parent's state
+ * @param {string} init initial value of the UI element
+ *
+ * @returns JSX element
+ *
+ * @author Mikael
  */
 const Theme = ({ handleChange, init }) => {
   const [current, setCurrent] = useState(init);
@@ -18,8 +27,13 @@ const Theme = ({ handleChange, init }) => {
   const key = "theme";
 
   /**
+   *    sendToSettings
+   *
    * Sends the current value of the state to the eventhandler specified in the props.
-   * @param {String} value value of the UI element
+   *
+   * @function
+   *
+   * @author Mikael
    */
   const sendToSettings = (value) => {
     setCurrent(value);

@@ -8,11 +8,18 @@ import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 
 /**
- * Renders content for a Semantic UI modal. Flip flips between login form and sign up form.
- * @param {*} props
+ *    LoginSignup
+ *
+ * Renders content for a Semantic UI modal. Flips between login form and sign up form.
+ *
+ * @param {Object} props
  * @param {Function} props.SIGNUP Action creator that signs you up
  * @param {Function} props.LOGIN Action creator that logs you in
  * @param {Function} props.handleResponse Callback function for closing the modal and showing a notification
+ *
+ * @returns JSX element
+ *
+ * @author Mikael
  */
 const LoginSignup = (props) => {
   const [flip, setFlip] = useState(false);
@@ -21,7 +28,14 @@ const LoginSignup = (props) => {
   const [passwordAgain, setPasswordAgain] = useState("");
 
   /**
-   * Event handler that checks whether the user is on the signup form or the login form and calls the appropriate action creator. Also sends a thingy for the callback function in the parent element.
+   *    submit
+   *
+   * Event handler that checks whether the user is on the signup form or the login form and calls the appropriate action creator.
+   * Also sends a thingy for the callback function in the parent element.
+   *
+   * @function
+   *
+   * @author Mikael
    */
   const submit = async () => {
     let res;

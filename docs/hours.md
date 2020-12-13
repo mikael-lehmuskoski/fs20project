@@ -1,5 +1,7 @@
 # hours used on this project
 
+##### back to [README.md](../README.md)
+
 | date          | hours   | worked on |
 | :----:        | :-----  | :-----    |
 | 17.8          | 2       | initial setup (repo, backend etc.), research build/workflow tools (Webpack, Grunt, Gulp etc.) |
@@ -34,5 +36,5 @@
 | 5.12.         | 8       | front: notes, JSDOC, back: resolvers and stuff |
 | 6.12.         | 4       | front & back: notes (complete), refactored services, css, JSDOC |
 | 12.12.        | 6       | front: sync w/ backend on render, rerender on settings save, refactored clock & notes |
-| 13.12.        | 6       | refactored project structure, deployed to Heroku, generated JSdocs |
-| total hours:  | 175
+| 13.12.        | 9       | refactored project structure, deployed to Heroku, conjured up some documentation, generated JSdocs |
+| total hours:  | 179

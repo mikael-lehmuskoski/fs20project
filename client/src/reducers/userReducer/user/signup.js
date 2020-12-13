@@ -3,6 +3,19 @@ import operations from "../../../operations";
 
 const { mutations } = operations;
 
+/**
+ *    SIGNUP
+ *
+ * requests account creation
+ *
+ * @function
+ *
+ * @param {object} variables variables
+ * @param {string} username username
+ * @param {string} password password
+ *
+ * @author Mikael
+ */
 const SIGNUP = (variables) => {
   return async (dispatch) => {
     try {

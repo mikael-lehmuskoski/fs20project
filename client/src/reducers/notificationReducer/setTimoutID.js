@@ -1,3 +1,12 @@
+/**
+ *    setTimeoutID
+ *
+ * @function
+ *
+ * @param {number} timeoutID id of the timeout
+ *
+ * @author Mikael
+ */
 const setTimeoutID = (timeoutID) => {
   return (dispatch) => {
     dispatch({

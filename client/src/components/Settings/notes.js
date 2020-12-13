@@ -2,9 +2,18 @@ import React, { useState } from "react";
 import { Checkbox } from "semantic-ui-react";
 
 /**
+ *    Notes
+ *
  * Renders UI elements for selecting the autodelete setting
- * @param {Function} handleChange eventhandler for updating the parent's state
- * @param {String} init initial value of the UI element
+ *
+ * @function
+ *
+ * @param {function} handleChange eventhandler for updating the parent's state
+ * @param {string} init initial value of the UI element
+ *
+ * @returns JSX element
+ *
+ * @author Mikael
  */
 const Notes = ({ handleChange, init }) => {
   const [current, setCurrent] = useState(init === "true");
@@ -12,8 +21,13 @@ const Notes = ({ handleChange, init }) => {
   const key = "autodelete";
 
   /**
+   *    sendToSettings
+   *
    * Sends the current value of the state to the eventhandler specified in the props.
-   * @param {String} value value of the UI element
+   *
+   * @function
+   *
+   * @author Mikael
    */
   const sendToSettings = () => {
     setCurrent((prev) => !prev);

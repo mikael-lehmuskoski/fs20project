@@ -1,3 +1,13 @@
+/**
+ *   index.js
+ * @file Contains the main server program.
+ *
+ * @author Mikael
+ */
+
+/**
+ * Libraries used by the server
+ */
 const { ApolloServer } = require("apollo-server-express");
 const mongoose = require("mongoose");
 const express = require("express");
@@ -5,6 +15,9 @@ const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const path = require("path");
 
+/**
+ * Models
+ */
 const typeDefs = require("./models/typeDefs");
 const resolvers = require("./models/resolvers");
 const User = require("./models/user");
@@ -13,14 +26,17 @@ const config = require("./config");
 
 const { MONGODB_URI, PORT, JWT_SECRET } = config;
 
+/**
+ * Initialize and configure the express server
+ */
 const app = express();
 app.use(express.json());
 app.use(cors());
 app.disable("x-powered-by");
-app.use(express.static(path.join(__dirname, '/../build')));
+app.use(express.static(path.join(__dirname, "/../build")));
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/../build', 'index.html'));
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/../build", "index.html"));
 });
 
 mongoose.set("useFindAndModify", false);

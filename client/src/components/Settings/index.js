@@ -12,17 +12,24 @@ import Format from "./format";
 import Notes from "./notes";
 
 /**
+ *    Settings
+ *
  * Renders the main Settings view
  *
- * @param {*} props
+ * @function
  *
- * @param {Object} props.user contains user's details
- * @param {Object} props.token contains field value
+ * @param {object} props
  *
- * @param {Function} props.setTheme event handler for updating the app after changes in the settings
- * @param {Function} props.SAVE_SETTINGS action creator for saving the settings
- * @param {Function} props.POST_NOTIFICATION action creator for letting the user know the settings are saved or something
+ * @param {object} props.user contains user's details
+ * @param {object} props.token contains field value which contains the token
  *
+ * @param {function} props.setTheme event handler for updating the app after changes in the settings
+ * @param {function} props.SAVE_SETTINGS action creator for saving the settings
+ * @param {function} props.POST_NOTIFICATION action creator for letting the user know the settings are saved or something
+ *
+ * @returns JSX element
+ *
+ * @author Mikael
  */
 const Settings = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -35,7 +42,11 @@ const Settings = (props) => {
   if (!localSettings) return <div className="Main"><Container style={{ marginTop: "10px" }}>You need to log in to edit settings.</Container></div>; // eslint-disable-line
 
   /**
+   *    handleChange
+   *
    * Event handler for updating the localSettings state.
+   *
+   * @function
    *
    * @param {String} subset the subset of settings about to be changed
    * @param {String} key the key under subset of settings about to be changed
@@ -44,6 +55,8 @@ const Settings = (props) => {
    * @example
    * // sets key {Session} of subset {User} to value of {Persist}
    * handleChange("User","Session","Persist")
+   *
+   * @author Mikael
    */
   const handleChange = ({ subset, key, value }) => {
     // todo: validate value
@@ -56,7 +69,13 @@ const Settings = (props) => {
   };
 
   /**
+   *    handleSave
+   *
    * Sends state (localSettings) to reducer and posts a notification depending on result
+   *
+   * @function
+   *
+   * @author Mikael
    */
   const handleSave = async () => {
     try {

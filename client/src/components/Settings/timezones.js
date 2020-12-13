@@ -1,3 +1,9 @@
+/**
+ *    timezones
+ *
+ * @file contains time zones
+ */
+
 const timezones = [
   { text: "Europe/Andorra", key: "Europe/Andorra", value: "Europe/Andorra" },
   { text: "Asia/Dubai", key: "Asia/Dubai", value: "Asia/Dubai" },

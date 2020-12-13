@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import { Button, Input } from "semantic-ui-react";
 
 /**
- * Renders a simple form for saving a note. Gets disabled if user has over 10 notes already.
+ *    PostForm
+ *
+ * Renders a simple form for creating a note. Gets disabled if user has over 10 notes already.
  *
  * @param {Function} saveNote event handler for saving a note
  * @param {Array} notes array of notes, used to check if the user has too many notes
+ *
+ * @returns JSX element
+ *
+ * @author Mikael
  */
 const PostForm = ({ saveNote, notes }) => {
   const [content, setContent] = useState("");

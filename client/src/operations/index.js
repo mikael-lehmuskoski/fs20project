@@ -2,7 +2,9 @@ import mutations from "./mutations";
 import queries from "./queries";
 
 /**
- * indexes the various operations used with graphql
+ * @file indexes the various operations used with graphql
+ *
+ * @author Mikael
  */
 
 export default {

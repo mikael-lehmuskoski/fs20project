@@ -2,6 +2,24 @@ const mongoose = require("mongoose");
 const User = require("../user");
 const { validateDate, validateReminder } = require("../../validation");
 
+/**
+ *   saveNote
+ *
+ * Uses mongoose to create a new note in the user's profile if the context has a valid currentUser.
+ * The request is responded with the newly created note upon successful creation.
+ *
+ * Arguments are validated with validateDate() and validateReminder() before operations.
+ *
+ * @async
+ * @function
+ * @param {*} _ Parent. Unused.
+ * @param {*} args Contains all GraphQL arguments of the request.
+ * @param {*} context Context for the current request. Contains currentUser.
+ *
+ * @returns Note
+ *
+ * @author Mikael
+ */
 const saveNote = async (_, args, context) => {
   if (!context || !context.currentUser) throw new Error("Unauthorized");
   if (

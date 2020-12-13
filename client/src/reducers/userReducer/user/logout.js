@@ -1,3 +1,10 @@
+/**
+ *    LOGOUT
+ *
+ * logs out
+ *
+ * @author Mikael
+ */
 const LOGOUT = () => {
   return async (dispatch) => {
     dispatch({

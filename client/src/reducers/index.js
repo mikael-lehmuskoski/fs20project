@@ -9,7 +9,6 @@ import GET_USER from "./userReducer/user/getUser";
 import SAVE_SETTINGS from "./userReducer/settings/saveSettings";
 // note stuff
 import SAVE_NOTE from "./userReducer/note/saveNote";
-import MODIFY_NOTE from "./userReducer/note/modifyNote";
 import REMOVE_NOTE from "./userReducer/note/removeNote";
 
 // notifications reducer
@@ -26,7 +25,6 @@ export default {
   GET_USER,
   SAVE_SETTINGS,
   SAVE_NOTE,
-  MODIFY_NOTE,
   REMOVE_NOTE,
   notificationReducer,
   POST_NOTIFICATION,

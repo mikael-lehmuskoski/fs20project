@@ -5,10 +5,19 @@ import fetchFeed from "./fetchFeed";
 import sources from "./sources";
 
 /**
+ *    renderItem
+ *
  * Renders a link element
- * @param {Object} item
+ *
+ * @function
+ *
+ * @param {object} item
  * @param {String} item.title title for the element
  * @param {String} item.link href value for the element
+ *
+ * @returns JSX element
+ *
+ * @author Mikael
  */
 const renderItem = (item) => {
   return (
@@ -19,8 +28,17 @@ const renderItem = (item) => {
 };
 
 /**
- * Renders a list of links with renderItem
+ *    renderList
+ *
+ * Renders a list of links with renderItem.
+ *
+ * @function
+ *
  * @param {Array} items an array of items
+ *
+ * @returns JSX element
+ *
+ * @author Mikael
  */
 const renderList = (items) => {
   return (
@@ -31,9 +49,18 @@ const renderList = (items) => {
 };
 
 /**
+ *    RSS
+ *
  * Renders the RSS applet
- * @param {*} props
- * @param {Object} props.user the main user object. mainly to get the nested settings object.
+ *
+ * @function
+ *
+ * @param {object} props
+ * @param {object} props.user the main user object. mainly used for getting the nested settings object.
+ *
+ * @returns JSX element
+ *
+ * @author Mikael
  */
 const RSS = (props) => {
   const [items, setItems] = useState(null);

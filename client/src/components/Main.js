@@ -6,7 +6,13 @@ import Notes from "./Notes";
 import RSS from "./RSS";
 
 /**
+ *    Main
+ *
  * Renders the main view.
+ *
+ * @returns JSX element
+ *
+ * @author Mikael
  */
 const Main = () => {
   return (

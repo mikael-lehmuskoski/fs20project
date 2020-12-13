@@ -8,6 +8,26 @@ const { signUpSchema } = require("../../validation");
 
 const { JWT_SECRET } = config;
 
+/**
+ *   signup
+ *
+ * Uses mongoose and bcrypt to create a new user if the username passed as an argument is unique.
+ * The request is responded with an object containing the user's complete profile and a JWT token upon successful creation.
+ *
+ * Arguments are validated with JOI before operations.
+ *
+ * User's password is stored as a hash in the database.
+ *
+ * @async
+ * @function
+ * @param {*} _ Parent. Unused.
+ * @param {*} args Contains all GraphQL arguments of the request.
+ * @param {*} context Context for the current request. Contains currentUser.
+ *
+ * @returns User & token
+ *
+ * @author Mikael
+ */
 const signup = async (_, args) => {
   const validUser = await signUpSchema.validateAsync({ ...args });
   if (validUser) {

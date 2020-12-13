@@ -4,9 +4,16 @@ import { Dropdown } from "semantic-ui-react";
 import sources from "../RSS/sources";
 
 /**
+ *    Rss
+ *
  * Renders UI elements for selecting the RSS feed source
+ *
  * @param {Function} handleChange eventhandler for updating the parent's state
  * @param {String} init initial value of the UI element
+ *
+ * @returns JSX element
+ *
+ * @author Mikael
  */
 const Rss = ({ handleChange, init }) => {
   const [current, setCurrent] = useState(init);
@@ -14,8 +21,13 @@ const Rss = ({ handleChange, init }) => {
   const key = "src";
 
   /**
+   *    sendToSettings
+   *
    * Sends the current value of the state to the eventhandler specified in the props.
-   * @param {String} value value of the UI element
+   *
+   * @function
+   *
+   * @author Mikael
    */
   const sendToSettings = (value) => {
     setCurrent(value);

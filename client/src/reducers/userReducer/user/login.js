@@ -3,6 +3,19 @@ import operations from "../../../operations";
 
 const { mutations } = operations;
 
+/**
+ *    LOGIN
+ *
+ * logs the user in
+ *
+ * @function
+ *
+ * @param {object} variables variables
+ * @param {string} username username
+ * @param {string} password password
+ *
+ * @author Mikael
+ */
 const LOGIN = (variables) => {
   return async (dispatch) => {
     try {

@@ -1,3 +1,12 @@
+/**
+ *    clearNotification
+ *
+ * Sets notification to null in the reducer.
+ *
+ * @function
+ *
+ * @author Mikael
+ */
 const clearNotification = () => {
   return (dispatch) => {
     dispatch({

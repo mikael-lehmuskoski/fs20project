@@ -2,7 +2,15 @@ import React, { useState, useEffect } from "react";
 import Analog from "./analog";
 
 /**
- * Renders clock applet
+ *    Clock
+ *
+ * Returns a Clock applet.
+ *
+ * @function
+ *
+ * @returns JSX element
+ *
+ * @author Mikael
  */
 const Clock = () => {
   const [time, setTime] = useState(new Date());

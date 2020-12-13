@@ -1,0 +1,18 @@
+{
+  "source": {
+      "include": ["."],
+      "includePattern": ".js$",
+      "excludePattern": "(node_modules|docs|test|script|client|build)"
+  },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "cleverlinks": true,
+    "monospaceLinks": true
+  },
+  "opts": {
+      "encoding": "utf8",
+      "destination": "./docs/jsdocs/backend",
+      "recurse": true,
+      "verbose": true
+  }
+}
