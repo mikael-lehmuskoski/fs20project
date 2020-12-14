@@ -62,8 +62,10 @@
 * Axios
   * Axios is used to execute communications between the client and the server
   * GQL is used to define the desired content 
-* React Redux  
-  * Redux is used for internal routing
+* Redux
+  * Redux is used for internal data management and connecting components
+* React Router  
+  * React Router is used for internal routing
   * Though limited in width, the app is a single-page application
 * Semantic UI
   * Semantic UI is used for quick and easy interface styling
