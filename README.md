@@ -46,7 +46,7 @@
   * Express  
     * ExpressJS framework is used to handle HTTP traffic on the server
     * POST requests to the /graphql -endpoint are routed to the Apollo server
-    * GET requests to any endpoint return the frontend static files
+    * GET requests to any endpoint return the static frontend files
   * Apollo (GraphQL)  
     * The content of the HTTP POST requests are handled by the Apollo server 
   * Mongoose (MongoDB)  
